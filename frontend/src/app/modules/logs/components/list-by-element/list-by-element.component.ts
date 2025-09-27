@@ -6,6 +6,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';                                       // Activated Route Interface
 import { SharedPropertiesService } from '@shared/services/shared-properties.service';   // Shared Properties
 import { SharedFunctionsService } from '@shared/services/shared-functions.service';     // Shared Functions
+import { I18nService } from '@shared/services/i18n.service';                           // I18n Service
 import { map } from 'rxjs/operators';                                                   // Reactive Extensions (RxJS)
 import {                                                                                // Enviroments
   regexObjectId, 
@@ -35,14 +36,15 @@ export class ListByElementComponent implements OnInit {
   constructor(
     private objRoute: ActivatedRoute,
     public sharedProp: SharedPropertiesService,
-    public sharedFunctions: SharedFunctionsService
+    public sharedFunctions: SharedFunctionsService,
+    private i18nService: I18nService
   ){
     //Get Logged User Information:
     this.sharedProp.userLogged = this.sharedFunctions.getUserInfo();
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de logs del elemento',
+      content_title       : this.i18nService.translate('logs.element_logs_title'),
       content_icon        : 'format_list_bulleted',
       add_button          : false,
       duplicated_surnames : false,                          // Check duplicated surnames

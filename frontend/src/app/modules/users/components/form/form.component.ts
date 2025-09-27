@@ -12,13 +12,13 @@ import { ValidateDocumentsService } from '@shared/services/validate-documents.se
 import { UsersService } from '@modules/users/services/users.service';                         // User Services
 import { map, mergeMap, filter } from 'rxjs/operators';                                       // Reactive Extensions (RxJS)
 import {                                                                                      // Enviroment
-  document_types,
   ISO_3166,
   user_roles,
   user_concessions,
-  regexObjectId,
-  gender_types
+  regexObjectId
 } from '@env/environment';
+import { DocumentTypesService } from '@shared/services/document-types.service';
+import { I18nService } from '@shared/services/i18n.service';
 //--------------------------------------------------------------------------------------------------------------------//
 
 @Component({
@@ -28,10 +28,10 @@ import {                                                                        
 })
 export class FormComponent implements OnInit {
   public country_codes    : any = ISO_3166;
-  public document_types   : any = document_types;
+  public document_types   : any = {};
   public userRoles        : any = user_roles;
   public userConcessions  : any = user_concessions;
-  public genderTypes      : any = gender_types;
+  public genderTypes      : any = {};
 
   //Create unsorted function to prevent Angular from sorting 'wrong' ngFor keyvalue:
   unsorted = () => { return 0 }
@@ -99,7 +99,9 @@ export class FormComponent implements OnInit {
     public  sharedProp      : SharedPropertiesService,
     private sharedFunctions : SharedFunctionsService,
     private sharedValidate  : ValidateDocumentsService,
-    public  userService     : UsersService
+    public  userService     : UsersService,
+    private documentTypesService : DocumentTypesService,
+    private i18nService     : I18nService
   ){
     //Pass Service Method:
     this.getKeys = this.sharedFunctions.getKeys;
@@ -156,6 +158,14 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //Initialize translated values
+    this.document_types = this.documentTypesService.getDocumentTypes();
+    this.genderTypes = {
+      'M': this.i18nService.translate('gender.male'),
+      'F': this.i18nService.translate('gender.female'),
+      'O': this.i18nService.translate('gender.other')
+    };
+
     //Find references:
     this.findReferences();
 
