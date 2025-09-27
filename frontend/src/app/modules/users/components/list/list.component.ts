@@ -58,7 +58,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de usuarios',
+      content_title       : 'users.title',
       content_icon        : 'people',
       add_button          : '/users/form/insert/0',           // Zero indicates empty :id (Activated Route) [content is ignored]
       add_machine         : '/users/form_machine/insert/0',   // Zero indicates empty :id (Activated Route) [content is ignored]

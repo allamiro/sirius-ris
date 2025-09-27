@@ -196,6 +196,7 @@ export class I18nService {
       'modalities.no_records': 'No se encontraron registros.',
 
       // Pathologies
+      'pathologies.title': 'Patologías',
       'pathologies.form_title': 'Formulario de patologías',
       'pathologies.organization': 'Organización',
       'pathologies.select_organization': 'Seleccione la organización',
@@ -212,6 +213,7 @@ export class I18nService {
       'pathologies.save': 'GUARDAR',
 
       // Users
+      'users.title': 'Usuarios',
       'users.form_title': 'Formulario de usuarios',
       'users.person': 'Persona',
       'users.user': 'Usuario',
@@ -307,7 +309,22 @@ export class I18nService {
       'users.save': 'GUARDAR',
 
       // Procedures Form
+      'procedures.title': 'Procedimientos',
       'procedures.form_title': 'Formulario de procedimientos',
+      'procedures.search': 'Buscar',
+      'procedures.actions': 'Acciones',
+      'procedures.organization': 'Organización',
+      'procedures.requires_interview': 'Requiere entrevista',
+      'procedures.requires_consent': 'Requiere consentimiento',
+      'procedures.requires_report': 'Requiere informe',
+      'procedures.rest_wait': 'Reposo/Espera',
+      'procedures.coding': 'Codificación',
+      'procedures.yes': 'Sí',
+      'procedures.no': 'No',
+      'procedures.minutes': 'min',
+      'procedures.waiting_results': 'Aguarde, aún no hay resultados.',
+      'procedures.export_list': 'EXPORTAR LISTADO',
+      'procedures.no_data': '(Sin dato)',
       'procedures.name': 'Nombre',
       'procedures.name_required': 'Nombre *',
       'procedures.name_placeholder': 'Ingrese el nombre',
@@ -335,7 +352,6 @@ export class I18nService {
       'procedures.snomed_code': 'Código SNOMED',
       'procedures.snomed_placeholder': 'Ingrese código SNOMED',
       'procedures.alternative_coding': 'Codificación alternativa',
-      'procedures.coding': 'Codificación',
       'procedures.coding_placeholder': 'Ingrese la codificación',
       'procedures.report_question': '¿El procedimiento requiere informe?',
       'procedures.report_label': 'Requiere informe',
@@ -1110,6 +1126,7 @@ export class I18nService {
       'modalities.no_records': 'No records found.',
 
       // Pathologies
+      'pathologies.title': 'Pathologies',
       'pathologies.form_title': 'Pathologies Form',
       'pathologies.organization': 'Organization',
       'pathologies.select_organization': 'Select organization',
@@ -1126,6 +1143,7 @@ export class I18nService {
       'pathologies.save': 'SAVE',
 
       // Users
+      'users.title': 'Users',
       'users.form_title': 'Users Form',
       'users.person': 'Person',
       'users.user': 'User',
@@ -1221,7 +1239,22 @@ export class I18nService {
       'users.save': 'SAVE',
 
       // Procedures Form
+      'procedures.title': 'Procedures',
       'procedures.form_title': 'Procedures Form',
+      'procedures.search': 'Search',
+      'procedures.actions': 'Actions',
+      'procedures.organization': 'Organization',
+      'procedures.requires_interview': 'Requires interview',
+      'procedures.requires_consent': 'Requires consent',
+      'procedures.requires_report': 'Requires report',
+      'procedures.rest_wait': 'Rest/Wait',
+      'procedures.coding': 'Coding',
+      'procedures.yes': 'Yes',
+      'procedures.no': 'No',
+      'procedures.minutes': 'min',
+      'procedures.waiting_results': 'Please wait, no results yet.',
+      'procedures.export_list': 'EXPORT LIST',
+      'procedures.no_data': '(No data)',
       'procedures.name': 'Name',
       'procedures.name_required': 'Name *',
       'procedures.name_placeholder': 'Enter the name',
@@ -1249,7 +1282,6 @@ export class I18nService {
       'procedures.snomed_code': 'SNOMED Code',
       'procedures.snomed_placeholder': 'Enter SNOMED code',
       'procedures.alternative_coding': 'Alternative coding',
-      'procedures.coding': 'Coding',
       'procedures.coding_placeholder': 'Enter the coding',
       'procedures.report_question': 'Does the procedure require a report?',
       'procedures.report_label': 'Requires report',
