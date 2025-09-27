@@ -597,6 +597,18 @@ export class I18nService {
       'equipments.aet_placeholder': 'Ingrese el AET',
       'equipments.cancel': 'CANCELAR',
       'equipments.save': 'GUARDAR',
+      'files.title': 'Archivos',
+      'files.search': 'Buscar',
+      'files.actions': 'Acciones',
+      'files.organization': 'Organización',
+      'files.branch': 'Sucursal',
+      'files.name': 'Nombre',
+      'files.download': 'Descargar',
+      'files.no_data': '(Sin dato)',
+      'files.waiting_results': 'Aguarde, aún no hay resultados.',
+      'files.export_list': 'EXPORTAR LISTADO',
+      'files.element_logs': 'Logs del elemento',
+      'files.select_all_tooltip': 'Seleccionar todos (Página actual)',
 
       
       // Authentication
@@ -1534,6 +1546,18 @@ export class I18nService {
       'equipments.aet_placeholder': 'Enter the AET',
       'equipments.cancel': 'CANCEL',
       'equipments.save': 'SAVE',
+      'files.title': 'Files',
+      'files.search': 'Search',
+      'files.actions': 'Actions',
+      'files.organization': 'Organization',
+      'files.branch': 'Branch',
+      'files.name': 'Name',
+      'files.download': 'Download',
+      'files.no_data': '(No data)',
+      'files.waiting_results': 'Please wait, no results yet.',
+      'files.export_list': 'EXPORT LIST',
+      'files.element_logs': 'Element logs',
+      'files.select_all_tooltip': 'Select all (Current page)',
 
       
       // Authentication
