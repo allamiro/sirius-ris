@@ -639,6 +639,14 @@ export class I18nService {
       'billing.performing': 'Realización',
       'billing.authenticated_today': 'Autenticado en el día',
       'billing.days_wait': 'día/s de espera',
+      'billing.documents': 'Documentos',
+      'billing.names': 'Nombres',
+      'billing.surnames': 'Apellidos',
+      'billing.details': 'Detalle',
+      'billing.contrast': 'Contraste',
+      'billing.anesthesia': 'Anestesia',
+      'billing.urgency': 'Urgencia',
+      'billing.requester': 'Solicitante',
 
       
       // Authentication
@@ -663,6 +671,20 @@ export class I18nService {
       'doc_type.visa': 'Visa',
       'doc_type.temporary_document': 'Documento transitorio',
       'doc_type.anonymous_document': 'Documento anónimo',
+      'gender.male': 'Masculino',
+      'gender.female': 'Femenino',
+      'gender.other': 'Otro',
+
+      // Validation Errors
+      'validation.error': 'Error de validación',
+      'validation.first_name_length': 'El primer nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).',
+      'validation.second_name_length': 'El segundo nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).',
+      'validation.first_surname_length': 'El primer apellido ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).',
+      'validation.second_surname_length': 'El segundo apellido ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).',
+      'validation.document_length': 'El documento ingresado es demasiado corto o demasiado largo (min: 3, max: 25 [caracteres]).',
+      'validation.phone_length': 'El número de teléfono ingresado es demasiado corto o demasiado largo (min: 3, max: 20 [caracteres]).',
+      'validation.name_length': 'El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).',
+      'validation.description_length': 'El parametro description es demasiado corto o demasiado largo (min: 3, max: 50 [caracteres]).',
 
       // User Roles
       'role.superuser': 'Superusuario',
@@ -1596,6 +1618,14 @@ export class I18nService {
       'billing.performing': 'Performing',
       'billing.authenticated_today': 'Authenticated today',
       'billing.days_wait': 'day/s wait',
+      'billing.documents': 'Documents',
+      'billing.names': 'Names',
+      'billing.surnames': 'Surnames',
+      'billing.details': 'Details',
+      'billing.contrast': 'Contrast',
+      'billing.anesthesia': 'Anesthesia',
+      'billing.urgency': 'Urgency',
+      'billing.requester': 'Requester',
 
       
       // Authentication
@@ -1620,6 +1650,20 @@ export class I18nService {
       'doc_type.visa': 'Visa',
       'doc_type.temporary_document': 'Temporary Document',
       'doc_type.anonymous_document': 'Anonymous Document',
+      'gender.male': 'Male',
+      'gender.female': 'Female',
+      'gender.other': 'Other',
+
+      // Validation Errors
+      'validation.error': 'Validation Error',
+      'validation.first_name_length': 'The first name entered is too short or too long (min: 3, max: 30 [characters]).',
+      'validation.second_name_length': 'The second name entered is too short or too long (min: 3, max: 30 [characters]).',
+      'validation.first_surname_length': 'The first surname entered is too short or too long (min: 3, max: 30 [characters]).',
+      'validation.second_surname_length': 'The second surname entered is too short or too long (min: 3, max: 30 [characters]).',
+      'validation.document_length': 'The document entered is too short or too long (min: 3, max: 25 [characters]).',
+      'validation.phone_length': 'The phone number entered is too short or too long (min: 3, max: 20 [characters]).',
+      'validation.name_length': 'The name entered is too short or too long (min: 3, max: 64 [characters]).',
+      'validation.description_length': 'The description parameter is too short or too long (min: 3, max: 50 [characters]).',
 
       // User Roles
       'role.superuser': 'Superuser',

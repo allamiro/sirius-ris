@@ -11,11 +11,11 @@ import { ValidateDocumentsService } from '@shared/services/validate-documents.se
 import { UsersService } from '@modules/users/services/users.service';                         // User Services
 import { map, mergeMap, filter } from 'rxjs/operators';                                       // Reactive Extensions (RxJS)
 import {                                                                                      // Enviroment
-  document_types,
   ISO_3166,
-  regexObjectId,
-  gender_types
+  regexObjectId
 } from '@env/environment';
+import { DocumentTypesService } from '@shared/services/document-types.service';
+import { I18nService } from '@shared/services/i18n.service';
 //--------------------------------------------------------------------------------------------------------------------//
 
 @Component({
@@ -25,8 +25,8 @@ import {                                                                        
 })
 export class SetPatientComponent implements OnInit {
   public country_codes    : any = ISO_3166;
-  public document_types   : any = document_types;
-  public genderTypes      : any = gender_types;
+  public document_types   : any = {};
+  public genderTypes      : any = {};
 
   //Create unsorted function to prevent Angular from sorting 'wrong' ngFor keyvalue:
   unsorted = () => { return 0 }
@@ -87,13 +87,23 @@ export class SetPatientComponent implements OnInit {
     public  sharedProp      : SharedPropertiesService,
     private sharedFunctions : SharedFunctionsService,
     private sharedValidate  : ValidateDocumentsService,
-    public  userService     : UsersService
+    public  userService     : UsersService,
+    private documentTypesService : DocumentTypesService,
+    private i18nService     : I18nService
   ){
     //Pass Service Method:
     this.getKeys = this.sharedFunctions.getKeys;
 
     //Get Logged User Information:
     this.sharedProp.userLogged = this.sharedFunctions.getUserInfo();
+
+    //Initialize translated document types and gender types
+    this.document_types = this.documentTypesService.getDocumentTypes();
+    this.genderTypes = {
+      1: this.i18nService.translate('gender.male'),
+      2: this.i18nService.translate('gender.female'),
+      3: this.i18nService.translate('gender.other')
+    };
 
     //Set action properties:
     sharedProp.actionSetter({
