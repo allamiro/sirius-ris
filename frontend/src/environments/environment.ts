@@ -11,160 +11,160 @@ export const regexObjectId = /^[0-9a-fA-F]{24}$/;
 
 // Event logs:
 export const events_log = {
-  1 : 'Inicio de sesión',
-  2 : 'Creación',
-  3 : 'Edición',
-  4 : 'Eliminación',
-  5 : 'Firma',            // Only for report element.
-  6 : 'Autenticación',    // Only for report element.
-  7 : 'Envío de correo'   // For appointments and reports.
+  1 : 'Sign in',
+  2 : 'Creation',
+  3 : 'Edit',
+  4 : 'Deletion',
+  5 : 'Signature',            // Only for report element.
+  6 : 'Authentication',    // Only for report element.
+  7 : 'Email delivery'   // For appointments and reports.
 };
 
 // Document types:
 export const document_types = {
-  1: 'ID Nacional (DNI, CI, CURP, RUT)',
-  2: 'Pasaporte',
-  3: 'Credencial cívica',
-  4: 'Licencia de conducir',
-  5: 'Permiso de residencia',
+  1: 'National ID (DNI, CI, CURP, RUT)',
+  2: 'Passport',
+  3: 'Civic credential',
+  4: 'Driver license',
+  5: 'Residence permit',
   6: 'Visa',
-  7: 'Documento transitorio',
-  100: 'Documento anónimo'
+  7: 'Temporary document',
+  100: 'Anonymous document'
 };
 
 // User Roles:
 export const user_roles = {
-  1:  'Superusuario',
-  2:  'Administrador',
+  1:  'Superuser',
+  2:  'Administrator',
   3:  'Supervisor',
-  4:  'Médico',
-  5:  'Técnico',
-  6:  'Enfermero',
-  7:  'Coordinador',
-  8:  'Recepcionista',
-  9:  'Paciente',
-  10: 'Funcional'  // Empty role for concessions (Generic user)
+  4:  'Physician',
+  5:  'Technologist',
+  6:  'Nurse',
+  7:  'Coordinator',
+  8:  'Receptionist',
+  9:  'Patient',
+  10: 'Functional'  // Empty role for concessions (Generic user)
 };
 
 // User Concessions:
 export const user_concessions = {
-  1   : 'Gestión de turnos',
-  2   : 'Gestión de citas',
-  3   : 'Calendario de citas',
-  4   : 'Gestión de recepciones',
-  5   : 'Gestión de estudios',
-  6   : 'Gestión de informes',
-  7   : 'Firmar informes',
-  8   : 'Autenticar informes',
-  9   : 'Enmendar informes',    // This concession depends on being a Supervisor, Médico or higher user or having the '6' concession [Gestión de informes].
-  10  : 'Acceso a logs del usuario',
-  11  : 'Acceso a logs de elementos',
-  12  : 'Reenvío de correos',
-  13  : 'Gestión de solicitudes',
-  14  : 'Búsquedas avanzadas',
-  //15  : 'Estadísticas sobre solicitudes',
-  16  : 'Estadísticas sobre citas',
-  17  : 'Estadísticas sobre estudios',
-  //18  : 'Estadísticas sobre informes',
-  //19  : 'Estadísticas sobre la organización',
-  20  : 'Acceso al módulo de exportación',          // Backend access only
-  21  : 'Acceso al servicio de imágenes del PACS',
-  22  : 'Edición de identificación de pacientes',
-  23  : 'Sobreagenda (overbooking)',
-  24  : 'Listados de facturación',
+  1   : 'Appointment management',
+  2   : 'Scheduling management',
+  3   : 'Appointment calendar',
+  4   : 'Check-in management',
+  5   : 'Study management',
+  6   : 'Report management',
+  7   : 'Sign reports',
+  8   : 'Authenticate reports',
+  9   : 'Amend reports',    // This concession depends on being a Supervisor, Physician or higher user or having the '6' concession [Report management].
+  10  : 'Access user logs',
+  11  : 'Access element logs',
+  12  : 'Resend emails',
+  13  : 'Request management',
+  14  : 'Advanced searches',
+  //15  : 'Request statistics',
+  16  : 'Appointment statistics',
+  17  : 'Study statistics',
+  //18  : 'Report statistics',
+  //19  : 'Organization statistics',
+  20  : 'Access export module',          // Backend access only
+  21  : 'Access PACS imaging service',
+  22  : 'Edit patient identification',
+  23  : 'Overbooking',
+  24  : 'Billing lists',
 };
 
 // User Types:
 export const user_types = {
-  1: 'Humano',
-  2: 'Maquina'
+  1: 'Human',
+  2: 'Machine'
 };
 
 // Gender types:
 export const gender_types = {
-  1: 'Macsulino',
-  2: 'Femenino',
-  3: 'Otros',
+  1: 'Male',
+  2: 'Female',
+  3: 'Other',
 };
 
 // Appointments flow states:
 export const appointments_flow_states = {
-  'A01': 'Coordinada',                // Correspond with AR05 -> appointment_requests_flow_states.
-  'A02': 'Cancelada-suspendida'
+  'A01': 'Coordinated',                // Correspond with AR05 -> appointment_requests_flow_states.
+  'A02': 'Cancelled - suspended'
 };
 
 // Appointment requests flow states:
 export const appointment_requests_flow_states = {
-  'AR01': 'Administración', 
-  'AR02': 'Retenida en administración',
-  'AR03': 'Área médica',
-  'AR04': 'Retenida en área médica',
+  'AR01': 'Administration', 
+  'AR02': 'On hold in administration',
+  'AR03': 'Medical area',
+  'AR04': 'On hold in medical area',
 
   // Flow states controlled from backend:
   // appointment_drafts and appointments save handlers.
-  'AR05': 'Cita en curso creada',      // Correspond with appointment_draft creation.
-  'AR06': 'Cita creada',               // Correspond with A01 -> appointments_flow_states.
+  'AR05': 'Ongoing appointment created',      // Correspond with appointment_draft creation.
+  'AR06': 'Appointment created',               // Correspond with A01 -> appointments_flow_states.
 
-  'AR07': 'Cancelada'
+  'AR07': 'Cancelled'
 };
 
 // Performing flow states:
 export const performing_flow_states = {
-  'P01': 'Recepción',
-  'P02': 'Entrevista',
-  'P03': 'Preparación/Inyección',
-  'P04': 'Adquisición',
-  'P05': 'Verificación de imágenes',  // Algoritmo y pantallas de corrección/asociación de imágenes.
-  'P06': 'Para informar',
+  'P01': 'Reception',
+  'P02': 'Interview',
+  'P03': 'Preparation/Injection',
+  'P04': 'Acquisition',
+  'P05': 'Image verification',  // Algorithm and screens for image correction/association.
+  'P06': 'Ready for reporting',
 
   // Flow states controlled from backend:
   // Report and signature save handlers.
-  'P07': 'Informe borrador',          // Al momento que exista un report con fk_performing = _id | insert report.
-  'P08': 'Informe firmado',           // Condición anterior + Que exista una firma al menos con fk_report = _id (report) | insert signature.
-  'P09': 'Terminado (con informe)',   // Condiciones anteriores + autenticated object exist (Estado sin remoción, solo enmiendas).
+  'P07': 'Draft report',          // Al momento que exista un report con fk_performing = _id | insert report.
+  'P08': 'Signed report',           // Previous condition + ensure at least one signature exists with fk_report = _id (report) | insert signature.
+  'P09': 'Completed (with report)',   // Previous conditions + authenticated object exists (state without removal, only amendments).
 
-  'P10': 'Terminado (sin informe)',
-  'P11': 'Cancelado'
+  'P10': 'Completed (without report)',
+  'P11': 'Cancelled'
 };
 
 // Cancellation reasons (Appointment and performing):
 export const cancellation_reasons = {
-  1   : "Falla en equipo",
-  2   : "Falta consentimiento",
-  3   : "Indicacion incorrecta",
-  4   : "No se presentó",
-  5   : "Sin preparacion o preparación incorrecta",
-	6   : "Claustrofóbia",
-  7   : "Embarazo",
-  8   : "Hiperglicemia",
-	9   : "Hipoglicemia",
-  10  : "Cursando infección",
-  11  : "Fallecimiento",
-  12  : "Otro"
+  1   : "Equipment failure",
+  2   : "Missing consent",
+  3   : "Incorrect indication",
+  4   : "Did not attend",
+  5   : "No preparation or incorrect preparation",
+	6   : "Claustrophobia",
+  7   : "Pregnancy",
+  8   : "Hyperglycemia",
+	9   : "Hypoglycemia",
+  10  : "Active infection",
+  11  : "Deceased",
+  12  : "Other"
 };
 
 // Logs element types Lang:
 export const elementTypesLang = {
   'ES' : {
-    'appointments'          : 'cita',
-    'appointments_drafts'   : 'cita en curso',
-    'appointment_requests'  : 'solicitud',
-    'branches'              : 'sucursal',
-    'equipments'            : 'equipo',
-    'files'                 : 'archivo',
-    'modalities'            : 'modalidad',
+    'appointments'          : 'appointment',
+    'appointments_drafts'   : 'in-progress appointment',
+    'appointment_requests'  : 'request',
+    'branches'              : 'branch',
+    'equipments'            : 'equipment',
+    'files'                 : 'file',
+    'modalities'            : 'modality',
     'mwl'                   : 'MWL',
-    'organizations'         : 'organización',
-    'pathologies'           : 'patología',
-    'people'                : 'persona',
-    'performing'            : 'estudio',
-    'procedure_categories'  : 'categoría de procedimiento',
-    'procedures'            : 'procedimiento',
-    'reports'               : 'informe',
-    'services'              : 'servicio',
-    'signatures'            : 'firma',
-    'slots'                 : 'turno',
-    'users'                 : 'usuario'
+    'organizations'         : 'organization',
+    'pathologies'           : 'pathology',
+    'people'                : 'person',
+    'performing'            : 'study',
+    'procedure_categories'  : 'procedure category',
+    'procedures'            : 'procedure',
+    'reports'               : 'report',
+    'services'              : 'service',
+    'signatures'            : 'signature',
+    'slots'                 : 'slot',
+    'users'                 : 'user'
   }
 };
 

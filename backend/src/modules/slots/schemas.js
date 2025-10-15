@@ -45,28 +45,28 @@ const Validator = [
     body('domain.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.organization NO es un ID MongoDB válido.'),
+        .withMessage('The domain.organization parameter is not a valid MongoDB ID.'),
     
     body('domain.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.branch NO es un ID MongoDB válido.'),
+        .withMessage('The domain.branch parameter is not a valid MongoDB ID.'),
 
     body('domain.service')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.service NO es un ID MongoDB válido.'),
+        .withMessage('The domain.service parameter is not a valid MongoDB ID.'),
 
     body('fk_equipment')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_equipment NO es un ID MongoDB válido.'),
+        .withMessage('The fk_equipment parameter is not a valid MongoDB ID.'),
 
     body('fk_procedure')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_procedure NO es un ID MongoDB válido.'),
+        .withMessage('The fk_procedure parameter is not a valid MongoDB ID.'),
 
     body('start').trim(),
 
@@ -75,7 +75,7 @@ const Validator = [
     body('urgency')
         .trim()
         .isBoolean()
-        .withMessage('El parametro urgencia ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The urgency parameter provided is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

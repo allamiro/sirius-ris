@@ -55,17 +55,17 @@ const Validator = [
     body('fk_performing')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_performing NO es un ID MongoDB válido.'),
+        .withMessage('The fk_performing parameter is not a valid MongoDB ID.'),
 
     body('clinical_info')
         .trim()
         .isLength({ min: 10, max: 10000 })
-        .withMessage('El parametro clinical_info ingresado es demasiado corto o demasiado largo (min: 10, max: 10000 [caracteres]).'),
+        .withMessage('The clinical_info parameter provided is too short or too long (min: 10, max: 10000 [characters]).'),
 
     body('procedure_description')
         .trim()
         .isLength({ min: 10, max: 10000 })
-        .withMessage('El parametro procedure_description ingresado es demasiado corto o demasiado largo (min: 10, max: 10000 [caracteres]).'),
+        .withMessage('The procedure_description parameter provided is too short or too long (min: 10, max: 10000 [characters]).'),
 
     body('findings').optional().isArray(),
 
@@ -73,25 +73,25 @@ const Validator = [
         .if(body('findings').exists())   // Check if parent exists.
         .trim()
         .isMongoId()
-        .withMessage('El parametro findings.*.fk_procedure NO es un ID MongoDB válido.'),
+        .withMessage('The findings.*.fk_procedure parameter is not a valid MongoDB ID.'),
 
     body('findings.*.procedure_findings')
         .if(body('findings').exists())   // Check if parent exists.
         .trim()
         .isLength({ min: 10, max: 10000 })
-        .withMessage('El parametro findings.*.procedure_findings ingresado es demasiado corto o demasiado largo (min: 10, max: 10000 [caracteres]).'),
+        .withMessage('The findings.*.procedure_findings parameter provided is too short or too long (min: 10, max: 10000 [characters]).'),
 
     body('findings.*.title')
         .if(body('findings').exists())   // Check if parent exists.
         .trim()
         .isLength({ min: 3, max: 80 })
-        .withMessage('El parametro findings.*.title ingresado es demasiado corto o demasiado largo (min: 3, max: 80 [caracteres]).'),
+        .withMessage('The findings.*.title parameter provided is too short or too long (min: 3, max: 80 [characters]).'),
 
     body('summary')
         .optional()
         .trim()
         .isLength({ min: 10, max: 10000 })
-        .withMessage('El parametro summary ingresado es demasiado corto o demasiado largo (min: 10, max: 10000 [caracteres]).'),
+        .withMessage('The summary parameter provided is too short or too long (min: 10, max: 10000 [characters]).'),
 
     body('fk_pathologies')
         .optional()
@@ -100,7 +100,7 @@ const Validator = [
     body('fk_pathologies.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_pathologies NO es un ID MongoDB válido.')
+        .withMessage('The fk_pathologies parameter is not a valid MongoDB ID.')
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 

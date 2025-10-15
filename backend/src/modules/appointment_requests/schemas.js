@@ -94,7 +94,7 @@ const Validator = [
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El parametro urgency ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The urgency parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -103,13 +103,13 @@ const Validator = [
     body('imaging.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.organization NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.organization parameter is not a valid MongoDB ID.'),
     
     body('imaging.branch')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.branch NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.branch parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -118,13 +118,13 @@ const Validator = [
     body('referring.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro referring.organization NO es un ID MongoDB válido.'),
+        .withMessage('The referring.organization parameter is not a valid MongoDB ID.'),
     
     body('referring.branch')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro referring.branch NO es un ID MongoDB válido.'),
+        .withMessage('The referring.branch parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -134,44 +134,44 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 3, max: 3 })
-        .withMessage('El código de país del documento de paciente ingresado es demasiado corto o demasiado largo (min: 3, max: 3 [caracteres]).')
+        .withMessage("The patient's document country code provided is too short or too long (min: 3, max: 3 [characters]).")
         .toLowerCase(),
 
     body('patient.doc_type')
         .trim()
         .isInt()
-        .withMessage('El parametro tipo de documento de paciente es requerido y debe ser numérico.'),
+        .withMessage("The patient's document type parameter is required and must be numeric."),
 
     body('patient.document')
         .trim()
         .isLength({ min: 3, max: 25 })
-        .withMessage('El documento ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 25 [caracteres]).')
+        .withMessage("The patient's document number provided is too short or too long (min: 3, max: 25 [characters]).")
         .toUpperCase(),
 
     body('patient.name_01')
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El primer nombre ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage("The patient's first name provided is too short or too long (min: 3, max: 30 [characters]).")
         .toUpperCase(),
 
     body('patient.name_02')
         .trim()
         .optional()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El segundo nombre ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage("The patient's middle name provided is too short or too long (min: 3, max: 30 [characters]).")
         .toUpperCase(),
 
     body('patient.surname_01')
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El primer apellido ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage("The patient's first surname provided is too short or too long (min: 3, max: 30 [characters]).")
         .toUpperCase(),
 
     body('patient.surname_02')
         .trim()
         .optional()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El segundo apellido ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage("The patient's second surname provided is too short or too long (min: 3, max: 30 [characters]).")
         .toUpperCase(),
 
     body('patient.birth_date').trim().toDate(),
@@ -179,20 +179,20 @@ const Validator = [
     body('patient.gender')
         .trim()
         .isInt()
-        .withMessage('El parametro género de paciente es requerido y debe ser numérico.'),
+        .withMessage("The patient's gender parameter is required and must be numeric."),
 
     body('patient.phone_numbers').optional().isArray(),
 
     body('patient.phone_numbers.*')
         .trim()
         .isLength({ min: 3, max: 20 })
-        .withMessage('El número de teléfono ingresado de paciente es demasiado corto o demasiado largo (min: 3, max: 20 [caracteres]).'),
+        .withMessage("The patient's phone number provided is too short or too long (min: 3, max: 20 [characters])."),
 
     body('patient.email')
         .optional()
         .trim()
         .isEmail()
-        .withMessage('El valor ingresado NO es una dirección de correo válida.')
+        .withMessage('The value provided is NOT a valid email address.')
         .normalizeEmail({ gmail_remove_dots: false })
         .toLowerCase(),
     //----------------------------------------------------------------------------------------------------------------//
@@ -204,39 +204,39 @@ const Validator = [
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_procedure NO es un ID MongoDB válido.'),
+        .withMessage('The fk_procedure parameter is not a valid MongoDB ID.'),
 
     body('study.snomed')
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El código snomed ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The SNOMED code provided is too short or too long (min: 3, max: 40 [characters]).'),
 
     //Modality (code_value)
     body('study.modality')
         .optional()
         .trim()
         .isLength({ min: 2, max: 10 })
-        .withMessage('El code value de modality ingresado es demasiado corto o demasiado largo (min: 2, max: 10 [caracteres]).'),
+        .withMessage('The modality code value provided is too short or too long (min: 2, max: 10 [characters]).'),
     //----------------------------------------------------------------------------------------------------------------//
 
     body('annotations')
         .optional()
         .trim()
         .isLength({ min: 10, max: 2000 })
-        .withMessage('El parametro annotations ingresado es demasiado corto o demasiado largo (min: 10, max: 2000 [caracteres]).'),
+        .withMessage('The annotations parameter provided is too short or too long (min: 10, max: 2000 [characters]).'),
 
     body('anamnesis')
         .optional()
         .trim()
         .isLength({ min: 10, max: 1000 })
-        .withMessage('El parametro anamnesis ingresado es demasiado corto o demasiado largo (min: 10, max: 1000 [caracteres]).'),
+        .withMessage('The anamnesis parameter provided is too short or too long (min: 10, max: 1000 [characters]).'),
 
     body('indications')
         .optional()
         .trim()
         .isLength({ min: 10, max: 1000 })
-        .withMessage('El parametro indications ingresado es demasiado corto o demasiado largo (min: 10, max: 1000 [caracteres]).'),
+        .withMessage('The indications parameter provided is too short or too long (min: 10, max: 1000 [characters]).'),
 
     //----------------------------------------------------------------------------------------------------------------//
     // EXTRA:
@@ -245,51 +245,51 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.patient_id ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.patient_id parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
     
     body('extra.study_id')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.study_id ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.study_id parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
 
     body('extra.physician_id')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.physician_id ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.physician_id parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
 
     body('extra.physician_name')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.physician_name ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).')
+        .withMessage('The extra.physician_name parameter provided is too short or too long (min: 1, max: 60 [characters]).')
         .toUpperCase(),
 
     body('extra.physician_prof_id')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.physician_prof_id ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.physician_prof_id parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
 
     body('extra.physician_contact')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.physician_contact ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.physician_contact parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
 
     body('extra.requesting_id')
         .optional()
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.requesting_id ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).'),
+        .withMessage('The extra.requesting_id parameter provided is too short or too long (min: 1, max: 60 [characters]).'),
 
     body('extra.custom_fields').optional().isArray(),
 
     body('extra.custom_fields.*')
         .trim()
         .isLength({ min: 1, max: 60 })
-        .withMessage('El parametro extra.custom_fields ingresado es demasiado corto o demasiado largo (min: 1, max: 60 [caracteres]).')
+        .withMessage('The extra.custom_fields parameter provided is too short or too long (min: 1, max: 60 [characters]).')
     //----------------------------------------------------------------------------------------------------------------//
 ];
 //--------------------------------------------------------------------------------------------------------------------//
