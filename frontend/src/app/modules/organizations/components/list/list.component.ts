@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
   public country_codes    : any = ISO_3166;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones', 'País'];
+  private excludedColumns = ['Actions', 'Country'];
   @ViewChild('main_list') table!: ElementRef;
   tableToExcel(): void { this.sharedFunctions.tableToXLSX('organizaciones', this.table, this.excludedColumns) }
 
@@ -36,7 +36,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de organizaciones',
+      content_title       : 'Organization list',
       content_icon        : 'apartment',
       add_button          : '/organizations/form/insert/0', // Zero indicates empty :id (Activated Route) [content is ignored]
       duplicated_surnames : false,                          // Check duplicated surnames
