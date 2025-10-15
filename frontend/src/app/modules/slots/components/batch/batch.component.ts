@@ -32,7 +32,7 @@ export class BatchComponent implements OnInit {
   public maxDate: Date;
 
   //Initialize days of week arrays to checkbox:
-  public daysOfWeek: string[] = [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado' ];
+  public daysOfWeek: string[] = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
   public selectedDays: boolean[] = [ false, false, false, false, false, false, false ];
 
   //Define Formgroup (Reactive form handling):
@@ -65,7 +65,7 @@ export class BatchComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Generar lote de turnos',
+      content_title : 'Generate slot batch',
       content_icon  : 'content_copy',
       add_button    : false,
       filters_form  : false,
@@ -122,7 +122,7 @@ export class BatchComponent implements OnInit {
       this.form.controls['fk_equipment'].setValue([]);
 
       //Send message:
-      this.sharedFunctions.sendMessage('Advertencia: El servicio seleccionado NO tiene asignado ningún equipo.');
+      this.sharedFunctions.sendMessage('Warning: The selected service does not have any equipment assigned.');
     }
 
   }
@@ -203,12 +203,12 @@ export class BatchComponent implements OnInit {
                 this.sharedFunctions.sendMessage(res.error.message);
               }
             } else {
-              this.sharedFunctions.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+              this.sharedFunctions.sendMessage('Error: No response received from the backend server.');
             }
           }
         });
       } else {
-        this.sharedFunctions.sendMessage('Debe seleccionar al menos un día de la semana para poder aplicar el rango de fechas.')
+        this.sharedFunctions.sendMessage('You must select at least one day of the week to apply the date range.')
       }
     }
   }

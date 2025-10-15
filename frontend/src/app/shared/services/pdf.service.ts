@@ -49,7 +49,7 @@ export class PdfService {
 
     //Check if friendly pass is accessible:
     if(friendly_pass === undefined){
-      friendly_pass = 'La contraseña ya no es accesible.';
+      friendly_pass = 'The password is no longer accessible.';
     }
 
     //Check _id:
@@ -62,7 +62,7 @@ export class PdfService {
           //Initializate patient complete name, appointment datetime and appointment preparation:
           let patient_complete_name: any = undefined;
           let datetime: any = undefined;
-          let appointment_preparation: string = '<p>El procedimiento a realizar <strong>NO posee preparación previa.</strong><p>';
+          let appointment_preparation: string = '<p>The scheduled procedure <strong>does NOT require prior preparation.</strong><p>';
 
           //Set params:
           const appointmentsParams = {
@@ -121,7 +121,7 @@ export class PdfService {
 
                   //FOOTER:
                   footer: (currentPage: any, pageCount: any) => { return { table: { widths: [ "*"], body: [[ {
-                      text: 'Página: ' + currentPage.toString() + ' de ' + pageCount,
+                      text: 'Page: ' + currentPage.toString() + ' of ' + pageCount,
                       alignment: 'right',
                       fontSize: 8,
                       margin: [0, 10, 20, 0]
@@ -132,7 +132,7 @@ export class PdfService {
                   //CONTENT:
                   content: [
                     // TITLE:
-                    { text: 'Comprobante de cita:', style: 'header'},
+                    { text: 'Appointment confirmation:', style: 'header'},
 
                     // DATOS DE REALIZACIÓN:
                     {
@@ -140,10 +140,10 @@ export class PdfService {
                       table: {
                         widths: ['*', '*', '*', '*'],
                         body: [
-                          [{ text: 'REALIZACIÓN', colSpan: 4, style: 'header_table' }, {}, {}, {}],
-                          [{ text: 'Organización', style: 'label_table' }, res.data[0].imaging.organization.short_name, { text: 'Fecha de cita', style: 'label_table' }, datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear ],
-                          [{ text: 'Sucursal', style: 'label_table' }, res.data[0].imaging.branch.short_name, { text: 'Horario de cita', style: 'label_table' }, datetime.startHours + ':' + datetime.startMinutes + ' hs'],
-                          [{ text: 'Servicio', style: 'label_table' }, res.data[0].imaging.service.name, { text: 'Procedimiento', style: 'label_table' }, res.data[0].procedure.name]
+                          [{ text: 'PERFORMING DETAILS', colSpan: 4, style: 'header_table' }, {}, {}, {}],
+                          [{ text: 'Organization', style: 'label_table' }, res.data[0].imaging.organization.short_name, { text: 'Appointment date', style: 'label_table' }, datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear ],
+                          [{ text: 'Branch', style: 'label_table' }, res.data[0].imaging.branch.short_name, { text: 'Appointment time', style: 'label_table' }, datetime.startHours + ':' + datetime.startMinutes + ' hs'],
+                          [{ text: 'Service', style: 'label_table' }, res.data[0].imaging.service.name, { text: 'Procedure', style: 'label_table' }, res.data[0].procedure.name]
                         ]
                       }
                     },
@@ -154,11 +154,11 @@ export class PdfService {
                       table: {
                         widths: ['*', '*'],
                         body: [
-                          [{ text: 'PACIENTE', colSpan: 2, style: 'header_table' }, {}],
-                          [{ text: 'Documento', style: 'label_table' }, res.data[0].patient.person.documents[0].document],
-                          [{ text: 'Nombre/s', style: 'label_table' }, patient_complete_name.names],
-                          [{ text: 'Apellido/s', style: 'label_table' }, patient_complete_name.surnames],
-                          [{ text: 'Contraseña de acceso', style: 'label_table' }, friendly_pass]
+                          [{ text: 'PATIENT', colSpan: 2, style: 'header_table' }, {}],
+                          [{ text: 'Document', style: 'label_table' }, res.data[0].patient.person.documents[0].document],
+                          [{ text: 'First name(s)', style: 'label_table' }, patient_complete_name.names],
+                          [{ text: 'Last name(s)', style: 'label_table' }, patient_complete_name.surnames],
+                          [{ text: 'Access password', style: 'label_table' }, friendly_pass]
                         ]
                       }
                     },
@@ -169,7 +169,7 @@ export class PdfService {
                       table: {
                         widths: ['*'],
                         body: [
-                          [{ text: 'PREPARACIÓN PREVIA', style: 'header_table' }],
+                          [{ text: 'PRIOR PREPARATION', style: 'header_table' }],
                           [ htmlPreparation ]
                         ]
                       }
@@ -246,24 +246,24 @@ export class PdfService {
             next: (res: any) => {
               //Check operation status:
               if(res.success === false){
-                this.sharedFunctions.sendMessage('Hubo un problema al intentar generar el PDF con el _id especificado. ' + res.message);
+                this.sharedFunctions.sendMessage('There was a problem while trying to generate the PDF with the specified _id. ' + res.message);
               
               //Check if mail is required:
               } else if(send_mail){
                 //Build mail body (message):
                 const body_message = this.logoEmailContent + 
                 '<p>' + 
-                  '<strong>Estimado/a ' + patient_complete_name.names + ' ' + patient_complete_name.surnames + ',</strong><br/>' +
-                  '<br/>Su cita ha sido reservada correctamente.<br/>' + 
-                  '<strong>Datos de la reserva:</strong>' +
+                  '<strong>Dear ' + patient_complete_name.names + ' ' + patient_complete_name.surnames + ',</strong><br/>' +
+                  '<br/>Your appointment has been successfully booked.<br/>' + 
+                  '<strong>Booking details:</strong>' +
                   '<ul>' + 
-                    '<li><strong>Fecha:</strong> ' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</li>' + 
-                    '<li><strong>Hora:</strong> ' + datetime.startHours + ':' + datetime.startMinutes + ' hs' + '</li>' + 
+                    '<li><strong>Date:</strong> ' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</li>' + 
+                    '<li><strong>Hora:</strong> ' + datetime.startHours + ':' + datetime.startMinutes + ' hrs' + '</li>' + 
                   '</ul>' + 
                   '<br/>' + 
-                  '<strong>Preparación previa:</strong>' + appointment_preparation + 
+                  '<strong>Preparation:</strong>' + appointment_preparation + 
                   '<br/>' + 
-                  '<small><i>Este es un correo automático, por favor no responda a esta dirección.</i></small>' + 
+                  '<small><i>This is an automated email, please do not reply to this address.</i></small>' + 
                   '<br/><br/>' + 
                 '</p>';
 
@@ -277,9 +277,9 @@ export class PdfService {
                   //Set mail options:
                   const mailOptions = {
                     to        : email_destination,
-                    subject   : res.data[0].imaging.organization.name + ' - Comprobante de cita (Sirius RIS)',
+                    subject   : res.data[0].imaging.organization.name + ' - Appointment confirmation (Sirius RIS)',
                     message   : body_message,
-                    filename  : 'Comprobante_de_cita.pdf',
+                    filename  : 'Appointment_confirmation.pdf',
                     base64    : base64Document,
 
                     //Log info (Not deductible from backend):
@@ -303,7 +303,7 @@ export class PdfService {
                   this.sharedFunctions.sendMessage(res.error.message);
                 }
               } else {
-                this.sharedFunctions.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+                this.sharedFunctions.sendMessage('Error: No response was received from the backend server.');
               }
             }
           });
@@ -371,10 +371,10 @@ export class PdfService {
                     //Build mail body (message):
                     const body_message = this.logoEmailContent + 
                     '<p>' + 
-                        '<strong>Estimado/a ' + patient_complete_name.names + ' ' + patient_complete_name.surnames + ',</strong><br/>' +
-                        '<br/>Le enviamos <strong>adjunto</strong> a este correo electrónico el <strong>informé médico</strong> del estudio realizado sobre la fecha <strong>' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</strong>.<br/>' + 
+                        '<strong>Dear ' + patient_complete_name.names + ' ' + patient_complete_name.surnames + ',</strong><br/>' +
+                        '<br/>We have attached the <strong>medical report</strong> for the study carried out on <strong>' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</strong>.<br/>' + 
                         '<br/>' + 
-                        '<small><i>Este es un correo automático, por favor no responda a esta dirección.</i></small>' + 
+                        '<small><i>This is an automated email, please do not reply to this address.</i></small>' + 
                         '<br/><br/>' + 
                     '</p>';
 
@@ -386,9 +386,9 @@ export class PdfService {
                     //Set mail options:
                     const mailOptions = {
                       to            : email_destination,
-                      subject       : res.data[0].appointment.imaging.organization.name + ' - Comprobante de cita (Sirius RIS)',
+                      subject       : res.data[0].appointment.imaging.organization.name + ' - Appointment confirmation (Sirius RIS)',
                       message       : body_message,
-                      filename      : 'Informe_medico.pdf',
+                      filename      : 'Medical_report.pdf',
                       base64        : res.data[0].authenticated.base64_report,
 
                       //Log info (Not deductible from backend):
@@ -461,35 +461,35 @@ export class PdfService {
 
                 //Datetime:
                 const datetime = this.sharedFunctions.datetimeFulCalendarFormater(new Date(res.data[0].performing.date), new Date(res.data[0].performing.date));
-                const performing_datetime = datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + ' ' + datetime.startHours + ':' + datetime.startMinutes + ' hs';
+                const performing_datetime = datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + ' ' + datetime.startHours + ':' + datetime.startMinutes + ' hrs';
 
                 //Authenticate message:
-                const authMessage = 'Autenticado digitalmente por NOMBRE COMPLETO AUTENTICADOR en fecha del FECHA Y HORA actuando para la institución ' + res.data[0].appointment.imaging.organization.name + ' con OID ' + res.data[0].appointment.imaging.organization.OID;
+                const authMessage = 'Digitally authenticated by FULL NAME AUTHENTICATOR on DATE AND TIME acting for the institution ' + res.data[0].appointment.imaging.organization.name + ' with OID ' + res.data[0].appointment.imaging.organization.OID;
 
                 //Signatures message:
-                const signMessage = 'Firmado por médico/s: NOMBRE COMPLETO MÉDICOS FIRMANTES | ' + res.data[0].appointment.imaging.organization.short_name;
+                const signMessage = 'Signed by physician(s): FULL NAME SIGNING PHYSICIANS | ' + res.data[0].appointment.imaging.organization.short_name;
 
                 //Convert HTML to PDF Make syntax:
-                let htmlClinicalInfo: any = htmlToPdfmake('<p>El informe <strong>NO posee dato clínico.</strong><p>');
+                let htmlClinicalInfo: any = htmlToPdfmake('<p>The report <strong>does NOT contain clinical information.</strong><p>');
                 if(res.data[0].clinical_info !== undefined && res.data[0].clinical_info !== null && res.data[0].clinical_info !== ''){
                   htmlClinicalInfo = htmlToPdfmake(res.data[0].clinical_info);
                 }
                 await this.removeMargin(htmlClinicalInfo);
 
-                let htmlProcedureDescription = htmlToPdfmake('<p>El informe <strong>NO posee procedimiento.</strong><p>');
+                let htmlProcedureDescription = htmlToPdfmake('<p>The report <strong>does NOT contain a procedure.</strong><p>');
                 if(res.data[0].procedure_description !== undefined && res.data[0].procedure_description !== null && res.data[0].procedure_description !== ''){
                   htmlProcedureDescription = htmlToPdfmake(res.data[0].procedure_description);
                 }
                 await this.removeMargin(htmlProcedureDescription);
 
                 
-                let htmlFindings = htmlToPdfmake('<p>El informe <strong>NO posee hallazgos.</strong><p>');
+                let htmlFindings = htmlToPdfmake('<p>The report <strong>does NOT contain findings.</strong><p>');
                 if(res.data[0].findings[0].procedure_findings !== undefined && res.data[0].findings[0].procedure_findings !== null && res.data[0].findings[0].procedure_findings !== ''){
                   htmlFindings = htmlToPdfmake(res.data[0].findings[0].procedure_findings);
                 }
                 await this.removeMargin(htmlFindings);
 
-                let htmlSummary = htmlToPdfmake('<p>El informe <strong>NO posee en suma.</strong><p>');
+                let htmlSummary = htmlToPdfmake('<p>The report <strong>does NOT contain a summary.</strong><p>');
                 if(res.data[0].summary !== undefined && res.data[0].summary !== null && res.data[0].summary !== ''){
                   htmlSummary = htmlToPdfmake(res.data[0].summary);
                 }
@@ -508,7 +508,7 @@ export class PdfService {
 
                   //FOOTER:
                   footer: (currentPage: any, pageCount: any) => { return { table: { widths: [ "*"], body: [[ {
-                      text: 'Página: ' + currentPage.toString() + ' de ' + pageCount,
+                      text: 'Page: ' + currentPage.toString() + ' of ' + pageCount,
                       alignment: 'right',
                       fontSize: 8,
                       margin: [0, 10, 20, 0]
@@ -535,7 +535,7 @@ export class PdfService {
                         
                     // CLINICAL INFO:
                     {
-                      text: 'Dato clínico:',
+                      text: 'Clinical information:',
                       style: 'subheader',
                       margin: [0, 10, 0, 0]
                     },
@@ -545,7 +545,7 @@ export class PdfService {
                     
                     // PROCEDURE:
                     {
-                      text: 'Procedimiento:',
+                      text: 'Procedure:',
                       style: 'subheader'
                     },
                     htmlProcedureDescription,
@@ -563,7 +563,7 @@ export class PdfService {
                     
                     // SUMMARY:
                     {
-                      text: 'En suma:',
+                      text: 'Summary:',
                       style: 'subheader'
                     },
                     htmlSummary,
@@ -650,7 +650,7 @@ export class PdfService {
 
     } else {
       //Send message:
-      this.sharedFunctions.sendMessage('El _id especificado no es válido (No es ObjectId).');
+      this.sharedFunctions.sendMessage('The specified _id is not valid (Not an ObjectId).');
     }
   }
 

@@ -78,7 +78,7 @@ const Validator = [
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_person NO es un ID MongoDB válido.'),
+        .withMessage('The fk_person parameter is NOT a valid MongoDB ID.'),
 
     body('username')
         .optional()
@@ -87,42 +87,42 @@ const Validator = [
     body('password')
         .trim()
         .isLength(8)
-        .withMessage('La contraseña ingresada es demasiado corta (largo mínimo: 8 caracteres).'),
+        .withMessage('The password is too short (minimum length: 8 characters).'),
 
     body('email')
         .optional()
         .trim()
         .isEmail()
-        .withMessage('El valor ingresado NO es una dirección de correo válida.')
+        .withMessage('The provided value is NOT a valid email address.')
         .normalizeEmail({ gmail_remove_dots: false })
         .toLowerCase(),
         
     body('permissions')
         .isArray()
-        .withMessage('El parametro permissions es requerido.'),
+        .withMessage('The permissions parameter is required.'),
 
     body('permissions.*.organization')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro organization NO es un ID MongoDB válido.'),
+        .withMessage('The organization parameter is NOT a valid MongoDB ID.'),
 
     body('permissions.*.service')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro service NO es un ID MongoDB válido.'),
+        .withMessage('The service parameter is NOT a valid MongoDB ID.'),
 
     body('permissions.*.branch')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro branch NO es un ID MongoDB válido.'),
+        .withMessage('The branch parameter is NOT a valid MongoDB ID.'),
 
     body('permissions.*.role')
         .trim()
         .isInt()
-        .withMessage('El parametro rol es requerido y debe ser numérico.'),
+        .withMessage('The role parameter is required and must be numeric.'),
 
     body('permissions.*.concession').optional().isArray(),
 
@@ -132,25 +132,25 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro ID es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).'),
+        .withMessage('The ID parameter is too short or too long (min: 3, max: 30 characters).'),
 
     body('professional.description')
         .optional()
         .trim()
         .isLength({ min: 3, max: 50 })
-        .withMessage('El parametro description es demasiado corto o demasiado largo (min: 3, max: 50 [caracteres]).'),
+        .withMessage('The description parameter is too short or too long (min: 3, max: 50 characters).'),
 
     body('professional.workload')
         .optional()
         .trim()
         .isInt()
-        .withMessage('El parametro workload debe ser numérico.'),
+        .withMessage('The workload parameter must be numeric.'),
 
     body('professional.vacation')
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El parametro vacation ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The vacation parameter is not boolean (true or false).')
         .toBoolean(),
 
     body('settings').optional().isArray(),
@@ -159,30 +159,30 @@ const Validator = [
         .optional()
         .trim()
         .isInt()
-        .withMessage('El parametro max_row es requerido y debe ser numérico.'),
+        .withMessage('The max_row parameter is required and must be numeric.'),
 
     body('settings.viewer')
         .optional()
         .trim()
         .isLength({ min: 3, max: 10 })
-        .withMessage('El parametro viewer es demasiado corto o demasiado largo (min: 3, max: 10 [caracteres]).'),
+        .withMessage('The viewer parameter is too short or too long (min: 3, max: 10 characters).'),
 
     body('settings.language')
         .optional()
         .trim()
         .isLength({ min: 3, max: 5 })
-        .withMessage('El parametro language es demasiado corto o demasiado largo (min: 3, max: 5 [caracteres]).'),
+        .withMessage('The language parameter is too short or too long (min: 3, max: 5 characters).'),
 
     body('settings.theme')
         .optional()
         .trim()
         .isLength({ min: 3, max: 20 })
-        .withMessage('El theme language es demasiado corto o demasiado largo (min: 3, max: 20 [caracteres]).'),
+        .withMessage('The theme parameter is too short or too long (min: 3, max: 20 characters).'),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The status parameter is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

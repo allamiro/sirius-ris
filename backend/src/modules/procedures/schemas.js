@@ -70,102 +70,102 @@ const Validator = [
     body('domain.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.organization NO es un ID MongoDB válido.'),
+        .withMessage('The domain.organization parameter is not a valid MongoDB ID.'),
     
     body('domain.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.branch NO es un ID MongoDB válido.'),
+        .withMessage('The domain.branch parameter is not a valid MongoDB ID.'),
 
     body('fk_modality')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_modality NO es un ID MongoDB válido.'),
+        .withMessage('The fk_modality parameter is not a valid MongoDB ID.'),
 
     body('name')
         .trim()
         .isLength({ min: 3, max: 70 })
-        .withMessage('El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 70 [caracteres]).'),
+        .withMessage('The name provided is too short or too long (min: 3, max: 70 [characters]).'),
 
     body('code')
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El código ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The code provided is too short or too long (min: 3, max: 40 [characters]).'),
 
     body('snomed')
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El código snomed ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The SNOMED code provided is too short or too long (min: 3, max: 40 [characters]).'),
 
     body('equipments')
         .isArray()
-        .withMessage('El parametro equipments es requerido.'),
+        .withMessage('The equipments parameter is required.'),
 
     body('equipments.*.fk_equipment')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_equipment NO es un ID MongoDB válido.'),
+        .withMessage('The fk_equipment parameter is not a valid MongoDB ID.'),
 
     body('equipments.*.duration')
         .trim()
         .isInt()
-        .withMessage('El parametro duration es requerido y debe ser numérico [minutos].'),
+        .withMessage('The duration parameter is required and must be numeric [minutes].'),
 
     body('preparation')
         .optional()
         .trim()
         .isLength({ min: 10, max: 3000 })
-        .withMessage('El parametro preparation ingresado es demasiado corto o demasiado largo (min: 10, max: 3000 [caracteres]).'),
+        .withMessage('The preparation parameter provided is too short or too long (min: 10, max: 3000 [characters]).'),
 
     body('procedure_template')
         .optional()
         .trim()
         .isLength({ min: 10, max: 3000 })
-        .withMessage('El parametro procedure_template ingresado es demasiado corto o demasiado largo (min: 10, max: 3000 [caracteres]).'),
+        .withMessage('The procedure_template parameter provided is too short or too long (min: 10, max: 3000 [characters]).'),
 
     body('report_template')
         .optional()
         .trim()
         .isLength({ min: 10, max: 3000 })
-        .withMessage('El parametro report_template ingresado es demasiado corto o demasiado largo (min: 10, max: 3000 [caracteres]).'),
+        .withMessage('The report_template parameter provided is too short or too long (min: 10, max: 3000 [characters]).'),
 
     body('informed_consent')
         .trim()
         .isBoolean()
-        .withMessage('El parametro informed_consent ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The informed_consent parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('has_interview')
         .trim()
         .isBoolean()
-        .withMessage('El parametro has_interview ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The has_interview parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The status provided is not boolean (true or false).')
         .toBoolean(),
     
     body('coefficient')
         .optional()
         .trim()
         .isDecimal()
-        .withMessage('El parametro coefficient debe ser numérico (decimal).'),
+        .withMessage('The coefficient parameter must be numeric (decimal).'),
 
     body('reporting_delay')
         .optional()
         .trim()
         .isInt()
-        .withMessage('El parametro reporting_delay debe ser numérico (cant. días).'),
+        .withMessage('The reporting_delay parameter must be numeric (number of days).'),
 
     body('wait_time')
         .optional()
         .trim()
         .isInt()
-        .withMessage('El parametro wait_time debe ser numérico (minutos).')
+        .withMessage('The wait_time parameter must be numeric (minutes).')
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 

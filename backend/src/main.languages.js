@@ -120,111 +120,111 @@ module.exports = function(language){
     switch (language) {
         case 'ES':
             //Server:
-            lang.server.db_cnx_error            = 'Error al intentar establecer la conexión con MongoDB hacia: ';
-            lang.server.db_cnx_success          = 'Conexión satisfactoria con MongoDB hacia: ';
-            lang.server.db_cnx_check_error      = 'Error al intentar establecer la conexión con MongoDB.';
-            lang.server.start                   = 'Sirius RIS Backend ha iniciado';
-            lang.server.non_server              = 'No se estableció ningún tipo de servidor en el archivo de configuración (http_enabled, https_enabled).';
-            lang.server.undefined_settings      = 'Se produjo un error al intentar leer el archivo settings.yaml.'
+            lang.server.db_cnx_error            = 'Error while trying to connect to MongoDB at: ';
+            lang.server.db_cnx_success          = 'Successful connection to MongoDB at: ';
+            lang.server.db_cnx_check_error      = 'Error while trying to establish the MongoDB connection.';
+            lang.server.start                   = 'Sirius RIS Backend has started';
+            lang.server.non_server              = 'No server type was configured in the settings file (http_enabled, https_enabled).';
+            lang.server.undefined_settings      = 'An error occurred while trying to read the settings.yaml file.'
 
             //Auth:
-            lang.auth.password_match            = 'Contraseña correcta.';
-            lang.auth.password_dont_match       = 'La contraseña NO coincide.';
-            lang.auth.password_empty            = 'La contraseña NO puede ser vacía.';
-            lang.auth.password_error            = 'Error durante la verificación del password, puede que el contenido del hash guardado en la BD no corresponda con el algoritmo de cifrado utilizado.';
-            lang.auth.signin_success            = 'Autenticación exitosa.';
-            lang.auth.user_disabled             = 'La cuenta de usuario ingresada está inhabilitada.';
-            lang.auth.wrong_user                = 'El usuario ingresado NO se encuentra en la base de datos.';
-            lang.auth.wrong_role_domain         = 'El dominio y/o rol indicado no se encuentran adjudicados al usuario.';
+            lang.auth.password_match            = 'Password is correct.';
+            lang.auth.password_dont_match       = 'The password does NOT match.';
+            lang.auth.password_empty            = 'The password cannot be empty.';
+            lang.auth.password_error            = 'Error during password verification; the stored hash may not match the encryption algorithm used.';
+            lang.auth.signin_success            = 'Successful authentication.';
+            lang.auth.user_disabled             = 'The entered user account is disabled.';
+            lang.auth.wrong_user                = 'The entered user does NOT exist in the database.';
+            lang.auth.wrong_role_domain         = 'The specified domain and/or role are not assigned to the user.';
 
             //JWT:
-            lang.jwt.sign_error                 = 'Ha ocurrido un error durante la generación del JWT.';
-            lang.jwt.check_empty_token          = 'Es necesario un token de autenticación.';
-            lang.jwt.check_invalid_token        = 'El token no es válido.';
+            lang.jwt.sign_error                 = 'An error occurred while generating the JWT.';
+            lang.jwt.check_empty_token          = 'An authentication token is required.';
+            lang.jwt.check_invalid_token        = 'The token is not valid.';
 
             //Database:
-            lang.db.invalid_id                  = 'El ID especificado NO es válido para MongoDB.';
-            lang.db.query_error                 = 'Error durante la consulta al servidor MongoDB.';
-            lang.db.query_no_data               = 'No se encontraron registros.';
-            lang.db.validate_error              = 'Error de validación.';
-            lang.db.insert_success              = 'Guardado exitoso.';
-            lang.db.insert_error                = 'Error al intentar insertar el elemento.';
-            lang.db.insert_error_log            = 'Error al intentar insertar entrada de log del elemento.';
-            lang.db.insert_duplicate            = 'El elemento que esta intentando insertar ya existe en la base de datos bajo el _id: ';
-            lang.db.id_no_results               = 'No existe ningún elemento con el ID especificado';
-            lang.db.id_referenced_empty         = 'El ID del elemento referenciado no puede ser vacío.';
-            lang.db.update_error                = 'Error al intentar actualizar el elemento.';
-            lang.db.update_duplicate            = 'El elemento que esta actualizar actualizar ya existe en la base de datos bajo el _id: ';
-            lang.db.delete_error                = 'Error al intentar eliminar el elemento.';
-            lang.db.delete_success              = 'Eliminación exitosa.';
-            lang.db.delete_id_no_results        = 'No se encuentra ningún registro para eliminar con el ID especificado.';
-            lang.db.delete_rejected_dep         = 'Eliminación rechazada, existen dependencias del elemento que se desea eliminar.';
-            lang.db.delete_empty_id             = 'Debe especificar al menos un _id para la eliminación.';
-            lang.db.not_valid_fk                = 'Alguno de los elementos referenciados como foráneos NO es válido.';
-            lang.db.not_valid_objectid          = 'Alguno de los elementos referenciados posee un ObjectId que NO es válido.';
-            lang.db.not_allowed_save            = 'Operación de guardado NO permitida.';
-            lang.db.delete_temp_file_uploads    = 'Eliminación de archivo temporal exitosa (upload files).'
-            
+            lang.db.invalid_id                  = 'The specified ID is NOT valid for MongoDB.';
+            lang.db.query_error                 = 'Error while querying the MongoDB server.';
+            lang.db.query_no_data               = 'No records were found.';
+            lang.db.validate_error              = 'Validation error.';
+            lang.db.insert_success              = 'Saved successfully.';
+            lang.db.insert_error                = 'Error while trying to insert the element.';
+            lang.db.insert_error_log            = 'Error while trying to insert the element log entry.';
+            lang.db.insert_duplicate            = 'The element you are trying to insert already exists in the database with the _id: ';
+            lang.db.id_no_results               = 'No element exists with the specified ID';
+            lang.db.id_referenced_empty         = 'The referenced element ID cannot be empty.';
+            lang.db.update_error                = 'Error while trying to update the element.';
+            lang.db.update_duplicate            = 'The element you are trying to update already exists in the database with the _id: ';
+            lang.db.delete_error                = 'Error while trying to delete the element.';
+            lang.db.delete_success              = 'Deletion successful.';
+            lang.db.delete_id_no_results        = 'No record was found to delete with the specified ID.';
+            lang.db.delete_rejected_dep         = 'Deletion rejected; there are dependencies on the element to be deleted.';
+            lang.db.delete_empty_id             = 'You must specify at least one _id to delete.';
+            lang.db.not_valid_fk                = 'One of the referenced foreign elements is NOT valid.';
+            lang.db.not_valid_objectid          = 'One of the referenced elements has an ObjectId that is NOT valid.';
+            lang.db.not_allowed_save            = 'Save operation NOT allowed.';
+            lang.db.delete_temp_file_uploads    = 'Temporary file deleted successfully (upload files).';
+
             //HTTP:
-            lang.http.sancioned                 = '¡CLIENTES SANCIONADOS!';
-            lang.http.sancioned_msj             = 'Ha realizado demasiados intentos de signin dentro del tiempo permitido.';
-            lang.http.bad_request               = 'La solicitud enviada es incorrecta.';
-            lang.http.pager_disabled            = 'Paginación desactivada.'
+            lang.http.sancioned                 = 'SANCTIONED CLIENTS!';
+            lang.http.sancioned_msj             = 'Too many sign-in attempts were made within the allowed time.';
+            lang.http.bad_request               = 'The submitted request is incorrect.';
+            lang.http.pager_disabled            = 'Paging disabled.';
 
             //RABC:
-            lang.rabc.operation_deny_domain         = 'La operación que está intentando realizar no está permitida para el dominio que posee su autenticación.';
-            lang.rabc.not_have_method_permissions   = 'El usuario no posee los permisos necesarios sobre el método: ';
-            lang.rabc.not_have_schema_permissions   = 'El usuario no posee los permisos necesarios sobre el esquema: ';
-            lang.rabc.exclude_code                  = 'La condicion de dominio fué evitada del RABC por politica de exclusión (se aplicó rabc_exclude_code).';
+            lang.rabc.operation_deny_domain         = 'The operation you are trying to perform is not allowed for the domain associated with your authentication.';
+            lang.rabc.not_have_method_permissions   = 'The user does not have the necessary permissions for the method: ';
+            lang.rabc.not_have_schema_permissions   = 'The user does not have the necessary permissions for the schema: ';
+            lang.rabc.exclude_code                  = 'The domain condition was skipped in RABC due to an exclusion policy (rabc_exclude_code was applied).';
 
             //RIS:
-            lang.ris.operation_not_allowed          = 'Operación NO permitida, el dominio indicado desde el JWT NO permite la operación deseada.';
-            lang.ris.empty_domain_JWT               = 'Para chequear una referencia de dominio, el parametro filter NO puede ser vacío.';
-            lang.ris.duplicated_person              = 'La persona que está intentando ingresar ya existe en la base de datos.';
-            lang.ris.same_document                  = 'No se puede actualizar la información ingresada. Ya existe otra persona con el mismo documento en la base de datos.';
-            lang.ris.unavailable_slot               = 'El inicio y/o fin indicado no se encuentra disponible en el turno. Utilizado por la cita _id: ';
-            lang.ris.wrong_date_format_slot         = 'El formato de la fecha de inicio y/o fin NO es correcto.';
-            lang.ris.batch_processed                = 'Lote procesado correctamente.';
-            lang.ris.only_urgency_slot              = 'No se puede coordinar la cita sobre un turno de urgencias a menos que la misma sea una urgencia.';
-            lang.ris.study_iuid_error               = 'Hubo algún problema al intentar generar el Study IUID: ';
-            lang.ris.mwl_success                    = 'Enviado a la MWL de forma exitosa.'
-            lang.ris.mwl_error                      = 'Ha ocurrido un error al envíar un elemento a la MWL (MLLP).';
-            lang.ris.wrong_performing_flow_state    = 'La realización del estudio no se encuentra en estado para poder ser informada.';
-            lang.ris.wrong_report_flow_state        = 'La realización del estudio no se encuentra en estado para poder ser firmada.';
-            lang.ris.wrong_report_id                = 'No se encontró ningún informe con el _id especificado.';
-            lang.ris.report_auth_error              = 'La realización del estudio no se encuentra en estado para poder ser autenticada.';
-            lang.ris.report_auth_success            = 'Informe autenticado existosamente.';
-            lang.ris.report_without_signatures      = 'El informe que desea autenitcar no se encuentra firmado.';
-            lang.ris.report_signed                  = 'El informe que se está intentando firmar ya se encuentra firmado por el usuario indicado.';
-            lang.ris.report_create_error            = 'Ha ocurrido un error durante la creación del informe PDF.';
-            lang.ris.report_authenticated           = 'Informe autenticado existosamente.';
-            lang.ris.mail_send_success              = 'Correo enviado exitosamente.';
-            lang.ris.mail_send_error                = 'Error al intentar enviar el correo.';
-            lang.ris.mail_wrong_address             = 'La dirección de correo indicada es incorrecta.';
-            lang.ris.mail_empty_subject             = 'El parametro subject no puede ser vacío.';
-            lang.ris.mail_empty_message             = 'El mensaje no puede ser vacío.';
-            lang.ris.mail_wrong_file                = 'El nombre del archivo o el base64 especificado es erroneo.';
-            lang.ris.missing_information_log        = 'Falta información para registro de log.'
-            lang.ris.procedure_not_found            = 'No se encontró un procedimiento con el _id especificado.';
-            lang.ris.modalitiy_not_found            = 'No se encontró una modalidad con el code value especificado.';
-            lang.ris.flow_state_error               = 'Error al actualizar estado de flujo de la solicitud.';
+            lang.ris.operation_not_allowed          = 'Operation NOT allowed; the domain indicated in the JWT does NOT allow the desired action.';
+            lang.ris.empty_domain_JWT               = 'To verify a domain reference, the filter parameter cannot be empty.';
+            lang.ris.duplicated_person              = 'The person you are trying to add already exists in the database.';
+            lang.ris.same_document                  = 'The entered information cannot be updated. Another person with the same document already exists in the database.';
+            lang.ris.unavailable_slot               = 'The specified start and/or end are not available in the slot. Used by appointment _id: ';
+            lang.ris.wrong_date_format_slot         = 'The start and/or end date format is NOT correct.';
+            lang.ris.batch_processed                = 'Batch processed successfully.';
+            lang.ris.only_urgency_slot              = 'The appointment cannot be scheduled on an emergency slot unless it is an emergency.';
+            lang.ris.study_iuid_error               = 'There was a problem while trying to generate the Study IUID: ';
+            lang.ris.mwl_success                    = 'Successfully sent to the MWL.';
+            lang.ris.mwl_error                      = 'An error occurred while sending an element to the MWL (MLLP).';
+            lang.ris.wrong_performing_flow_state    = 'The study is not in a performing state that allows it to be informed.';
+            lang.ris.wrong_report_flow_state        = 'The study is not in a performing state that allows it to be signed.';
+            lang.ris.wrong_report_id                = 'No report was found with the specified _id.';
+            lang.ris.report_auth_error              = 'The study is not in a performing state that allows it to be authenticated.';
+            lang.ris.report_auth_success            = 'Report authenticated successfully.';
+            lang.ris.report_without_signatures      = 'The report you want to authenticate is not signed.';
+            lang.ris.report_signed                  = 'The report you are trying to sign is already signed by the specified user.';
+            lang.ris.report_create_error            = 'An error occurred while creating the PDF report.';
+            lang.ris.report_authenticated           = 'Report authenticated successfully.';
+            lang.ris.mail_send_success              = 'Email sent successfully.';
+            lang.ris.mail_send_error                = 'Error while trying to send the email.';
+            lang.ris.mail_wrong_address             = 'The provided email address is incorrect.';
+            lang.ris.mail_empty_subject             = 'The subject parameter cannot be empty.';
+            lang.ris.mail_empty_message             = 'The message cannot be empty.';
+            lang.ris.mail_wrong_file                = 'The specified file name or base64 value is incorrect.';
+            lang.ris.missing_information_log        = 'Information is missing to log the record.';
+            lang.ris.procedure_not_found            = 'No procedure was found with the specified _id.';
+            lang.ris.modalitiy_not_found            = 'No modality was found with the specified code value.';
+            lang.ris.flow_state_error               = 'Error while updating the request flow state.';
 
             //RIS - Validate:
-            lang.ris.validate.delete_code_required      = 'Para eliminar un elemento debe especificar el código de eliminación válido.';
-            lang.ris.validate.same_dates                = 'La fecha de inicio y la de fin deben de ser la misma.';
-            lang.ris.validate.start_date_lte_end_date   = 'La fecha de inicio debe ser menor que la fecha de fin.';
-            lang.ris.validate.start_time_lte_end_time   = 'La hora de inicio debe ser menor que la hora de fin.';
-            lang.ris.validate.weekday_boolean           = 'El día de la semana tiene que ser booleano [true, false].';
-            lang.ris.validate.weekday_required          = 'Al menos un día de la semana tiene que ser de valor verdadero para aplicar el rango de fechas.';
-            lang.ris.validate.time_format               = 'El formato de hora de inicio o fin es incorrecto [Formato admitido: HH:MM (24hs)].';
-            lang.ris.validate.urgency_boolean           = 'El parametro urgencia debe ser booleano [true, false].';
-            lang.ris.validate.valid_permission          = 'Debe ingresar al menos un permiso válido al usuario.';
-            lang.ris.validate.fk_slot_required          = 'El parametro fk_slot debe ser especificado (es requerido para la operación).';
-            lang.ris.validate.pet_coef_required         = 'Los procedimientos PET-CT requieren coeficiente para el cálculo de la dosis.';
-            lang.ris.validate.pet_coef_NaN              = 'El coeficiente ingresado debe ser numérico.';
-            lang.ris.validate.service_invalid_ObjectId  = 'El parámetro service no es un ObjectId válido.';
-            lang.ris.validate.role_NaN                  = 'El parámetro role NO es un valor numerico o NO esta comprendido dentro de los numeros de roles válidos.';
-            lang.ris.validate.invalid_role_in_report    = 'El parámetro role_in_report solo admite los siguietes valores: [ signer | authenticator ].';
+            lang.ris.validate.delete_code_required      = 'To delete an element you must specify the valid deletion code.';
+            lang.ris.validate.same_dates                = 'The start date and the end date must be the same.';
+            lang.ris.validate.start_date_lte_end_date   = 'The start date must be earlier than the end date.';
+            lang.ris.validate.start_time_lte_end_time   = 'The start time must be earlier than the end time.';
+            lang.ris.validate.weekday_boolean           = 'The day of the week must be boolean [true, false].';
+            lang.ris.validate.weekday_required          = 'At least one weekday must be true to apply the date range.';
+            lang.ris.validate.time_format               = 'The start or end time format is incorrect [Allowed format: HH:MM (24h)].';
+            lang.ris.validate.urgency_boolean           = 'The urgency parameter must be boolean [true, false].';
+            lang.ris.validate.valid_permission          = 'You must assign at least one valid permission to the user.';
+            lang.ris.validate.fk_slot_required          = 'The fk_slot parameter must be specified (it is required for the operation).';
+            lang.ris.validate.pet_coef_required         = 'PET-CT procedures require a coefficient to calculate the dose.';
+            lang.ris.validate.pet_coef_NaN              = 'The entered coefficient must be numeric.';
+            lang.ris.validate.service_invalid_ObjectId  = 'The service parameter is not a valid ObjectId.';
+            lang.ris.validate.role_NaN                  = 'The role parameter is NOT a numeric value or is NOT within the valid role numbers.';
+            lang.ris.validate.invalid_role_in_report    = 'The role_in_report parameter only accepts the following values: [ signer | authenticator ].';
 
             break;
     }

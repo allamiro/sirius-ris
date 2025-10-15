@@ -36,12 +36,12 @@ const Validator = [
     body('fk_report')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_report NO es un ID MongoDB válido.'),
+        .withMessage('The fk_report parameter is not a valid MongoDB ID.'),
 
     body('password')
         .trim()
         .isLength(8)
-        .withMessage('La contraseña ingresada es demasiado corta (largo mínimo: 8 caracteres).')
+        .withMessage('The password provided is too short (minimum length: 8 characters).')
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 

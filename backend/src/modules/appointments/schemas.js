@@ -179,7 +179,7 @@ const Validator = [
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_appointment_request NO es un ID MongoDB válido.'),
+        .withMessage('The fk_appointment_request parameter is not a valid MongoDB ID.'),
 
     //----------------------------------------------------------------------------------------------------------------//
     // IMAGING:
@@ -187,17 +187,17 @@ const Validator = [
     body('imaging.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.organization NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.organization parameter is not a valid MongoDB ID.'),
     
     body('imaging.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.branch NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.branch parameter is not a valid MongoDB ID.'),
 
     body('imaging.service')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.service NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.service parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
     
     //----------------------------------------------------------------------------------------------------------------//
@@ -206,25 +206,25 @@ const Validator = [
     body('referring.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro referring.organization NO es un ID MongoDB válido.'),
+        .withMessage('The referring.organization parameter is not a valid MongoDB ID.'),
     
     body('referring.branch')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro referring.branch NO es un ID MongoDB válido.'),
+        .withMessage('The referring.branch parameter is not a valid MongoDB ID.'),
 
     body('referring.service')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro referring.service NO es un ID MongoDB válido.'),
+        .withMessage('The referring.service parameter is not a valid MongoDB ID.'),
 
     body('referring.fk_referring')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_referring NO es un ID MongoDB válido.'),
+        .withMessage('The fk_referring parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -233,17 +233,17 @@ const Validator = [
     body('reporting.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro reporting.organization NO es un ID MongoDB válido.'),
+        .withMessage('The reporting.organization parameter is not a valid MongoDB ID.'),
     
     body('reporting.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro reporting.branch NO es un ID MongoDB válido.'),
+        .withMessage('The reporting.branch parameter is not a valid MongoDB ID.'),
 
     body('reporting.service')
         .trim()
         .isMongoId()
-        .withMessage('El parametro reporting.service NO es un ID MongoDB válido.'),
+        .withMessage('The reporting.service parameter is not a valid MongoDB ID.'),
 
     body('reporting.fk_reporting')
         .optional()
@@ -252,13 +252,13 @@ const Validator = [
     body('reporting.fk_reporting.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_reporting NO es un ID MongoDB válido.'),
+        .withMessage('The fk_reporting parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
     
     body('fk_patient')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_patient NO es un ID MongoDB válido.'),
+        .withMessage('The fk_patient parameter is not a valid MongoDB ID.'),
 
     body('start').trim(),
 
@@ -267,39 +267,39 @@ const Validator = [
     body('flow_state')
         .trim()
         .isLength({ min: 3, max: 3 })
-        .withMessage('El parametro flow_state ingresado es demasiado corto o demasiado largo (min: 3, max: 3 [caracteres]).'),
+        .withMessage('The flow_state parameter provided is too short or too long (min: 3, max: 3 [characters]).'),
 
     body('fk_slot')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_slot NO es un ID MongoDB válido.'),
+        .withMessage('The fk_slot parameter is not a valid MongoDB ID.'),
 
     body('fk_procedure')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_procedure NO es un ID MongoDB válido.'),
+        .withMessage('The fk_procedure parameter is not a valid MongoDB ID.'),
 
     body('extra_procedures')
         .optional()
         .isArray()
-        .withMessage('El parametro extra_procedures debe ser un array.'),
+        .withMessage('The extra_procedures parameter must be an array.'),
 
     body('extra_procedures.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro extra_procedures.* NO es un ID MongoDB válido.'),
+        .withMessage('The extra_procedures.* parameter is not a valid MongoDB ID.'),
 
     body('urgency')
         .trim()
         .isBoolean()
-        .withMessage('El parametro urgency ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The urgency parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('study_iuid')
         .optional()
         .trim()
         .isLength({ min: 3, max: 64 })
-        .withMessage('El parametro study_iuid generado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The generated study_iuid parameter is too short or too long (min: 3, max: 64 [characters]).'),
 
     body('accession_number')
         .optional(),
@@ -311,13 +311,13 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 10, max: 1000 })
-        .withMessage('El parametro anamnesis ingresado es demasiado corto o demasiado largo (min: 10, max: 1000 [caracteres]).'),
+        .withMessage('The anamnesis parameter provided is too short or too long (min: 10, max: 1000 [characters]).'),
 
     body('indications')
         .optional()
         .trim()
         .isLength({ min: 10, max: 1000 })
-        .withMessage('El parametro indications ingresado es demasiado corto o demasiado largo (min: 10, max: 1000 [caracteres]).'),
+        .withMessage('The indications parameter provided is too short or too long (min: 10, max: 1000 [characters]).'),
 
     body('report_before').trim(),
 
@@ -330,28 +330,28 @@ const Validator = [
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El media.CD ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The media.CD value provided is not boolean (true or false).')
         .toBoolean(),
 
     body('media.DVD')
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El media.DVD ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The media.DVD value provided is not boolean (true or false).')
         .toBoolean(),
 
     body('media.acetate_sheets')
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El media.acetate_sheets ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The media.acetate_sheets value provided is not boolean (true or false).')
         .toBoolean(),
     //----------------------------------------------------------------------------------------------------------------//
 
     body('contrast.use_contrast')
         .trim()
         .isBoolean()
-        .withMessage('El media.CD ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The contrast.use_contrast parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -361,35 +361,35 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro current_address.country ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The current_address.country parameter provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('current_address.state')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro current_address.state ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The current_address.state parameter provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('current_address.city')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro current_address.city ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The current_address.city parameter provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('current_address.neighborhood')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro current_address.neighborhood ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The current_address.neighborhood parameter provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('current_address.address')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro current_address.address ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The current_address.address parameter provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
     //----------------------------------------------------------------------------------------------------------------//
 
@@ -399,198 +399,198 @@ const Validator = [
     body('private_health.height')
         .trim()
         .isDecimal()
-        .withMessage('El parametro height es requerido y debe ser numérico (decimal).'),
+        .withMessage('The height parameter is required and must be numeric (decimal).'),
 
     body('private_health.weight')
         .trim()
         .isDecimal()
-        .withMessage('El parametro weight es requerido y debe ser numérico (decimal).'),
+        .withMessage('The weight parameter is required and must be numeric (decimal).'),
 
     body('private_health.diabetes')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.diabetes ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.diabetes parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.hypertension')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.hypertension ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.hypertension parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.epoc')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.epoc ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.epoc parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.smoking')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.smoking ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.smoking parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.malnutrition')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.malnutrition ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.malnutrition parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.obesity')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.obesity ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.obesity parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.hiv')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.hiv ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.hiv parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.renal_insufficiency')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.renal_insufficiency ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.renal_insufficiency parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.heart_failure')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.heart_failure ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.heart_failure parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.ischemic_heart_disease')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.ischemic_heart_disease ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.ischemic_heart_disease parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.valvulopathy')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.valvulopathy ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.valvulopathy parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.arrhythmia')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.arrhythmia ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.arrhythmia parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.cancer')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.cancer ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.cancer parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.dementia')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.dementia ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.dementia parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.claustrophobia')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.claustrophobia ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.claustrophobia parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.asthma')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.asthma ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.asthma parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.hyperthyroidism')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.hyperthyroidism ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.hyperthyroidism parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.hypothyroidism')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.hypothyroidism ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.hypothyroidism parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.pregnancy')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.pregnancy ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.pregnancy parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.medication')
         .optional()
         .trim()
         .isLength({ min: 2, max: 1000 })
-        .withMessage('El parametro private_health.medication ingresado es demasiado corto o demasiado largo (min: 2, max: 1000 [caracteres]).'),
+        .withMessage('The private_health.medication parameter provided is too short or too long (min: 2, max: 1000 [characters]).'),
 
     body('private_health.allergies')
         .optional()
         .trim()
         .isLength({ min: 3, max: 60 })
-        .withMessage('El parametro private_health.allergies ingresado es demasiado corto o demasiado largo (min: 3, max: 60 [caracteres]).'),
+        .withMessage('The private_health.allergies parameter provided is too short or too long (min: 3, max: 60 [characters]).'),
     
     body('private_health.other')
         .optional()
         .trim()
         .isLength({ min: 3, max: 60 })
-        .withMessage('El parametro private_health.other ingresado es demasiado corto o demasiado largo (min: 3, max: 60 [caracteres]).'),
+        .withMessage('The private_health.other parameter provided is too short or too long (min: 3, max: 60 [characters]).'),
 
     body('private_health.implants.cochlear_implant')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.implants.cochlear_implant ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.implants.cochlear_implant parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.implants.cardiac_stent')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.implants.cardiac_stent ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.implants.cardiac_stent parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.implants.metal_prostheses')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.implants.metal_prostheses ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.implants.metal_prostheses parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.implants.metal_shards')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.implants.metal_shards ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.implants.metal_shards parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.implants.pacemaker')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.implants.pacemaker ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.implants.pacemaker parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.implants.other')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro private_health.implants.other ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).'),
+        .withMessage('The private_health.implants.other parameter provided is too short or too long (min: 3, max: 30 [characters]).'),
 
     body('private_health.covid19.had_covid')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.covid19.had_covid ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.covid19.had_covid parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.covid19.vaccinated')
         .trim()
         .isBoolean()
-        .withMessage('El parametro private_health.covid19.vaccinated ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The private_health.covid19.vaccinated parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('private_health.covid19.details')
         .optional()
         .trim()
         .isLength({ min: 3, max: 100 })
-        .withMessage('El parametro private_health.covid19.details ingresado es demasiado corto o demasiado largo (min: 3, max: 100 [caracteres]).'),
+        .withMessage('The private_health.covid19.details parameter provided is too short or too long (min: 3, max: 100 [characters]).'),
     //----------------------------------------------------------------------------------------------------------------//
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -603,19 +603,19 @@ const Validator = [
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro consents.informed_consent NO es un ID MongoDB válido.'),
+        .withMessage('The consents.informed_consent parameter is not a valid MongoDB ID.'),
 
     body('consents.clinical_trial')
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro consents.clinical_trial NO es un ID MongoDB válido.'),
+        .withMessage('The consents.clinical_trial parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
 
     body('outpatient')
         .trim()
         .isBoolean()
-        .withMessage('El parametro outpatient ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The outpatient parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     //----------------------------------------------------------------------------------------------------------------//
@@ -625,48 +625,48 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El parametro inpatient.where ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The inpatient.where parameter provided is too short or too long (min: 3, max: 40 [characters]).'),
 
     body('inpatient.room')
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El parametro inpatient.room ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The inpatient.room parameter provided is too short or too long (min: 3, max: 40 [characters]).'),
 
     body('inpatient.contact')
         .optional()
         .trim()
         .isLength({ min: 3, max: 40 })
-        .withMessage('El parametro inpatient.contact ingresado es demasiado corto o demasiado largo (min: 3, max: 40 [caracteres]).'),
+        .withMessage('The inpatient.contact parameter provided is too short or too long (min: 3, max: 40 [characters]).'),
     //----------------------------------------------------------------------------------------------------------------//
 
     body('attached_files')
         .optional()
         .isArray()
-        .withMessage('El parametro attached_files debe ser un array.'),
+        .withMessage('The attached_files parameter must be an array.'),
 
     body('attached_files.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro attached_files.* NO es un ID MongoDB válido.'),
+        .withMessage('The attached_files.* parameter is not a valid MongoDB ID.'),
 
     body('cancellation_reasons')
         .optional()
         .trim()
         .isInt()
-        .withMessage('El parametro cancellation_reasons debe ser numérico.'),
+        .withMessage('The cancellation_reasons parameter must be numeric.'),
     
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The status provided is not boolean (true or false).')
         .toBoolean(),
 
     body('overbooking')
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El parametro overbooking ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The overbooking parameter provided is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

@@ -50,45 +50,45 @@ const Validator = [
     body('documents.*.doc_country_code')
         .trim()
         .isLength({ min: 3, max: 3 })
-        .withMessage('El código de país del documento ingresado es demasiado corto o demasiado largo (min: 3, max: 3 [caracteres]).')
+        .withMessage('The document country code provided is too short or too long (min: 3, max: 3 [characters]).')
         .toLowerCase(),
 
     body('documents.*.doc_type')
         .trim()
         .isInt()
-        .withMessage('El parametro tipo de documento es requerido y debe ser numérico.'),
+        .withMessage('The document type parameter is required and must be numeric.'),
 
     body('documents.*.document')
         .trim()
         .isLength({ min: 3, max: 25 })
-        .withMessage('El documento ingresado es demasiado corto o demasiado largo (min: 3, max: 25 [caracteres]).')
+        .withMessage('The document number provided is too short or too long (min: 3, max: 25 [characters]).')
         .toUpperCase(),
 
     //Validate Schema:
     body('name_01')
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El primer nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The first name provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('name_02')
         .trim()
         .optional()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El segundo nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The middle name provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('surname_01')
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El primer apellido ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The first surname provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('surname_02')
         .trim()
         .optional()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El segundo apellido ingresado es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).')
+        .withMessage('The second surname provided is too short or too long (min: 3, max: 30 [characters]).')
         .toUpperCase(),
 
     body('birth_date').trim(),
@@ -96,14 +96,14 @@ const Validator = [
     body('gender')
         .trim()
         .isInt()
-        .withMessage('El parametro género es requerido y debe ser numérico.'),
+        .withMessage('The gender parameter is required and must be numeric.'),
 
     body('phone_numbers').optional().isArray(),
 
     body('phone_numbers.*')
         .trim()
         .isLength({ min: 3, max: 20 })
-        .withMessage('El número de teléfono ingresado es demasiado corto o demasiado largo (min: 3, max: 20 [caracteres]).'),
+        .withMessage('The phone number provided is too short or too long (min: 3, max: 20 [characters]).'),
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 

@@ -40,31 +40,31 @@ const Validator = [
     body('fk_branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_branch NO es un ID MongoDB válido.'),
+        .withMessage('The fk_branch parameter is not a valid MongoDB ID.'),
 
     body('fk_modality')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_modality NO es un ID MongoDB válido.'),
+        .withMessage('The fk_modality parameter is not a valid MongoDB ID.'),
 
     body('fk_equipments')
         .isArray()
-        .withMessage('El parametro fk_equipments es requerido.'),
+        .withMessage('The fk_equipments parameter is required.'),
 
     body('fk_equipments.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_equipments NO es un ID MongoDB válido.'),
+        .withMessage('The fk_equipments parameter is not a valid MongoDB ID.'),
 
     body('name')
         .trim()
         .isLength({ min: 3, max: 64 })
-        .withMessage('El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The name provided is too short or too long (min: 3, max: 64 [characters]).'),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The status provided is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

@@ -247,7 +247,7 @@ function strictCheck (proj, doc) {
     //Initialize error object:
     let error = {
         status: false,
-        message: 'No hay errores',
+        message: 'No errors',
         details: []
     };
     
@@ -259,14 +259,14 @@ function strictCheck (proj, doc) {
             if(doc[docKeys[currentKey]] === undefined || doc[docKeys[currentKey]] === null || doc[docKeys[currentKey]] === ''){
                 //Set error:
                 error.status = true;
-                error.message = 'Existen valores de la respuesta indefinidos, nulos o vacíos.'
-                error.details.push(docKeys[currentKey] + ', NO puede ser indefinido, nulo ni vacío.');
+                error.message = 'The response contains undefined, null, or empty values.';
+                error.details.push(docKeys[currentKey] + ' cannot be undefined, null, or empty.');
             }
         }
     } else {
         //Set error:
         error.status = true;
-        error.message = 'Existen diferencias entre los valores solicitados y los obtenidos desde la base de datos.';
+        error.message = 'There are differences between the requested values and those retrieved from the database.';
         error.details.push('Pojected keys: ' + projKeys);
         error.details.push('Document keys: ' + docKeys);
     }

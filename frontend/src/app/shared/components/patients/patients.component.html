@@ -3,7 +3,7 @@
 <!-- DICOM VIEWER -->
 <ng-template #thenBlockViewer>
   <div class="viewer-container text-right">
-    <button mat-flat-button type="button" color="accent" (click)="clearOHIFPath();"><mat-icon>close</mat-icon> CERRAR VISOR</button><br/><hr class="dashed" />
+    <button mat-flat-button type="button" color="accent" (click)="clearOHIFPath();"><mat-icon>close</mat-icon> CLOSE VIEWER</button><br/><hr class="dashed" />
     <app-dcm-viewer src="{{ ohifPath }}"></app-dcm-viewer>
   </div>
 </ng-template>
@@ -18,24 +18,24 @@
 
         <!-- element action -->
         <ng-container matColumnDef="element_action">
-          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let element">
               <div *ngIf="element.flow_state == 'P09'; then thenBlockFS else elseBlockFS"></div>
               
               <!--patient actions-->
               <ng-template #thenBlockFS>
                   <!--view_report-->
-                  <button mat-icon-button class="small_button" type="button" (click)="pdfService.createPDF('report', element._id)" matTooltip="Ver informe" color="accent">
+                  <button mat-icon-button class="small_button" type="button" (click)="pdfService.createPDF('report', element._id)" matTooltip="View report" color="accent">
                       <mat-icon>description</mat-icon>
                   </button>
 
                   <!--view dicom in HTML-->
-                  <button mat-icon-button color="accent" aria-label="Ver imágenes asociadas" (click)="getStudyDICOM(element._id, 'ohif')" matTooltip="Ver imágenes asociadas">
+                  <button mat-icon-button color="accent" aria-label="View associated images" (click)="getStudyDICOM(element._id, 'ohif')" matTooltip="View associated images">
                       <mat-icon>visibility</mat-icon>
                   </button>
 
                   <!--download dicom-->
-                  <button mat-icon-button color="accent" aria-label="Descargar imágenes asociadas" (click)="getStudyDICOM(element._id, 'dicom.zip')" matTooltip="Descargar imágenes asociadas">
+                  <button mat-icon-button color="accent" aria-label="Download associated images" (click)="getStudyDICOM(element._id, 'dicom.zip')" matTooltip="Download associated images">
                     <mat-icon>download</mat-icon>
                   </button>
               </ng-template>
@@ -49,7 +49,7 @@
 
         <!-- date -->
         <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef class="column-alt text-center"> Fecha </th>
+          <th mat-header-cell *matHeaderCellDef class="column-alt text-center"> Date </th>
           <td mat-cell *matCellDef="let element" class="column-alt text-center">
             <span *ngIf="element.date">{{ element.date | date : "dd/MM/yyyy" : "UTC" }}</span>
           </td>
@@ -57,7 +57,7 @@
 
         <!-- checkin_time -->
         <ng-container matColumnDef="checkin_time">
-          <th mat-header-cell *matHeaderCellDef class="column-alt text-center"> Hora<br/>recepción </th>
+          <th mat-header-cell *matHeaderCellDef class="column-alt text-center"> Check-in<br/>time </th>
           <td mat-cell *matCellDef="let element" class="column-alt text-center">
             <span *ngIf="element.date">{{ element.date | date : "HH:mm" : "UTC" }}</span>
           </td>
@@ -65,7 +65,7 @@
 
         <!-- documents -->
         <ng-container matColumnDef="documents">
-          <th mat-header-cell *matHeaderCellDef class="documents"> Documentos </th>
+          <th mat-header-cell *matHeaderCellDef class="documents"> Documents </th>
           <td class="documents" mat-cell *matCellDef="let element">
             <span *ngIf="element.patient">
               <span *ngIf="element.patient.person">
@@ -83,7 +83,7 @@
 
         <!-- names -->
         <ng-container matColumnDef="names">
-          <th mat-header-cell *matHeaderCellDef> Nombres </th>
+          <th mat-header-cell *matHeaderCellDef> First names </th>
           <td mat-cell *matCellDef="let element">
             <span *ngIf="element.patient">
               <span *ngIf="element.patient.person">
@@ -99,7 +99,7 @@
 
         <!-- surnames -->
         <ng-container matColumnDef="surnames">
-          <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+          <th mat-header-cell *matHeaderCellDef> Last names </th>
           <td mat-cell *matCellDef="let element">
             <span *ngIf="element.patient">
               <span *ngIf="element.patient.person">
@@ -115,7 +115,7 @@
 
         <!-- details -->
         <ng-container matColumnDef="details">
-          <th mat-header-cell *matHeaderCellDef class="text-center"> Detalle </th>
+          <th mat-header-cell *matHeaderCellDef class="text-center"> Details </th>
           <td mat-cell *matCellDef="let element">
             <!-- procedure -->
             <span *ngIf="element.procedure">
@@ -133,14 +133,14 @@
                 <span>{{ element.equipment.name }}</span>
                 </span>
             </ng-template>
-            <ng-template #elseBlockTableEquipment>(Sin dato)</ng-template>
+            <ng-template #elseBlockTableEquipment>(No data)</ng-template>
 
             <!-- modality -->
             <span *ngIf="element.modality; then thenBlockTableModality else elseBlockTableModality"></span>
             <ng-template #thenBlockTableModality>
               <span class="badge" matTooltip="{{ element.modality.code_meaning }}">{{ element.modality.code_value }}</span>
             </ng-template>
-            <ng-template #elseBlockTableModality>(Sin dato)</ng-template>
+            <ng-template #elseBlockTableModality>(No data)</ng-template>
           </td>
         </ng-container>
 
@@ -153,7 +153,7 @@
   <!-- Await response or not response -->
   <ng-template #elseBlockTable>
     <div fxLayout="row" fxLayoutAlign="center center" class="response-info">
-      Aguarde, aún no hay resultados.
+      Please wait, there are no results yet.
     </div>
   </ng-template>
 

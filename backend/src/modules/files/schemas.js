@@ -44,17 +44,17 @@ const Validator = [
     body('domain.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.organization NO es un ID MongoDB válido.'),
+        .withMessage('The domain.organization parameter is NOT a valid MongoDB ID.'),
     
     body('domain.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro domain.branch NO es un ID MongoDB válido.'),
+        .withMessage('The domain.branch parameter is NOT a valid MongoDB ID.'),
 
     body('name')
         .trim()
         .isLength({ min: 3, max: 50 })
-        .withMessage('El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 50 [caracteres]).'),
+        .withMessage('The name is too short or too long (min: 3, max: 50 characters).'),
 
     body('base64')
         .optional(),

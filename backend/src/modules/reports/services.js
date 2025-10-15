@@ -784,7 +784,7 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
     auth_complete_name = auth_complete_name.names + ' ' + auth_complete_name.surnames;
 
     //Authenticate message:
-    const authMessage = 'Autenticado digitalmente por ' + auth_complete_name + ' en fecha del ' + auth_datetime + ' actuando para la institución ' + report_data.appointment.imaging.organization.name + ' con OID ' + report_data.appointment.imaging.organization.OID;
+    const authMessage = 'Digitally authenticated by ' + auth_complete_name + ' on ' + auth_datetime + ' acting on behalf of ' + report_data.appointment.imaging.organization.name + ' with OID ' + report_data.appointment.imaging.organization.OID;
 
     //Medical signatures (await foreach):
     let signatures_users = '';
@@ -798,28 +798,28 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
     }));
 
     //Signatures message:
-    const signMessage = 'Firmado por médico/s: ' + signatures_users.substring(0, signatures_users.length - 2) + ' | ' + report_data.appointment.imaging.organization.short_name;
+    const signMessage = 'Signed by physician(s): ' + signatures_users.substring(0, signatures_users.length - 2) + ' | ' + report_data.appointment.imaging.organization.short_name;
 
     //Convert HTML to PDF Make syntax:
-    let htmlClinicalInfo = htmlToPdfmake('<p>El informe <strong>NO posee dato clínico.</strong><p>', { window : window });
+    let htmlClinicalInfo = htmlToPdfmake('<p>The report <strong>does NOT contain clinical information.</strong><p>', { window : window });
     if(report_data.clinical_info !== undefined && report_data.clinical_info !== null && report_data.clinical_info !== ''){
         htmlClinicalInfo = htmlToPdfmake(report_data.clinical_info, { window : window });
     }
     await removeMargin(htmlClinicalInfo);
 
-    let htmlProcedureDescription = htmlToPdfmake('<p>El informe <strong>NO posee dato procedimiento.</strong><p>', { window : window });
+    let htmlProcedureDescription = htmlToPdfmake('<p>The report <strong>does NOT contain procedure information.</strong><p>', { window : window });
     if(report_data.procedure_description !== undefined && report_data.procedure_description !== null && report_data.procedure_description !== ''){
         htmlProcedureDescription = htmlToPdfmake(report_data.procedure_description, { window : window });
     }
     await removeMargin(htmlProcedureDescription);
             
-    let htmlFindings = htmlToPdfmake('<p>El informe <strong>NO posee hallazgos.</strong><p>', { window : window });
+    let htmlFindings = htmlToPdfmake('<p>The report <strong>does NOT contain findings.</strong><p>', { window : window });
     if(report_data.findings[0].procedure_findings !== undefined && report_data.findings[0].procedure_findings !== null && report_data.findings[0].procedure_findings !== ''){
         htmlFindings = htmlToPdfmake(report_data.findings[0].procedure_findings, { window : window });
     }
     await removeMargin(htmlFindings);
 
-    let htmlSummary = htmlToPdfmake('<p>El informe <strong>NO posee en suma.</strong><p>', { window : window });
+    let htmlSummary = htmlToPdfmake('<p>The report <strong>does NOT contain a summary.</strong><p>', { window : window });
     if(report_data.summary !== undefined && report_data.summary !== null && report_data.summary !== ''){
         htmlSummary = htmlToPdfmake(report_data.summary, { window : window });
     }
@@ -838,7 +838,7 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
 
         //FOOTER:
         footer: (currentPage, pageCount) => { return { table: { widths: [ "*"], body: [[ {
-            text: 'Página: ' + currentPage.toString() + ' de ' + pageCount,
+            text: 'Page: ' + currentPage.toString() + ' of ' + pageCount,
             alignment: 'right',
             fontSize: 8,
             margin: [0, 10, 20, 0]
@@ -865,7 +865,7 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
                         
             // CLINICAL INFO:
             {
-                text: 'Dato clínico:',
+                text: 'Clinical information:',
                 style: 'subheader',
                 margin: [0, 10, 0, 0]
             },
@@ -875,7 +875,7 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
                     
             // PROCEDURE:
             {
-                text: 'Procedimiento:',
+                text: 'Procedure:',
                 style: 'subheader'
             },
             htmlProcedureDescription,
@@ -893,7 +893,7 @@ async function setReportStructure(req, res, report_data, auth_fk_person, auth_da
                     
             // SUMMARY:
             {
-                text: 'En suma:',
+                text: 'Summary:',
                 style: 'subheader'
             },
             htmlSummary,

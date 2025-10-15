@@ -99,7 +99,7 @@ export class ApiClientService {
         multipartForm.delete('uploaded_file');
 
         //Send cancelation message:
-        observer.next({ operation_status: 'cancelled', message: 'El archivo que seleccióno excede el límite de tamaño máximo permitido (' + this.file_max_size + ' MB).' });
+        observer.next({ operation_status: 'cancelled', message: 'The selected file exceeds the maximum allowed size limit (' + this.file_max_size + ' MB).' });
       }
 
     });

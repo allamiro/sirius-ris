@@ -19,9 +19,9 @@ export class ListComponent implements OnInit {
   public displayedColumns: string[] = ['select_element', 'element_action', 'organization', 'branch', 'service', 'date_name', 'date', 'schedule', 'equipment', 'modality', 'urgency'];
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('turnos', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('slots', this.table, this.excludedColumns) }
 
   //Inject services to the constructor:
   constructor(
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de turnos',
+      content_title       : 'Appointment slot list',
       content_icon        : 'date_range',
       add_button          : '/slots/form/insert/0',   // Zero indicates empty :id (Activated Route) [content is ignored]
       add_slots_batch     : '/slots/batch',

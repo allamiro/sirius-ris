@@ -1,17 +1,17 @@
 <form class="form-element" [formGroup]="form" (ngSubmit)="onSubmitMaster()" *ngIf="sharedProp.mainSettings != undefined">
     <div fxLayout="row" fxLayoutAlign="start start">
       <div class="input-wrapper divider-alt"> <!-- start fxLayout wrapper -->
-        <h3 class="details-title">Detalles de la realización:</h3>
+        <h3 class="details-title">Performing details:</h3>
         <div class="current-wrap">
           <!-- appointment_date -->
           <div class="current-info divider-alt">
-            <small>Fecha de cita:</small><br/>
+            <small>Appointment date:</small><br/>
             <span *ngIf="this.sharedProp.current_datetime" class="appointment-firts">{{ this.sharedProp.current_datetime.dateDay + '/' + this.sharedProp.current_datetime.dateMonth + '/' + this.sharedProp.current_datetime.dateYear }}</span>
           </div>
           
           <!-- checkin_time -->
           <div class="current-info divider-alt">
-            <small>Hora de recepción:</small><br/>
+            <small>Check-in time:</small><br/>
             <span *ngIf="this.sharedProp.current_datetime" class="appointment-firts">{{ checkin_time }}</span>
           </div>
           
@@ -19,7 +19,7 @@
           <span *ngIf="this.sharedProp.current_imaging">
             <span *ngIf="this.sharedProp.current_imaging.organization && this.sharedProp.current_imaging.branch && this.sharedProp.current_imaging.service && this.sharedProp.current_modality">
               <div class="current-info divider-alt">
-                <small>Organización ► Sucursal ► Servicio:</small><br/>
+                <small>Organization ► Branch ► Service:</small><br/>
                 <span class="current-firts">{{ this.sharedProp.current_imaging.organization.short_name + ' ► ' + this.sharedProp.current_imaging.branch.short_name + ' ► ' + this.sharedProp.current_imaging.service.name }}</span>
               </div>
             </span>
@@ -28,7 +28,7 @@
           <!-- modality -->
           <span *ngIf="this.sharedProp.current_modality">
             <div class="current-info text-center">
-              <small>Modalidad:</small><br/>
+              <small>Modality:</small><br/>
               <span class="badge" matTooltip="{{ this.sharedProp.current_modality.code_meaning }}">
                 <span>{{ this.sharedProp.current_modality.code_value }}</span>
               </span>
@@ -41,11 +41,11 @@
         <!-- patient -->
         <span *ngIf="this.sharedProp.current_patient">
           <span *ngIf="this.sharedProp.current_patient.person">
-            <h3 class="details-title">Datos del paciente:</h3>
+            <h3 class="details-title">Patient details:</h3>
             <div class="current-wrap">
               <!-- documents -->
               <div class="current-info">
-                <small>Documento/s:</small><br/>
+                <small>Document(s):</small><br/>
                 <span *ngFor="let current of this.sharedProp.current_patient.person.documents" >
                   <span matTooltip="{{ country_codes[current.doc_country_code].name }}" class="flag-icon flag-icon-{{ country_codes[current.doc_country_code].alpha_2 | lowercase }}"></span>&nbsp;
                   <span matTooltip="{{ document_types[current.doc_type] }}">
@@ -57,7 +57,7 @@
               
               <!-- names -->
               <div class="current-info">
-                <small>Nombre completo:</small><br/>
+                <small>Full name:</small><br/>
                 <span class="current-firts">
                   <span>{{ this.sharedProp.current_patient.person.name_01 }}</span>
   
@@ -81,13 +81,13 @@
             <div class="current-wrap">
               <!-- birth_date -->
               <div class="current-info">
-                <small>Fecha de nacimiento:</small><br/>
+                <small>Birth date:</small><br/>
                 <span class="current-firts">{{ this.sharedProp.current_patient.person.birth_date | date:"dd/MM/yyyy":"UTC" }}</span>
               </div>
               
               <!-- genre -->
               <div class="current-info text-center">
-                <small>Género:</small><br/>
+                <small>Gender:</small><br/>
                 <span [ngSwitch]="this.sharedProp.current_patient.person.gender" matTooltip="{{ gender_types[this.sharedProp.current_patient.person.gender] }}">
                   <span *ngSwitchCase="1"><mat-icon class="male">man</mat-icon></span>
                   <span *ngSwitchCase="2"><mat-icon class="female">woman</mat-icon></span>
@@ -97,10 +97,10 @@
               
               <!-- status -->
               <div class="current-info text-center">
-                <small>Estado:</small><br/>
+                <small>Status:</small><br/>
                 <span *ngIf="this.sharedProp.current_patient.status; then thenBlock else elseBlock"></span>
-                <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="Activo">done</mat-icon></ng-template>
-                <ng-template #elseBlock><mat-icon class="color-fail" matTooltip="Inactivo">clear</mat-icon></ng-template>
+                <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="Active">done</mat-icon></ng-template>
+                <ng-template #elseBlock><mat-icon class="color-fail" matTooltip="Inactive">clear</mat-icon></ng-template>
               </div>
               
               <div class="clear"></div>
@@ -118,11 +118,11 @@
   
       <div class="input-wrapper"> <!-- start fxLayout wrapper -->
         <!-- flow_state -->
-        <h3 class="details-title">Flujo de trabajo:</h3>
+        <h3 class="details-title">Workflow:</h3>
         <div fxLayout="row" fxLayoutAlign="start start">
           <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
             <mat-form-field appearance="fill" class="full">
-              <mat-label>Flujo de trabajo</mat-label>
+              <mat-label>Workflow</mat-label>
               <mat-select formControlName="flow_state">
                 <div *ngFor="let currentFS of availableFS | keyvalue">
                   <mat-option value="{{ currentFS.key }}" (click)="setFlowState(currentFS.key)">{{ currentFS.value }}</mat-option>
@@ -133,9 +133,9 @@
 
           <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
             <div [class.non-display]="booleanCancelation == false">
-              <h4>Motivos de cancelación:</h4>
+              <h4>Cancellation reasons:</h4>
               <mat-form-field appearance="fill" class="full">
-                <mat-label>Motivos de cancelación</mat-label>
+                <mat-label>Cancellation reasons</mat-label>
                 <mat-select formControlName="cancellation_reasons">-->
                   <div *ngFor="let currentReason of cancellation_reasons | keyvalue">
                     <mat-option value="{{ currentReason.key }}">{{ currentReason.value }}</mat-option>
@@ -146,18 +146,18 @@
           </div> <!-- end fxLayout wrapper -->
         </div>
 
-        <h4>Urgencia:</h4>
-        <mat-radio-group aria-label="Urgencia" color="primary" formControlName="urgency">
-          <mat-radio-button value="true">Si</mat-radio-button>
+        <h4>Urgency:</h4>
+        <mat-radio-group aria-label="Urgency" color="primary" formControlName="urgency">
+          <mat-radio-button value="true">Yes</mat-radio-button>
           <mat-radio-button value="false">No</mat-radio-button>
         </mat-radio-group>
 
         <div class="clear"></div><br/><hr class="dashed" /><br/>
 
-        <h4>Estado:</h4>
-        <mat-radio-group aria-label="Estado" color="primary" formControlName="status">
-          <mat-radio-button value="true">Activo</mat-radio-button>
-          <mat-radio-button value="false">Inactivo</mat-radio-button>
+        <h4>Status:</h4>
+        <mat-radio-group aria-label="Status" color="primary" formControlName="status">
+          <mat-radio-button value="true">Active</mat-radio-button>
+          <mat-radio-button value="false">Inactive</mat-radio-button>
         </mat-radio-group>
 
       </div> <!-- end fxLayout wrapper -->
@@ -170,8 +170,8 @@
         <!-- APPOINTMENT DETAILS TAB: ------------------------------------------------------------------------------------------------------------------ -->
         <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="tab-icon">perm_contact_calendar</mat-icon> Detalles de la cita
-              <mat-icon *ngIf="detailsTabErrors" class="validate-error-tab" matTooltip="Existen errores de validación bajo esta pestaña">priority_high</mat-icon>
+              <mat-icon class="tab-icon">perm_contact_calendar</mat-icon> Appointment details
+              <mat-icon *ngIf="detailsTabErrors" class="validate-error-tab" matTooltip="Validation errors exist under this tab">priority_high</mat-icon>
             </ng-template>
             <app-tab-details></app-tab-details>
         </mat-tab>
@@ -181,19 +181,19 @@
         <!-- INJECTION TAB: -------------------------------------------------------------------------------------------------------------------------- -->
         <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="tab-icon">vaccines</mat-icon> Procedimiento
-              <mat-icon *ngIf="injectionTabErrors" class="validate-error-tab" matTooltip="Existen errores de validación bajo esta pestaña">priority_high</mat-icon>
+              <mat-icon class="tab-icon">vaccines</mat-icon> Procedure
+              <mat-icon *ngIf="injectionTabErrors" class="validate-error-tab" matTooltip="Validation errors exist under this tab">priority_high</mat-icon>
             </ng-template>
             
             <div fxLayout="row" fxLayoutAlign="start start">
               <div class="input-wrapper divider"> <!-- start fxLayout wrapper -->
-                <h3 class="form-title text-center underline-fail-alt">Datos de la preparación:</h3>
+                <h3 class="form-title text-center underline-fail-alt">Preparation details:</h3>
                 <br/>
 
-                <h4>Procedimiento:</h4>
+                <h4>Procedure:</h4>
                 <mat-form-field appearance="fill" class="large">
-                  <mat-label>Procedimiento</mat-label>
-                  <mat-select formControlName="fk_procedure" placeholder="Seleccione el procedimiento">
+                  <mat-label>Procedure</mat-label>
+                  <mat-select formControlName="fk_procedure" placeholder="Select the procedure">
                     <div *ngFor="let currentProcedure of availableProcedures">
                       <mat-option (click)="setProcedure(currentProcedure._id, currentProcedure.coefficient)" value="{{ currentProcedure._id }}">{{ currentProcedure.name }}</mat-option>
                     </div>
@@ -205,27 +205,27 @@
                 <div formGroupName="injection" [class.non-display]="booleanContrast == false">
                   <div fxLayout="row" fxLayoutAlign="start start">
                     <div class="input-wrapper"> <!-- start fxLayout wrapper -->
-                      <h4>Tipo de contraste:</h4>
+                      <h4>Contrast type:</h4>
                       <mat-form-field appearance="fill" class="full">
-                        <mat-label>Tipo de contraste</mat-label>
-                        <input matInput type="text" formControlName="sync_contrast_description" (keyup)="syncContrastDescription()" placeholder="Ingrese el volumen administrado">
+                        <mat-label>Contrast type</mat-label>
+                        <input matInput type="text" formControlName="sync_contrast_description" (keyup)="syncContrastDescription()" placeholder="Enter the administered volume">
                       </mat-form-field>
 
                       <br/>
 
-                      <h4>Hora de inyección <span class="label-info">Formato 24 hs</span>:</h4>
+                      <h4>Injection time <span class="label-info">24-hour format</span>:</h4>
                       <mat-form-field appearance="fill">
-                        <mat-label>Hora de inyección</mat-label>
+                        <mat-label>Injection time</mat-label>
                         <input type="time" matInput formControlName="administration_time" min="00:00" max="24:00">
-                        <button matSuffix mat-icon-button type="button" matTooltip="Ahora" (click)="setTimeNow('injection.administration_time');"><mat-icon>timer</mat-icon></button>
+                        <button matSuffix mat-icon-button type="button" matTooltip="Now" (click)="setTimeNow('injection.administration_time');"><mat-icon>timer</mat-icon></button>
                       </mat-form-field>
                     </div> <!-- end fxLayout wrapper -->
 
                     <div class="input-wrapper"> <!-- start fxLayout wrapper -->
-                      <h4>Volumen administrado: <span class="label-info">mL</span></h4>
+                      <h4>Administered volume: <span class="label-info">mL</span></h4>
                       <mat-form-field appearance="fill" class="full">
-                        <mat-label>Volumen administrado</mat-label>
-                        <input matInput icNumbersWD type="text" formControlName="administered_volume" placeholder="Ingrese el volumen administrado">
+                        <mat-label>Administered volume</mat-label>
+                        <input matInput icNumbersWD type="text" formControlName="administered_volume" placeholder="Enter the administered volume">
                       </mat-form-field>
                     </div> <!-- end fxLayout wrapper -->
                   </div>
@@ -234,16 +234,16 @@
                   <hr class="dashed"/><br/>
                 </div>
 
-                <h4>Observaciones <span class="label-info">min: 10, max: 1000</span>:</h4>
+                <h4>Observations <span class="label-info">min: 10, max: 1000</span>:</h4>
                 <ckeditor formControlName="observations" #injectionObservations [editor]="injectionObservationsEditor" [config]="sharedProp.mainSettings.CKEditorConfig" data=""></ckeditor>
                 
                 <br/><hr class="dashed" /><br/>
 
                 <div formGroupName="injection" [class.non-display]="booleanContrast == false">
-                  <h4>Responsable de inyección:</h4>
+                  <h4>Injection staff member:</h4>
                   <mat-form-field appearance="fill" class="large">
-                    <mat-label>Responsable de inyección</mat-label>
-                    <mat-select formControlName="injection_user" placeholder="Seleccione el responsable de inyección">
+                    <mat-label>Injection staff member</mat-label>
+                    <mat-select formControlName="injection_user" placeholder="Select the injection staff member">
                       <span *ngIf="this.injectionServiceUsers">
                         <div *ngFor="let currentInjectionUser of this.injectionServiceUsers">
                           <mat-option value="{{ currentInjectionUser._id }}">
@@ -274,26 +274,26 @@
 
               <div class="input-wrapper" [class.non-display]="sharedProp.current_modality_code_value != 'PT'"> <!-- start fxLayout wrapper -->
                 <div formGroupName="injection">
-                  <h3 class="form-title text-center underline-fail-alt">Datos de inyección PET-CT:</h3>
+                  <h3 class="form-title text-center underline-fail-alt">PET-CT injection details:</h3>
                   <br/>
                   
                   <div formGroupName="pet_ct">
                     <div fxLayout="row" fxLayoutAlign="start start">
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Lote:</h4>
+                        <h4>Batch:</h4>
                         <mat-form-field appearance="fill" class="medium">
-                          <mat-label>Lote</mat-label>
-                          <input matInput type="text" formControlName="batch" placeholder="Ingrese el lote">
+                          <mat-label>Batch</mat-label>
+                          <input matInput type="text" formControlName="batch" placeholder="Enter the batch">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
 
                       <div class="input-wrapper sub-wrapper dose"> <!-- start fxLayout wrapper -->
-                        <h4>DOSIS RECOMENDADA:</h4>
+                        <h4>RECOMMENDED DOSE:</h4>
                         <span class="badge-warn badge-dose MBq">{{ sharedProp.recomended_dose }} MBq</span>
                         <span class="badge-warn badge-dose mCi">{{ sharedFunctions.MBqTomCi(sharedProp.recomended_dose) }} mCi</span>
                         <div class="clear"></div>
                         <br/>
-                        <small>Dósis recomendada <strong>=</strong> Peso <strong>*</strong> Coeficiente de procedimiento</small>
+                        <small>Recommended dose <strong>=</strong> Weight <strong>*</strong> Procedure coefficient</small>
                       </div> <!-- end fxLayout wrapper -->
                     </div>
 
@@ -301,26 +301,26 @@
 
                     <div fxLayout="row" fxLayoutAlign="start start">
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Hora jeringa llena <span class="label-info">Formato 24 hs</span>:</h4>
+                        <h4>Full syringe time <span class="label-info">24-hour format</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Hora jeringa llena</mat-label>
+                          <mat-label>Full syringe time</mat-label>
                           <input type="time" matInput formControlName="syringe_full_time" min="00:00" max="24:00">
-                          <button matSuffix mat-icon-button type="button" matTooltip="Ahora" (click)="setTimeNow('injection.pet_ct.syringe_full_time');"><mat-icon>timer</mat-icon></button>
+                          <button matSuffix mat-icon-button type="button" matTooltip="Now" (click)="setTimeNow('injection.pet_ct.syringe_full_time');"><mat-icon>timer</mat-icon></button>
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
             
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad jeringa llena <span class="label-info MBq">MBq</span>:</h4>
+                        <h4>Full syringe activity <span class="label-info MBq">MBq</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad jeringa llena MBq</mat-label>
+                          <mat-label>Full syringe activity MBq</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'syringe_activity_full_mCi', 'mCi')" type="text" matInput formControlName="syringe_activity_full" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
 
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad jeringa llena <span class="label-info mCi">mCi</span>:</h4>
+                        <h4>Full syringe activity <span class="label-info mCi">mCi</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad jeringa llena mCi</mat-label>
+                          <mat-label>Full syringe activity mCi</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'syringe_activity_full', 'MBq')"  type="text" matInput formControlName="syringe_activity_full_mCi" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
@@ -330,26 +330,26 @@
 
                     <div fxLayout="row" fxLayoutAlign="start start">
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Hora jeringa vacía <span class="label-info">Formato 24 hs</span>:</h4>
+                        <h4>Empty syringe time <span class="label-info">24-hour format</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Hora jeringa vacía</mat-label>
+                          <mat-label>Empty syringe time</mat-label>
                           <input type="time" matInput formControlName="syringe_empty_time" min="00:00" max="24:00">
-                          <button matSuffix mat-icon-button type="button" matTooltip="Ahora" (click)="setTimeNow('injection.pet_ct.syringe_empty_time');"><mat-icon>timer</mat-icon></button>
+                          <button matSuffix mat-icon-button type="button" matTooltip="Now" (click)="setTimeNow('injection.pet_ct.syringe_empty_time');"><mat-icon>timer</mat-icon></button>
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
             
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad jeringa vacía <span class="label-info MBq">MBq</span>:</h4>
+                        <h4>Empty syringe activity <span class="label-info MBq">MBq</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad jeringa vacía MBq</mat-label>
+                          <mat-label>Empty syringe activity MBq</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'syringe_activity_empty_mCi', 'mCi')" type="text" matInput formControlName="syringe_activity_empty" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
 
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad jeringa vacía <span class="label-info mCi">mCi</span>:</h4>
+                        <h4>Empty syringe activity <span class="label-info mCi">mCi</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad jeringa vacía mCi</mat-label>
+                          <mat-label>Empty syringe activity mCi</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'syringe_activity_empty', 'MBq')" type="text" matInput formControlName="syringe_activity_empty_mCi" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
@@ -359,23 +359,23 @@
 
                     <small>
                       <button mat-flat-button color="accent" (click)="setAdministredActivity()" class="small_button" type="button">
-                        <mat-icon class="tab-icon">vaccines</mat-icon> CALCULAR DOSIS ADMINISTRADA &nbsp;
+                        <mat-icon class="tab-icon">vaccines</mat-icon> CALCULATE ADMINISTERED DOSE &nbsp;
                       </button>
                     </small>
 
                     <div fxLayout="row" fxLayoutAlign="start start">
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad administrada <span class="label-info MBq">MBq</span>:</h4>
+                        <h4>Administered activity <span class="label-info MBq">MBq</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad administrada MBq</mat-label>
+                          <mat-label>Administered activity MBq</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'administred_activity_mCi', 'mCi')" type="text" matInput formControlName="administred_activity" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
 
                       <div class="input-wrapper sub-wrapper"> <!-- start fxLayout wrapper -->
-                        <h4>Actividad administrada <span class="label-info mCi">mCi</span>:</h4>
+                        <h4>Administered activity <span class="label-info mCi">mCi</span>:</h4>
                         <mat-form-field appearance="fill" class="full">
-                          <mat-label>Actividad administrada mCi</mat-label>
+                          <mat-label>Administered activity mCi</mat-label>
                           <input icNumbersWD (keyup)="convertActivity($event, 'administred_activity', 'MBq')" type="text" matInput formControlName="administred_activity_mCi" min="1" max="900">
                         </mat-form-field>
                       </div> <!-- end fxLayout wrapper -->
@@ -383,10 +383,10 @@
 
                     <hr class="dashed" /><br/>
                     
-                    <h4>Responsable de laboratorio:</h4>
+                    <h4>Laboratory staff member:</h4>
                     <mat-form-field appearance="fill" class="large">
-                      <mat-label>Responsable de laboratorio</mat-label>
-                      <mat-select formControlName="laboratory_user" placeholder="Seleccione el responsable de laboratorio">
+                      <mat-label>Laboratory staff member</mat-label>
+                      <mat-select formControlName="laboratory_user" placeholder="Select the laboratory staff member">
                         <span *ngIf="this.injectionServiceUsers">
                           <div *ngFor="let currentLaboratoryUser of this.injectionServiceUsers">
                             <mat-option value="{{ currentLaboratoryUser._id }}">
@@ -419,16 +419,16 @@
         <!-- ANESTHESIA TAB: --------------------------------------------------------------------------------------------------------------------------- -->
         <mat-tab>
           <ng-template mat-tab-label>
-            <mat-icon class="tab-icon">monitor_heart</mat-icon> Anestesia
-            <mat-icon *ngIf="anesthesiaTabErrors" class="validate-error-tab" matTooltip="Existen errores de validación bajo esta pestaña">priority_high</mat-icon>
+            <mat-icon class="tab-icon">monitor_heart</mat-icon> Anesthesia
+            <mat-icon *ngIf="anesthesiaTabErrors" class="validate-error-tab" matTooltip="Validation errors exist under this tab">priority_high</mat-icon>
           </ng-template>
 
           <div formGroupName="anesthesia">
             <div class="text-center">
               <br/>
-              <h2>¿El estudio requiere anestesia?</h2>
-              <mat-radio-group aria-label="Anestesia" color="primary" formControlName="use_anesthesia" (change)="onChangeAnesthesia($event, form)">
-                <mat-radio-button value="true">Si</mat-radio-button>
+              <h2>Does the study require anesthesia?</h2>
+              <mat-radio-group aria-label="Anesthesia" color="primary" formControlName="use_anesthesia" (change)="onChangeAnesthesia($event, form)">
+                <mat-radio-button value="true">Yes</mat-radio-button>
                 <mat-radio-button value="false">No</mat-radio-button>
               </mat-radio-group>
             </div>
@@ -440,45 +440,45 @@
         
               <div fxLayout="row" fxLayoutAlign="start start">
                 <div class="input-wrapper divider"> <!-- start fxLayout wrapper -->
-                  <h3 class="form-title text-center underline-fail-alt">Datos del anestesista:</h3>
+                  <h3 class="form-title text-center underline-fail-alt">Anesthesiologist details:</h3>
                   <br/>
 
-                  <h4>Nº de profesional:</h4>
+                  <h4>Professional ID:</h4>
                   <mat-form-field appearance="fill" class="medium">
-                    <mat-label>Nº de profesional</mat-label>
-                    <input matInput type="text" formControlName="professional_id" placeholder="Ingrese el número de profesional">
+                    <mat-label>Professional ID</mat-label>
+                    <input matInput type="text" formControlName="professional_id" placeholder="Enter the professional number">
                   </mat-form-field>
           
                   <br/>
           
-                  <h4>Documento:</h4>
+                  <h4>Document:</h4>
                   <mat-form-field appearance="fill" class="medium">
-                    <mat-label>Documento</mat-label>
-                    <input matInput type="text" formControlName="document" placeholder="Ingrese el documento">
+                    <mat-label>Document</mat-label>
+                    <input matInput type="text" formControlName="document" placeholder="Enter the document">
                   </mat-form-field>
         
                   <br/>
           
-                  <h4>Nombre:</h4>
+                  <h4>First name:</h4>
                   <mat-form-field appearance="fill" class="large">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput icSpecialCharsWS type="text" formControlName="name" placeholder="Ingrese el nombre">
+                    <mat-label>First name</mat-label>
+                    <input matInput icSpecialCharsWS type="text" formControlName="name" placeholder="Enter the first name">
                   </mat-form-field>
           
                   <br/>
           
-                  <h4>Apellido:</h4>
+                  <h4>Last name:</h4>
                   <mat-form-field appearance="fill" class="large">
-                    <mat-label>Apellido</mat-label>
-                    <input matInput icSpecialCharsWS type="text" formControlName="surname" placeholder="Ingrese el apellido">
+                    <mat-label>Last name</mat-label>
+                    <input matInput icSpecialCharsWS type="text" formControlName="surname" placeholder="Enter the last name">
                   </mat-form-field>
                 </div> <!-- end fxLayout wrapper -->
           
                 <div class="input-wrapper"> <!-- start fxLayout wrapper -->
-                  <h3 class="form-title text-center underline-fail-alt">Procedimiento de anestesia:</h3>
+                  <h3 class="form-title text-center underline-fail-alt">Anesthesia procedure:</h3>
                   <br/>
                   
-                  <h4>Procedimiento realizado <span class="label-info">min: 10, max: 1000</span>:</h4>
+                  <h4>Procedure performed <span class="label-info">min: 10, max: 1000</span>:</h4>
                   <div [class.unselected]="anesthesiaValidator == false">
                     <ckeditor formControlName="procedure" #procedure [editor]="procedureEditor" [config]="sharedProp.mainSettings.CKEditorConfig" data=""></ckeditor>
                   </div>
@@ -495,19 +495,19 @@
         <!-- ACQUISITION TAB: -------------------------------------------------------------------------------------------------------------------------- -->
         <mat-tab>
           <ng-template mat-tab-label>
-            <mat-icon class="tab-icon">airline_seat_flat</mat-icon> Adquisición
-            <mat-icon *ngIf="acquisitionTabErrors" class="validate-error-tab" matTooltip="Existen errores de validación bajo esta pestaña">priority_high</mat-icon>
+            <mat-icon class="tab-icon">airline_seat_flat</mat-icon> Acquisition
+            <mat-icon *ngIf="acquisitionTabErrors" class="validate-error-tab" matTooltip="Validation errors exist under this tab">priority_high</mat-icon>
           </ng-template>
                 
             <div fxLayout="row" fxLayoutAlign="start start">
               <div class="input-wrapper divider"> <!-- start fxLayout wrapper -->
-                <h3 class="form-title text-center underline-fail-alt">Datos de la Adquisición:</h3>
+                <h3 class="form-title text-center underline-fail-alt">Acquisition details:</h3>
                 <br/>
                 
-                <h4>Equipo:</h4>
+                <h4>Equipment:</h4>
                 <mat-form-field appearance="fill" class="large">
-                  <mat-label>Equipo</mat-label>
-                  <mat-select formControlName="fk_equipment" placeholder="Seleccione el equipo">
+                  <mat-label>Equipment</mat-label>
+                  <mat-select formControlName="fk_equipment" placeholder="Select the equipment">
                     <div *ngFor="let currentEquipment of availableEquipments">
                       <mat-option (click)="setEquipment(currentEquipment._id)" value="{{ currentEquipment._id }}">{{ currentEquipment.name }}</mat-option>
                     </div>
@@ -517,22 +517,22 @@
                 <hr class="dashed" /><br/>
 
                 <div formGroupName="acquisition">
-                  <h4>Hora de adquisición <span class="label-info">Formato 24 hs</span>:</h4>
+                  <h4>Acquisition time <span class="label-info">24-hour format</span>:</h4>
                   <mat-form-field appearance="fill">
-                    <mat-label>Hora de adquisición</mat-label>
+                    <mat-label>Acquisition time</mat-label>
                     <input type="time" matInput formControlName="time" min="00:00" max="24:00">
-                    <button matSuffix mat-icon-button type="button" matTooltip="Ahora" (click)="setTimeNow('acquisition.time');"><mat-icon>timer</mat-icon></button>
+                    <button matSuffix mat-icon-button type="button" matTooltip="Now" (click)="setTimeNow('acquisition.time');"><mat-icon>timer</mat-icon></button>
                   </mat-form-field>
 
-                  <h4>Observaciones <span class="label-info">min: 10, max: 1000</span>:</h4>
+                  <h4>Observations <span class="label-info">min: 10, max: 1000</span>:</h4>
                   <ckeditor formControlName="observations" #acquisitionObservations [editor]="acquisitionObservationsEditor" [config]="sharedProp.mainSettings.CKEditorConfig" data=""></ckeditor>
 
                   <br/><hr class="dashed"/><br/>
 
-                  <h4>Técnico en consola:</h4>
+                  <h4>Console technician:</h4>
                   <mat-form-field appearance="fill" class="large">
-                    <mat-label>Técnico en consola</mat-label>
-                    <mat-select formControlName="console_technician" placeholder="Seleccione el técnico en consola">
+                    <mat-label>Console technician</mat-label>
+                    <mat-select formControlName="console_technician" placeholder="Select the console technician">
                       <span *ngIf="this.technicianServiceUsers">
                         <div *ngFor="let currentConsoleTechnician of this.technicianServiceUsers"><!-- 5 Técnicos-->
                           <mat-option value="{{ currentConsoleTechnician._id }}">
@@ -568,7 +568,7 @@
         <!-- HISTORY TAB: ---------------------------------------------------------------------------------------------------------------- -->
       <mat-tab>
         <ng-template mat-tab-label>
-          <mat-icon class="tab-icon">history</mat-icon> Estudios previos
+          <mat-icon class="tab-icon">history</mat-icon> Previous studies
         </ng-template>
 
         <div *ngIf="previous; then thenBlockTable else elseBlockTable"></div>
@@ -580,17 +580,17 @@
               <ng-container matColumnDef="current">
                 <th mat-header-cell *matHeaderCellDef class="text-center column-alt"></th>
                 <td mat-cell *matCellDef="let element" class="text-center">
-                  <span *ngIf="element._id == _id"><mat-icon class="current_item" matTooltip="Actual">arrow_forward</mat-icon></span>
+                  <span *ngIf="element._id == _id"><mat-icon class="current_item" matTooltip="Current">arrow_forward</mat-icon></span>
                 </td>
               </ng-container>
 
               <!-- flow_state -->
               <ng-container matColumnDef="flow_state">
-                <th mat-header-cell *matHeaderCellDef class="text-center column-alt">Flujo de estudio</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center column-alt">Study workflow</th>
                 <td mat-cell *matCellDef="let element" class="text-center">
                   <!--See report-->
                   <span *ngIf="element.flow_state == 'P09'">
-                    <button mat-mini-fab class="small_button_alt" type="button" (click)="sharedFunctions.reportReview(element._id)" matTooltip="Ver informe" color="accent">
+                    <button mat-mini-fab class="small_button_alt" type="button" (click)="sharedFunctions.reportReview(element._id)" matTooltip="View report" color="accent">
                       <mat-icon>playlist_add_check</mat-icon>
                     </button>
                     <br/>
@@ -603,7 +603,7 @@
 
               <!-- date -->
               <ng-container matColumnDef="date">
-                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Fecha </th>
+                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Date </th>
                 <td mat-cell *matCellDef="let element" class="text-center">
                   <span *ngIf="element.date">{{ element.date | date : "dd/MM/yyyy" : "UTC" }}</span>
                 </td>
@@ -611,7 +611,7 @@
 
               <!-- checkin_time -->
               <ng-container matColumnDef="checkin_time">
-                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Hora<br/>recepción </th>
+                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Check-in<br/>time </th>
                 <td mat-cell *matCellDef="let element" class="text-center">
                   <span *ngIf="element.date">{{ element.date | date : "HH:mm" : "UTC" }}</span>
                 </td>
@@ -619,7 +619,7 @@
 
               <!-- patient_age -->
               <ng-container matColumnDef="patient_age">
-                <th mat-header-cell *matHeaderCellDef matTooltip="Edad al momento de la realización del estudio" class="text-center column-alt"> Edad </th>
+                <th mat-header-cell *matHeaderCellDef matTooltip="Age at the time of the study" class="text-center column-alt"> Age </th>
                 <td mat-cell *matCellDef="let element" class="text-center">
                   <span *ngIf="element.patient">
                     <span *ngIf="element.patient.person">
@@ -631,7 +631,7 @@
 
               <!-- details -->
               <ng-container matColumnDef="details">
-                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Detalle </th>
+                <th mat-header-cell *matHeaderCellDef class="text-center column-alt"> Details </th>
                 <td mat-cell *matCellDef="let element">
                   <!-- procedure -->
                   <span *ngIf="element.procedure">
@@ -647,24 +647,24 @@
                       <span>{{ element.equipment.name }}</span>
                       </span>
                   </ng-template>
-                  <ng-template #elseBlockTableEquipment>(Sin dato)</ng-template>
+                  <ng-template #elseBlockTableEquipment>(No data)</ng-template>
 
                   <!-- modality -->
                   <span *ngIf="element.modality; then thenBlockTableModality else elseBlockTableModality"></span>
                   <ng-template #thenBlockTableModality>
                     <span class="badge" matTooltip="{{ element.modality.code_meaning }}">{{ element.modality.code_value }}</span>
                   </ng-template>
-                  <ng-template #elseBlockTableModality>(Sin dato)</ng-template>
+                  <ng-template #elseBlockTableModality>(No data)</ng-template>
                 </td>
               </ng-container>
 
               <!-- domain -->
               <ng-container matColumnDef="domain">
-                <th mat-header-cell *matHeaderCellDef class="text-center column-alt">Dominio</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center column-alt">Domain</th>
                 <td mat-cell *matCellDef="let element">
                   <div *ngIf="element.appointment" class="domain-container">
                     <!--referring-->
-                    <small><strong>Solicitante: </strong></small>
+                    <small><strong>Requester: </strong></small>
                     <span *ngIf="element.appointment.referring; then thenBlockReferring else elseBlockReferring"></span>
                     <ng-template #thenBlockReferring>
                       <small>
@@ -673,12 +673,12 @@
                         <span *ngIf="element.appointment.referring.service"> ► {{ element.appointment.referring.service.name }}</span>
                       </small>
                     </ng-template>
-                    <ng-template #elseBlockReferring>(Sin dato)</ng-template>
+                    <ng-template #elseBlockReferring>(No data)</ng-template>
 
                     <hr class="dashed" />
 
                     <!--imaging-->
-                    <small><strong>Realizador: </strong></small>
+                    <small><strong>Performer: </strong></small>
                     <span *ngIf="element.appointment.imaging; then thenBlockImaging else elseBlockImaging"></span>
                     <ng-template #thenBlockImaging>
                       <small>
@@ -687,12 +687,12 @@
                         <span *ngIf="element.appointment.imaging.service"> ► {{ element.appointment.imaging.service.name }}</span>
                       </small>
                     </ng-template>
-                    <ng-template #elseBlockImaging>(Sin dato)</ng-template>
+                    <ng-template #elseBlockImaging>(No data)</ng-template>
 
                     <hr class="dashed" />
 
                     <!--reporting-->
-                    <small><strong>Informador: </strong></small>
+                    <small><strong>Reporter: </strong></small>
                     <span *ngIf="element.appointment.reporting; then thenBlockReporting else elseBlockReporting"></span>
                     <ng-template #thenBlockReporting>
                       <small>
@@ -701,7 +701,7 @@
                         <span *ngIf="element.appointment.reporting.service"> ► {{ element.appointment.reporting.service.name }}</span>
                       </small>
                     </ng-template>
-                    <ng-template #elseBlockReporting>(Sin dato)</ng-template>
+                    <ng-template #elseBlockReporting>(No data)</ng-template>
                   </div>
                 </td>
               </ng-container>
@@ -715,7 +715,7 @@
         <!-- Await previous or not previous -->
         <ng-template #elseBlockTable>
           <div fxLayout="row" fxLayoutAlign="center center" class="response-info">
-            No se encontraron estudios previos.
+            No previous studies were found.
           </div>
         </ng-template>
       </mat-tab>
@@ -724,10 +724,10 @@
 
     <div class="action-wrapper"fxLayout="row" fxLayoutAlign="end center">
     <div> <!-- start fxLayout wrapper -->
-        <button mat-flat-button type="button" (click)="onCancel();">CANCELAR</button>
-        <button mat-flat-button type="button" color="primary" (click)="onSubmitMaster()" >GUARDAR</button>
+        <button mat-flat-button type="button" (click)="onCancel();">CANCEL</button>
+        <button mat-flat-button type="button" color="primary" (click)="onSubmitMaster()" >SAVE</button>
         <span *ngIf="['P01', 'P02', 'P03', 'P04', 'P05'].includes(form.value.flow_state)">
-          <button mat-flat-button type="button" color="accent" [disabled]="nextStepButtonDisabled" (click)="onNextStep()" >GUARDAR Y AVANZAR</button>
+          <button mat-flat-button type="button" color="accent" [disabled]="nextStepButtonDisabled" (click)="onNextStep()" >SAVE AND PROCEED</button>
         </span>
     </div> <!-- end fxLayout wrapper -->
   </div>

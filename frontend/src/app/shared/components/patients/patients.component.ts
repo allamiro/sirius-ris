@@ -57,7 +57,7 @@ export class PatientsComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Resultado de estudios',
+      content_title       : 'Study results',
       content_icon        : 'fact_check',
       add_button          : false,
       duplicated_surnames : false,                          // Check duplicated surnames
@@ -171,7 +171,7 @@ export class PatientsComponent implements OnInit {
         }
       } else {
         //Send Console Warn Message:
-        console.warn('Error al intentar buscar las imágenes DICOM del elemento: ' + wezenStudyTokenRes.message);
+        console.warn('Error while trying to fetch the element DICOM images: ' + wezenStudyTokenRes.message);
       }
     });
   }
