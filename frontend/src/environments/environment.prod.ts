@@ -172,61 +172,61 @@ export const elementTypesLang = {
 export const privateHealthLang = {
   'ES' : {
     'diabetes'                : 'Diabetes',
-    'hypertension'            : 'Hipertensión',
-    'epoc'                    : 'EPOC',
-    'smoking'                 : 'Tabaquismo',
-    'malnutrition'            : 'Desnutrición',
-    'obesity'                 : 'Obesidad',
-    'asthma'                  : 'Asma',
-    'pregnancy'               : 'Embarazo',
-    'claustrophobia'          : 'Claustrofobia',
-    'renal_insufficiency'     : 'Insuficiencia renal',
-    'heart_failure'           : 'Insuficiencia cardíaca',
-    'ischemic_heart_disease'  : 'Cardiopatía isquémica',
-    'valvulopathy'            : 'Valvulopatía',
-    'arrhythmia'              : 'Arritmia',
+    'hypertension'            : 'Hypertension',
+    'epoc'                    : 'COPD',
+    'smoking'                 : 'Smoking',
+    'malnutrition'            : 'Malnutrition',
+    'obesity'                 : 'Obesity',
+    'asthma'                  : 'Asthma',
+    'pregnancy'               : 'Pregnancy',
+    'claustrophobia'          : 'Claustrophobia',
+    'renal_insufficiency'     : 'Renal insufficiency',
+    'heart_failure'           : 'Heart failure',
+    'ischemic_heart_disease'  : 'Ischemic heart disease',
+    'valvulopathy'            : 'Valvulopathy',
+    'arrhythmia'              : 'Arrhythmia',
     'hiv'                     : 'HIV',
-    'cancer'                  : 'Cáncer',
-    'dementia'                : 'Demencia',
-    'hyperthyroidism'         : 'Hipertiroidismo',
-    'hypothyroidism'          : 'Hipotiroidismo',
-    'other'                   : 'Otro antecedente/patología',
+    'cancer'                  : 'Cancer',
+    'dementia'                : 'Dementia',
+    'hyperthyroidism'         : 'Hyperthyroidism',
+    'hypothyroidism'          : 'Hypothyroidism',
+    'other'                   : 'Other history/pathology',
 
     //Medication and allergies:
-    'medication'              : 'Medicación',
-    'allergies'               : 'Alergias',
+    'medication'              : 'Medication',
+    'allergies'               : 'Allergies',
 
     //Implants:
     'implants': {
-      'cochlear_implant'      : 'Implante coclear',
-      'cardiac_stent'         : 'Stent cardíaco',
-      'metal_prostheses'      : 'Prótesis metálicas',
-      'metal_shards'          : 'Esquirlas metálicas',
-      'pacemaker'             : 'Marcapasos',
-      'other'                 : 'Otro tipo de implante'
+      'cochlear_implant'      : 'Cochlear implant',
+      'cardiac_stent'         : 'Cardiac stent',
+      'metal_prostheses'      : 'Metal prostheses',
+      'metal_shards'          : 'Metal fragments',
+      'pacemaker'             : 'Pacemaker',
+      'other'                 : 'Other implant type'
     },
 
     //COVID-19:
     'covid19': {
-      'had_covid'             : 'Tuvo COVID-19',
-      'vaccinated'            : 'Posee vacunación contra COVID-19',
-      'details'               : 'Detalles (Ej. tipo de dosis Sinovac, Phizer).',
+      'had_covid'             : 'Had COVID-19',
+      'vaccinated'            : 'Vaccinated against COVID-19',
+      'details'               : 'Details (e.g., Sinovac, Pfizer dose).',
     }
   }
 };
 
 // Inpatient types:
 export const inpatient_types = {
-  1 :'Cuidados intensivos',
-  2 :'Emergencia',
-  3 :'Internación'
+  1 :'Intensive care',
+  2 :'Emergency',
+  3 :'Inpatient unit'
 };
 
 // Anonymous patient document case:
 export const anonymous_doc = {
   doc_country_code: '001',  // Available in ISO-3166.
   document_types: 100,      // Reserved in document_types for this case.
-  description: 'Anónimo'
+  description: 'Anonymous'
 };
 
 // Country codes (ISO-3166):
