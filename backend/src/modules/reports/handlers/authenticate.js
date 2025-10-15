@@ -103,19 +103,19 @@ module.exports = async (req, res, currentSchema) => {
                                                         const datetime = mainServices.datetimeFulCalendarFormater(new Date(reportResult.report_complete_data.performing.date), new Date(reportResult.report_complete_data.performing.date));
 
                                                         //Build mail body (message):
-                                                        const body_message = objLogos.logoEmailContent + 
-                                                        '<p>' + 
-                                                            '<strong>Estimado/a ' + patient_complete_name + ',</strong><br/>' +
-                                                            '<br/>Le enviamos <strong>adjunto</strong> a este correo electrónico el <strong>informé médico</strong> del estudio realizado sobre la fecha <strong>' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</strong>.<br/>' + 
-                                                            '<br/>' + 
-                                                            '<small><i>Este es un correo automático, por favor no responda a esta dirección.</i></small>' + 
-                                                            '<br/><br/>' + 
+                                                        const body_message = objLogos.logoEmailContent +
+                                                        '<p>' +
+                                                            '<strong>Dear ' + patient_complete_name + ',</strong><br/>' +
+                                                            '<br/>We are sending the <strong>attached medical report</strong> for the study performed on <strong>' + datetime.dateDay + '/' + datetime.dateMonth + '/' + datetime.dateYear + '</strong>.<br/>' +
+                                                            '<br/>' +
+                                                            '<small><i>This is an automated email, please do not reply to this address.</i></small>' +
+                                                            '<br/><br/>' +
                                                         '</p>';
 
                                                         //Set attached files:
                                                         //Encoded report string as an attachment:
                                                         attachments = [{
-                                                            filename: 'Informe_medico.pdf',
+                                                            filename: 'Medical_report.pdf',
                                                             content: reportResult.base64,
                                                             encoding: 'base64'
                                                         }];
@@ -131,7 +131,7 @@ module.exports = async (req, res, currentSchema) => {
                                                             req, res,
                                                             log_element,
                                                             reportResult.report_complete_data.patient.email,
-                                                            reportResult.report_complete_data.appointment.imaging.organization.name + ' - Informe médico (Sirius RIS)',
+                                                            reportResult.report_complete_data.appointment.imaging.organization.name + ' - Medical report (Sirius RIS)',
                                                             body_message,
                                                             attachments,
                                                             false

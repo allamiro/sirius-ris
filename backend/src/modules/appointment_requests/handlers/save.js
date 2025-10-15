@@ -178,16 +178,16 @@ module.exports = async (req, res, currentSchema, operation) => {
                         const patient_complete_name = patient_names + ' ' + patient_surnames;
 
                         //Build mail body (message):
-                        const body_message = '<p>' + 
-                            '<strong>Estimado/a ' + patient_complete_name + ',</strong><br/>' +
-                            '<br/>Su <strong>solicitud de estudio</strong> ha sido recibida de forma exitosa.<br/>' + 
-                            '<ul>' + 
-                                '<li>ID de solicitud: <strong>' + data._id + '</strong></li>' + 
-                                '<li>ID de solicitante: <strong>' + data.referring.organization + '</strong></li>' + 
+                        const body_message = '<p>' +
+                            '<strong>Dear ' + patient_complete_name + ',</strong><br/>' +
+                            '<br/>Your <strong>study request</strong> has been received successfully.<br/>' +
+                            '<ul>' +
+                                '<li>Request ID: <strong>' + data._id + '</strong></li>' +
+                                '<li>Requester ID: <strong>' + data.referring.organization + '</strong></li>' +
                             '</ul>' +
-                            '<br/>' + 
-                            '<small><i>Este es un correo automático, por favor no responda a esta dirección.</i></small>' + 
-                            '<br/><br/>' + 
+                            '<br/>' +
+                            '<small><i>This is an automated email, please do not reply to this address.</i></small>' +
+                            '<br/><br/>' +
                         '</p>';
 
                         //Send proof of appointment request:
@@ -195,7 +195,7 @@ module.exports = async (req, res, currentSchema, operation) => {
                             req, res,
                             log_element,
                             data.patient.email,
-                            'Comprobante de solicitud de estudio (Sirius RIS)',
+                            'Study request confirmation (Sirius RIS)',
                             body_message,
                             undefined,
                             false

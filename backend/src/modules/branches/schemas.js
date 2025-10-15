@@ -45,46 +45,46 @@ const Validator = [
     body('fk_organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_organization NO es un ID MongoDB válido.'),
+        .withMessage('The fk_organization parameter is NOT a valid MongoDB ID.'),
 
     body('name')
         .trim()
         .isLength({ min: 3, max: 64 })
-        .withMessage('El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The name is too short or too long (min: 3, max: 64 characters).'),
 
     body('short_name')
         .trim()
         .isLength({ min: 3, max: 32 })
-        .withMessage('El primer nombre corto ingresado es demasiado corto o demasiado largo (min: 3, max: 32 [caracteres]).'),
+        .withMessage('The short name is too short or too long (min: 3, max: 32 characters).'),
 
     body('OID')
         .optional()
         .trim()
         .isLength({ min: 1, max: 64 })
-        .withMessage('El OID ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The OID is too short or too long (min: 3, max: 64 characters).'),
 
     body('country_code')
         .trim()
         .isLength({ min: 3, max: 3 })
-        .withMessage('El código de país ingresado es demasiado corto o demasiado largo (min: 3, max: 3 [caracteres]).')
+        .withMessage('The entered country code is too short or too long (min: 3, max: 3 characters).')
         .toLowerCase(),
 
     body('structure_id')
         .optional()
         .trim()
         .isLength({ min: 1, max: 64 })
-        .withMessage('El ID de Estructura ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The structure ID is too short or too long (min: 3, max: 64 characters).'),
 
     body('suffix')
         .optional()
         .trim()
         .isLength({ min: 1, max: 64 })
-        .withMessage('El suffix ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The suffix is too short or too long (min: 3, max: 64 characters).'),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The provided status is not boolean (true or false).')
         .toBoolean(),
 
     body('base64_logo')
@@ -94,7 +94,7 @@ const Validator = [
         .optional()
         .trim()
         .isLength({ min: 10, max: 3000 })
-        .withMessage('El parametro appointment_footer ingresado es demasiado corto o demasiado largo (min: 10, max: 3000 [caracteres]).'),
+        .withMessage('The appointment_footer parameter is too short or too long (min: 10, max: 3000 characters).'),
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 
