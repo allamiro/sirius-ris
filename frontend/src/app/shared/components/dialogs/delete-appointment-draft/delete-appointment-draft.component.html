@@ -1,32 +1,32 @@
-<h1 mat-dialog-title class="underline-fail"><mat-icon>delete_forever</mat-icon>&nbsp; Descartar cita en curso</h1>
+<h1 mat-dialog-title class="underline-fail"><mat-icon>delete_forever</mat-icon>&nbsp; Discard in-progress appointment</h1>
 <div mat-dialog-content>
-  <h3>¿Desea descartar la cita en curso?</h3>
-  Tenga en cuenta que si confirma, dicha cita en curso no será recuperable.<br/>
+  <h3>Do you want to discard the in-progress appointment?</h3>
+  Keep in mind that if you confirm, this appointment in progress cannot be recovered.<br/>
 
   <br/><hr class="dashed" />
 
-  <h3 class="details-title">Datos de la cita a coordinar:</h3>
+  <h3 class="details-title">Appointment details:</h3>
   <!-- appointment_date -->
   <div class="current-info divider-alt">
-    <small>Fecha de cita:</small><br/>
+    <small>Appointment date:</small><br/>
     <span class="appointment-firts">{{ formatted_datetime.dateDay + '/' + formatted_datetime.dateMonth + '/' + formatted_datetime.dateYear }}</span>
   </div>
 
   <!-- appointment_start -->
   <div class="current-info divider-alt">
-    <small>Hora de inicio:</small><br/>
+    <small>Start time:</small><br/>
     <span class="appointment-firts">{{ formatted_datetime.startHours + ':' + formatted_datetime.startMinutes }}</span>
   </div>
 
   <!-- appointment_end -->
   <div class="current-info divider-alt">
-    <small>Hora de fin:</small><br/>
+    <small>End time:</small><br/>
     <span class="appointment-firts">{{ formatted_datetime.endHours + ':' + formatted_datetime.endMinutes }}</span>
   </div>
 
   <!-- equipment -->
   <div class="current-info text-center divider-alt">
-    <small>Equipamiento:</small><br/>
+    <small>Equipment:</small><br/>
     <span class="badge-accent" matTooltip="{{ 'AET: ' + data.slot.equipment.AET }}">
       <span>{{ data.slot.equipment.name }}</span>
     </span>
@@ -34,20 +34,20 @@
 
   <!-- urgency -->
   <div class="current-info text-center">
-    <small>Urgencia:</small><br/>
+    <small>Urgency:</small><br/>
     <div *ngIf="data.urgency; then thenBlockUrgency else elseBlockUrgency"></div>
-    <ng-template #thenBlockUrgency><mat-icon class="color-fail" matTooltip="Urgente">directions_run</mat-icon></ng-template>
+    <ng-template #thenBlockUrgency><mat-icon class="color-fail" matTooltip="Urgent">directions_run</mat-icon></ng-template>
     <ng-template #elseBlockUrgency><mat-icon color="accent" matTooltip="Normal">man</mat-icon></ng-template>
   </div>
 
   <div class="clear"></div>
   <hr class="dashed" />
 
-  <h3 class="details-title">Datos del paciente:</h3>
+  <h3 class="details-title">Patient details:</h3>
 
   <!-- documents -->
   <div class="current-info">
-    <small>Documento/s:</small><br/>
+    <small>Document(s):</small><br/>
     <span *ngFor="let current of data.patient.person.documents" >
       <span matTooltip="{{ country_codes[current.doc_country_code].name }}" class="flag-icon flag-icon-{{ country_codes[current.doc_country_code].alpha_2 | lowercase }}"></span>&nbsp;
       <span matTooltip="{{ document_types[current.doc_type] }}">
@@ -59,7 +59,7 @@
 
   <!-- names -->
   <div class="current-info">
-    <small>Nombre completo:</small><br/>
+    <small>Full name:</small><br/>
     <span class="current-firts">
       <span>{{ data.patient.person.name_01 }}</span>
 
@@ -77,13 +77,13 @@
 
   <!-- birth_date -->
   <div class="current-info">
-    <small>Fecha de nacimiento:</small><br/>
+    <small>Birthdate:</small><br/>
     <span class="current-firts">{{ data.patient.person.birth_date | date:"dd/MM/yyyy":"UTC" }}</span>
   </div>
 
   <!-- genre -->
   <div class="current-info text-center">
-    <small>Género:</small><br/>
+    <small>Gender:</small><br/>
     <span [ngSwitch]="data.patient.person.gender" matTooltip="{{ gender_types[data.patient.person.gender] }}">
       <span *ngSwitchCase="1"><mat-icon class="male">man</mat-icon></span>
       <span *ngSwitchCase="2"><mat-icon class="female">woman</mat-icon></span>
@@ -93,21 +93,21 @@
 
   <!-- status -->
   <div class="current-info text-center">
-    <small>Estado:</small><br/>
+    <small>Status:</small><br/>
     <span *ngIf="data.patient.status; then thenBlock else elseBlock"></span>
-    <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="Activo">done</mat-icon></ng-template>
-    <ng-template #elseBlock><mat-icon class="color-fail" matTooltip="Inactivo">clear</mat-icon></ng-template>
+    <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="Active">done</mat-icon></ng-template>
+    <ng-template #elseBlock><mat-icon class="color-fail" matTooltip="Inactive">clear</mat-icon></ng-template>
   </div>
 
 
   <div class="clear"></div>
   <hr class="dashed" />
 
-  <h3 class="details-title">Realización del estudio:</h3>
+  <h3 class="details-title">Study performance:</h3>
 
   <!-- imaging -->
   <div class="current-info">
-    <small>Organización ► Sucursal ► Servicio:</small><br/>
+    <small>Organization ► Branch ► Service:</small><br/>
     <span class="current-firts">{{ data.imaging.organization.short_name + ' ► ' + data.imaging.branch.short_name + ' ► ' + data.imaging.service.name }}</span>
   </div>
 
@@ -116,7 +116,7 @@
 
   <!-- procedure -->
   <div class="current-info text-center">
-    <small>Procedimiento a realizar:</small><br/>
+    <small>Procedure to perform:</small><br/>
     <span class="badge-alt">
       <span>{{ data.procedure.name }}</span>
     </span>
@@ -124,7 +124,7 @@
 
   <!-- modality -->
   <div class="current-info text-center">
-    <small>Modalidad:</small><br/>
+    <small>Modality:</small><br/>
     <span class="badge" matTooltip="{{ data.modality.code_meaning }}">
       <span>{{ data.modality.code_value }}</span>
     </span>
@@ -132,9 +132,9 @@
 
   <!-- informed_consent -->
   <div class="current-info text-center">
-    <small>Requiere consentimiento informado:</small><br/>
+    <small>Requires informed consent:</small><br/>
     <span *ngIf="data.procedure.informed_consent; then thenBlock else elseBlock"></span>
-    <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="SI">done</mat-icon></ng-template>
+    <ng-template #thenBlock><mat-icon class="color-ok" matTooltip="YES">done</mat-icon></ng-template>
     <ng-template #elseBlock><mat-icon class="color-fail" matTooltip="NO">clear</mat-icon></ng-template>
   </div>
 
@@ -143,6 +143,6 @@
 </div>
 <div mat-dialog-actions>
   <span class="mat-spacer"></span>
-  <button mat-button mat-dialog-close [mat-dialog-close]="false">CANCELAR</button>
-  <button mat-flat-button mat-dialog-close [mat-dialog-close]="true" color="primary" cdkFocusInitial>SI, DESCARTAR</button>
+  <button mat-button mat-dialog-close [mat-dialog-close]="false">CANCEL</button>
+  <button mat-flat-button mat-dialog-close [mat-dialog-close]="true" color="primary" cdkFocusInitial>YES, DISCARD</button>
 </div>
