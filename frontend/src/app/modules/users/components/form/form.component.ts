@@ -109,7 +109,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de usuarios',
+      content_title : 'User form',
       content_icon  : 'people',
       add_button    : false,
       filters_form  : false,
@@ -291,7 +291,7 @@ export class FormComponent implements OnInit {
 
           } else {
             //Return to the list with request error message:
-            this.sharedFunctions.sendMessage('Error al intentar editar el elemento: ' + res.message);
+            this.sharedFunctions.sendMessage('Error while trying to edit the item: ' + res.message);
             this.router.navigate(['/' + this.destiny + '/list']);
           }
         });
@@ -554,7 +554,7 @@ export class FormComponent implements OnInit {
                 });
               } else {
                 //Send message, clear email input and focus on this:
-                this.sharedFunctions.sendMessage('El correo indicado NO puede utilizarse, el mismo se encuentra asociado a un usuario de tipo máquina.')
+                this.sharedFunctions.sendMessage('The specified email cannot be used because it is associated with a machine-type user.');
                 this.form.get('user.email')?.setValue('');
                 inputEmail?.focus();
               }
@@ -767,7 +767,7 @@ export class FormComponent implements OnInit {
       this.userTabErrors = true;
 
       //Send message:
-      this.sharedFunctions.sendMessage('Las contraseñas ingresadas no coinciden entre si.');
+      this.sharedFunctions.sendMessage('The entered passwords do not match.');
     }
   }
 
@@ -809,8 +809,8 @@ export class FormComponent implements OnInit {
     this.validateDocument();
 
     //Set anonymized name and surname:
-    this.form.get('person.name_01')?.setValue('ANÓNIMO');
-    this.form.get('person.surname_01')?.setValue('ANÓNIMO');
+    this.form.get('person.name_01')?.setValue('ANONYMOUS');
+    this.form.get('person.surname_01')?.setValue('ANONYMOUS');
 
     //Set gender:
     this.form.get('person.gender')?.setValue('3');

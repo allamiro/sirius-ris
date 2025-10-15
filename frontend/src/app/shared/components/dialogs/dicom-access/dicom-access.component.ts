@@ -83,7 +83,7 @@ export class DicomAccessComponent implements OnInit {
         
       } else {
         //Send Console Warn Message:
-        console.warn('Error al intentar buscar las imágenes DICOM del elemento: ' + wezenStudyTokenRes.message);
+        console.warn('Error while trying to fetch the element DICOM images: ' + wezenStudyTokenRes.message);
       }
     });
   }

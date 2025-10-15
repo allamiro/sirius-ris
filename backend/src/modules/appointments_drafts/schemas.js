@@ -52,7 +52,7 @@ const Validator = [
         .optional()
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_appointment_request NO es un ID MongoDB válido.'),
+        .withMessage('The fk_appointment_request parameter is not a valid MongoDB ID.'),
 
     //----------------------------------------------------------------------------------------------------------------//
     // IMAGING:
@@ -60,28 +60,28 @@ const Validator = [
     body('imaging.organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.organization NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.organization parameter is not a valid MongoDB ID.'),
     
     body('imaging.branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.branch NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.branch parameter is not a valid MongoDB ID.'),
 
     body('imaging.service')
         .trim()
         .isMongoId()
-        .withMessage('El parametro imaging.service NO es un ID MongoDB válido.'),
+        .withMessage('The imaging.service parameter is not a valid MongoDB ID.'),
     //----------------------------------------------------------------------------------------------------------------//
     
     body('fk_patient')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_patient NO es un ID MongoDB válido.'),
+        .withMessage('The fk_patient parameter is not a valid MongoDB ID.'),
 
     body('fk_coordinator')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_coordinator NO es un ID MongoDB válido.'),
+        .withMessage('The fk_coordinator parameter is not a valid MongoDB ID.'),
 
     body('start').trim(),
 
@@ -90,27 +90,27 @@ const Validator = [
     body('fk_slot')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_slot NO es un ID MongoDB válido.'),
+        .withMessage('The fk_slot parameter is not a valid MongoDB ID.'),
 
     body('fk_procedure')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_procedure NO es un ID MongoDB válido.'),
+        .withMessage('The fk_procedure parameter is not a valid MongoDB ID.'),
 
     body('extra_procedures')
         .optional()
         .isArray()
-        .withMessage('El parametro extra_procedures debe ser un array.'),
+        .withMessage('The extra_procedures parameter must be an array.'),
 
     body('extra_procedures.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro extra_procedures.* NO es un ID MongoDB válido.'),
+        .withMessage('The extra_procedures.* parameter is not a valid MongoDB ID.'),
 
     body('urgency')
         .trim()
         .isBoolean()
-        .withMessage('El parametro urgency ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The urgency parameter provided is not boolean (true or false).')
         .toBoolean(),
 
     body('friendly_pass')
@@ -120,7 +120,7 @@ const Validator = [
         .optional()
         .trim()
         .isBoolean()
-        .withMessage('El parametro overbooking ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The overbooking parameter provided is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

@@ -530,12 +530,12 @@ export class SharedFunctionsService {
           if(res.error.message){
             this.sendMessage(res.error.message);
           } else {
-            this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+            this.sendMessage('Error: No response was received from the backend server.');
           }
         }
       });
     } else {
-      this.sendMessage('Error: Debe determinar el tipo de elemento.');
+      this.sendMessage('Error: You must specify the element type.');
     }
   }
   //--------------------------------------------------------------------------------------------------------------------//
@@ -584,13 +584,13 @@ export class SharedFunctionsService {
                 this.sendMessage(res.error.message);
               }
             } else {
-              this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+              this.sendMessage('Error: No response was received from the backend server.');
             }
           }
         });
       }
     } else {
-      this.sendMessage('Error: Debe determinar el tipo de elemento.');
+      this.sendMessage('Error: You must specify the element type.');
     }
   }
   //--------------------------------------------------------------------------------------------------------------------//
@@ -614,7 +614,7 @@ export class SharedFunctionsService {
           url = element + '/batch/delete';
           break;
         default:
-          this.sendMessage('Error: Operación no permitida, "tipo de eliminación".');
+          this.sendMessage('Error: Operation not allowed for "deletion type".');
           break;
       }
 
@@ -646,13 +646,13 @@ export class SharedFunctionsService {
               this.sendMessage(res.error.message);
 
             } else {
-              this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+              this.sendMessage('Error: No response was received from the backend server.');
             }
           }
         });
       }
     } else {
-      this.sendMessage('Error: Debe determinar la operación "tipo de eliminación".');
+      this.sendMessage('Error: You must specify the "deletion type" operation.');
     }
   }
   //--------------------------------------------------------------------------------------------------------------------//
@@ -695,13 +695,13 @@ export class SharedFunctionsService {
             if(res.error.message){
               this.sendMessage(res.error.message);
             } else {
-              this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+              this.sendMessage('Error: No response was received from the backend server.');
             }
             observer.next(false);
           }
         });
       } else {
-        this.sendMessage('Error: Debe determinar el tipo de elemento.');
+        this.sendMessage('Error: You must specify the element type.');
         observer.next(false);
       }
     });
@@ -755,14 +755,14 @@ export class SharedFunctionsService {
                   this.sendMessage(res.error.message);
                 }
               } else {
-                this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+                this.sendMessage('Error: No response was received from the backend server.');
               }
               observer.next(false);
             }
           });
         }
       } else {
-        this.sendMessage('Error: Debe determinar el tipo de elemento.');
+        this.sendMessage('Error: You must specify the element type.');
         observer.next(false);
       }
     });
@@ -791,7 +791,7 @@ export class SharedFunctionsService {
             url = element + '/batch/delete';
             break;
           default:
-            this.sendMessage('Error: Operación no permitida, "tipo de eliminación".');
+            this.sendMessage('Error: Operation not allowed for "deletion type".');
             observer.next(false);
             break;
         }
@@ -824,14 +824,14 @@ export class SharedFunctionsService {
                 this.sendMessage(res.error.message);
 
               } else {
-                this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+                this.sendMessage('Error: No response was received from the backend server.');
               }
               observer.next(false);
             }
           });
         }
       } else {
-        this.sendMessage('Error: Debe determinar la operación "tipo de eliminación".');
+        this.sendMessage('Error: You must specify the "deletion type" operation.');
         observer.next(false);
       }
     });
@@ -903,7 +903,7 @@ export class SharedFunctionsService {
                   this.sendMessage(res.error.message);
                 }
               } else {
-                this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+                this.sendMessage('Error: No response was received from the backend server.');
               }
             }
           });
@@ -914,11 +914,11 @@ export class SharedFunctionsService {
           }));
   
           //Send cancelation message:
-          this.sendMessage('El archivo que seleccióno excede el límite de tamaño máximo permitido (' + this.mainSettings.appSettings.file_max_size + ' MB).');
+          this.sendMessage('The selected file exceeds the maximum allowed size limit (' + this.mainSettings.appSettings.file_max_size + ' MB).');
         }
       }
     } else {
-      this.sendMessage('Error: Debe determinar el tipo de elemento.');
+      this.sendMessage('Error: You must specify the element type.');
     }
   }
   //--------------------------------------------------------------------------------------------------------------------//
@@ -964,7 +964,7 @@ export class SharedFunctionsService {
             this.sendMessage(res.error.message);
           }
         } else {
-          this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+          this.sendMessage('Error: No response was received from the backend server.');
         }
       }
     });
@@ -990,7 +990,7 @@ export class SharedFunctionsService {
         if(res.error.message){
           this.sendMessage(res.error.message);
         } else {
-          this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+          this.sendMessage('Error: No response was received from the backend server.');
         }
       }
     });
@@ -1462,7 +1462,7 @@ export class SharedFunctionsService {
           //Send other errors:
           this.sendMessage(res.error.message);
         } else {
-          this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+          this.sendMessage('Error: No response was received from the backend server.');
         }
       }
     });
@@ -1522,20 +1522,20 @@ export class SharedFunctionsService {
       //Check months:
       if(months_age <= 0){
         //Set age (in days):
-        return parseInt(today.toLocaleString("es-AR", { day: "2-digit" }), 10) + ' días';
+        return parseInt(today.toLocaleString("es-AR", { day: "2-digit" }), 10) + ' days';
 
       } else if(months_age == 1) {
-        return months_age + ' mes';
+        return months_age + ' month';
 
       } else {
-        return months_age + ' meses';
+        return months_age + ' months';
       }
       
     } else if(age == 1) {
-      return age + ' año';
+      return age + ' year';
 
     } else {
-      return age + ' años';
+      return age + ' years';
     }
   }
   //--------------------------------------------------------------------------------------------------------------------//
@@ -1743,7 +1743,7 @@ export class SharedFunctionsService {
             this.sendMessage(res.error.message);
           }
         } else {
-          this.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+          this.sendMessage('Error: No response was received from the backend server.');
         }
       }
     });
@@ -1816,7 +1816,7 @@ export class SharedFunctionsService {
 
       } else {
         //Return to the list with request error message:
-        this.sendMessage('Error al intentar revisar el informe: ' + reportsRes.message);
+        this.sendMessage('Error while trying to review the report: ' + reportsRes.message);
       }
     }, false, false, false);
   }
@@ -1915,7 +1915,7 @@ export class SharedFunctionsService {
           callback(reportsRes.data);
         } else {
           //Return to the list with request error message:
-          this.sendMessage('Error al intentar revisar la autenticación del informe: ' + reportsRes.message);
+          this.sendMessage('Error while trying to review the report authentication: ' + reportsRes.message);
         }
       }, false, false, false);
     }

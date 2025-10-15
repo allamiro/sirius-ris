@@ -45,42 +45,42 @@ const Validator = [
     body('fk_organization')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_organization NO es un ID MongoDB válido.'),
+        .withMessage('The fk_organization parameter is not a valid MongoDB ID.'),
         
     body('event')
         .trim()
         .isInt()
-        .withMessage('El parametro event es requerido y debe ser numérico.'),
+        .withMessage('The event parameter is required and must be numeric.'),
 
     body('datetime').trim(),
 
     body('fk_user')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_user NO es un ID MongoDB válido.'),
+        .withMessage('The fk_user parameter is not a valid MongoDB ID.'),
 
     body('element').optional(),
 
     body('element.type')
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro element.type es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).'),
+        .withMessage('The element.type parameter provided is too short or too long (min: 3, max: 30 [characters]).'),
 
     body('element._id')
         .trim()
         .isMongoId()
-        .withMessage('El parametro element._id NO es un ID MongoDB válido.'),
+        .withMessage('The element._id parameter is not a valid MongoDB ID.'),
 
     body('element.details')
         .optional()
         .trim()
         .isLength({ min: 3, max: 30 })
-        .withMessage('El parametro element.details es demasiado corto o demasiado largo (min: 3, max: 30 [caracteres]).'),
+        .withMessage('The element.details parameter provided is too short or too long (min: 3, max: 30 [characters]).'),
 
     body('ip_client')
         .trim()
         .isIP(4)
-        .withMessage('El parametro ip_client debe ser una IP válida.'),
+        .withMessage('The ip_client parameter must be a valid IP address.'),
 ];
 //--------------------------------------------------------------------------------------------------------------------//
 

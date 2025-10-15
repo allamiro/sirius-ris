@@ -34,18 +34,18 @@ const Validator = [
     body('code_meaning')
         .trim()
         .isLength({ min: 3, max: 50 })
-        .withMessage('El code meaning ingresado es demasiado corto o demasiado largo (min: 3, max: 50 [caracteres]).'),
+        .withMessage('The code meaning provided is too short or too long (min: 3, max: 50 [characters]).'),
 
     body('code_value')
         .trim()
         .isLength({ min: 2, max: 10 })
-        .withMessage('El code value ingresado es demasiado corto o demasiado largo (min: 2, max: 10 [caracteres]).')
+        .withMessage('The code value provided is too short or too long (min: 2, max: 10 [characters]).')
         .toUpperCase(),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The status provided is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

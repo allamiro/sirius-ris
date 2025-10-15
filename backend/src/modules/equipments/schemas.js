@@ -36,39 +36,39 @@ const AllowedUnsetValues = ['serial_number', 'AET'];
 const Validator = [
     body('fk_modalities')
         .isArray()
-        .withMessage('El parametro fk_modalities es requerido.'),
+        .withMessage('The fk_modalities parameter is required.'),
 
     body('fk_modalities.*')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_modalities NO es un ID MongoDB válido.'),
+        .withMessage('The fk_modalities parameter is NOT a valid MongoDB ID.'),
 
     body('fk_branch')
         .trim()
         .isMongoId()
-        .withMessage('El parametro fk_branch NO es un ID MongoDB válido.'),
+        .withMessage('The fk_branch parameter is NOT a valid MongoDB ID.'),
 
     body('name')
         .trim()
         .isLength({ min: 3, max: 64 })
-        .withMessage('El nombre ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The name is too short or too long (min: 3, max: 64 characters).'),
     
     body('serial_number')
         .optional()
         .trim()
         .isLength({ min: 3, max: 64 })
-        .withMessage('El serial_number ingresado es demasiado corto o demasiado largo (min: 3, max: 64 [caracteres]).'),
+        .withMessage('The serial_number is too short or too long (min: 3, max: 64 characters).'),
 
     body('AET')
         .optional()
         .trim()
         .isLength({ min: 3, max: 32 })
-        .withMessage('El AET ingresado es demasiado corto o demasiado largo (min: 3, max: 32 [caracteres]).'),
+        .withMessage('The AET is too short or too long (min: 3, max: 32 characters).'),
 
     body('status')
         .trim()
         .isBoolean()
-        .withMessage('El estado ingresado no es de tipo booleano (verdadero o falso).')
+        .withMessage('The provided status is not boolean (true or false).')
         .toBoolean()
 ];
 //--------------------------------------------------------------------------------------------------------------------//

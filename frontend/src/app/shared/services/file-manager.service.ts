@@ -87,7 +87,7 @@ export class FileManagerService {
               this.controller[type].files[res.server_response.body.data._id] = res.server_response.body.data.name;
 
               //Send snakbar message:
-              this.sharedFunctions.sendMessage('Archivo subido exitosamente', { duration: 2000 });
+              this.sharedFunctions.sendMessage('File uploaded successfully', { duration: 2000 });
             } else {
               //Send snakbar message:
               this.sharedFunctions.sendMessage(res.error.message);
@@ -110,7 +110,7 @@ export class FileManagerService {
         if(res.error.message){
           this.sharedFunctions.sendMessage(res.error.message);
         } else {
-          this.sharedFunctions.sendMessage('Error: No se obtuvo respuesta del servidor backend.');
+          this.sharedFunctions.sendMessage('Error: No response was received from the backend server.');
         }
       }
     });
@@ -187,7 +187,7 @@ export class FileManagerService {
         downloadLink.click();
       } else {
         //Send snakbar message:
-        this.sharedFunctions.sendMessage('No se encontró el archivo [_id: ' + _id + ']: ' + res.message);
+        this.sharedFunctions.sendMessage('The file [_id: ' + _id + '] was not found: ' + res.message);
       }
     }, false, false, false);
   }

@@ -1,27 +1,27 @@
-<h1 mat-dialog-title class="underline-ok"><mat-icon>help</mat-icon>&nbsp; Ayuda para búsquedas</h1>
+<h1 mat-dialog-title class="underline-ok"><mat-icon>help</mat-icon>&nbsp; Search help</h1>
 <div mat-dialog-content>
     <ul>
-        <li>Las búsquedas son <strong>insensibles a las mayúsculas y minúsculas</strong> para todos los campos tipo <strong>texto</strong>.</li><br/>
-        <li>Se admite el uso de <strong>expresiones regulares</strong> para todos los campos de búsqueda de tipo <strong>texto</strong>.</li>
+        <li>Searches are <strong>case-insensitive</strong> for every <strong>text</strong> field.</li><br/>
+        <li><strong>Regular expressions</strong> are supported in every <strong>text</strong> search field.</li>
     </ul>
 
     <br/><hr class="dashed" />
-    <div class="text-center"><strong>Metacaracteres básicos</strong> para la búsqueda con <strong>expresiones regulares</strong></div>
+    <div class="text-center"><strong>Basic metacharacters</strong> for <strong>regular expression</strong> searches</div>
     <hr class="dashed" /><br/>
 
-    <span class="label-info">.</span> Cualquier carácter excepto salto de linea.<br/>
+    <span class="label-info">.</span> Any character except a line break.<br/>
     <span class="label-light">A<strong>.</strong>A &nbsp;<mat-icon>arrow_forward</mat-icon>&nbsp; A<mark>N</mark>A</span>
     <br/><br/>
 
-    <span class="label-info">*</span> Indica que el carácter precedente puede ocurrir 0 o más veces.<br/>
+    <span class="label-info">*</span> Indicates that the preceding character can appear zero or more times.<br/>
     <span class="label-light">A<strong>.*</strong>A &nbsp;<mat-icon>arrow_forward</mat-icon>&nbsp; A<mark></mark>A | A<mark>N</mark>A | A<mark>NN</mark>A</span>
     <br/><br/>
 
-    <span class="label-info">+</span> Indica que el carácter precedente puede ocurrir 1 o más veces.<br/>
+    <span class="label-info">+</span> Indicates that the preceding character can appear one or more times.<br/>
     <span class="label-light">A<strong>.+</strong>A &nbsp;<mat-icon>arrow_forward</mat-icon>&nbsp; A<mark>N</mark>A</span>
     <br/><br/>
-    
-    <span class="label-info">?</span> Indica que el carácter precedente puede ocurrir 0 o 1 vez.<br/>
+
+    <span class="label-info">?</span> Indicates that the preceding character can appear zero or one time.<br/>
     <span class="label-light">A<strong>.?</strong>A &nbsp;<mat-icon>arrow_forward</mat-icon>&nbsp; A<mark></mark>A | A<mark>N</mark>A</span>
     <br/><br/>
 
