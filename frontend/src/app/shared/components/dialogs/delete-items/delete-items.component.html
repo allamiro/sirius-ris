@@ -1,15 +1,15 @@
-<h1 mat-dialog-title class="underline-fail"><mat-icon>delete_forever</mat-icon>&nbsp; Borrar elementos seleccionados</h1>
+<h1 mat-dialog-title class="underline-fail"><mat-icon>delete_forever</mat-icon>&nbsp; Delete selected items</h1>
 <div mat-dialog-content>
-  <h3>¿Confirma que desea eliminar los elementos seleccionados?</h3>
-  Tenga en cuenta que si confirma, la eliminación será física sobre la base de datos y los elementos no serán recuperables.
+  <h3>Do you confirm that you want to delete the selected items?</h3>
+  Keep in mind that deletion removes the records from the database permanently and they cannot be recovered.
 
   <br/><br/><hr class="dashed" /><br/>
 
   <div class="form-element text-center delete-dialog">
-    <h4>Ingrese el código de eliminación:</h4>
+    <h4>Enter the deletion code:</h4>
     <mat-form-field appearance="fill" class="medium">
-      <mat-label>Código de eliminación</mat-label>
-      <input matInput type="password" [(ngModel)]="sharedFunctions.delete_code" class="text-center" placeholder="Ingrese el código de eliminación">
+      <mat-label>Deletion code</mat-label>
+      <input matInput type="password" [(ngModel)]="sharedFunctions.delete_code" class="text-center" placeholder="Enter the deletion code">
     </mat-form-field>
   </div>
 
@@ -17,6 +17,6 @@
 </div>
 <div mat-dialog-actions>
   <span class="mat-spacer"></span>
-  <button mat-button mat-dialog-close [mat-dialog-close]="false">CANCELAR</button>
-  <button mat-flat-button mat-dialog-close [mat-dialog-close]="true" color="primary" cdkFocusInitial>SI, ELIMINAR</button>
+  <button mat-button mat-dialog-close [mat-dialog-close]="false">CANCEL</button>
+  <button mat-flat-button mat-dialog-close [mat-dialog-close]="true" color="primary" cdkFocusInitial>YES, DELETE</button>
 </div>
