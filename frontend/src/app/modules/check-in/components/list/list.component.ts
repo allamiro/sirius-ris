@@ -30,9 +30,9 @@ export class ListComponent implements OnInit {
   public privateHealthLang      : any = privateHealthLang;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('rececpciones', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('check-in', this.table, this.excludedColumns) }
 
   //Re-define method in component to use in HTML view:
   public getKeys: any;
@@ -69,7 +69,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Recepción de pacientes',
+      content_title       : 'Patient check-in',
       content_icon        : 'today',
       add_button          : false,
       duplicated_surnames : true,         // Check duplicated surnames
@@ -201,7 +201,7 @@ export class ListComponent implements OnInit {
 
       } else {
         //Send message:
-        this.sharedFunctions.sendMessage('Hubo un problema al determinar la modalidad por defecto.');
+        this.sharedFunctions.sendMessage('There was a problem determining the default modality.');
       }
     }, findOne);
   }
