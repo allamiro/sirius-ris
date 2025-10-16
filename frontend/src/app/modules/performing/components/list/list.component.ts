@@ -30,9 +30,9 @@ export class ListComponent implements OnInit {
   public cancellation_reasons   : any = cancellation_reasons;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('estudios', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('studies', this.table, this.excludedColumns) }
 
   //Set visible columns of the list:
   public displayedColumns: string[] = [

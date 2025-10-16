@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de turnos',
+      content_title : 'Slot form',
       content_icon  : 'date_range',
       add_button    : false,
       filters_form  : false,

@@ -28,9 +28,9 @@ export class ListComponent implements OnInit {
   public cancellation_reasons   : any = cancellation_reasons;
   
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('facturacion', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('billing', this.table, this.excludedColumns) }
   
   //Performing Complete flow states:
   public completeFS: any = ['P05', 'P06', 'P07', 'P08', 'P09', 'P10'];
