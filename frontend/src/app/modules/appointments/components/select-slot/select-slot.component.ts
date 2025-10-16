@@ -123,7 +123,7 @@ export class SelectSlotComponent implements OnInit {
         }
       },
       normal_slots: {
-        text: 'TURNOS COMÚNES',
+        text: 'REGULAR APPOINTMENTS',
         click: () => {
           //Find slots:
           this.findSlots();
@@ -137,7 +137,7 @@ export class SelectSlotComponent implements OnInit {
         }
       },
       view_day: {
-        text: 'DÍA',
+        text: 'DAY',
         click: () => {
           this.calendarComponent.getApi().changeView('resourceTimeGridDay');
         }
@@ -453,7 +453,7 @@ export class SelectSlotComponent implements OnInit {
                 this.calendarComponent.getApi().addEvent({
                   id: res.data[key]._id,
                   resourceId: res.data[key].slot.equipment._id,
-                  title: res.data[key].procedure.name + ' [Coordinación en curso]',
+                  title: res.data[key].procedure.name + ' [Coordination in progress]',
                   start: res.data[key].start.slice(0, -5),  //Remove last 5 chars '.000Z'
                   end: res.data[key].end.slice(0, -5),       //Remove last 5 chars '.000Z'
                   backgroundColor: backgroundColor,

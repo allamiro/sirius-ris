@@ -32,7 +32,7 @@
                       </button>
         
                       <!-- insert more performing as same fk_appointment -->
-                      <!-- 1: Superusuario, 2: Administrador, 8: Recepcionista, Concesiones: [4: Gestión de recepciones) -->
+                      <!-- 1: Superuser, 2: Administrator, 8: Receptionist, Concessions: [4: Reception management) -->
                       <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || sharedProp.userLogged.permissions[0].role == 8 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [4]))">
                         <button mat-mini-fab class="small_button" type="button" color="accent" matTooltip="Check in another study for the same appointment" aria-label="Check in another study for the same appointment" routerLink="/performing/form/insert/{{ element._id }}/check-in">
                           <mat-icon>add_location_alt</mat-icon>
@@ -66,7 +66,7 @@
 
                 <ng-template #elseBlockMatch>
                   <!-- insert first performing | Duplicated button on diferent cases -->
-                  <!-- 1: Superusuario, 2: Administrador, 8: Recepcionista, Concesiones: [4: Gestión de recepciones) -->
+                  <!-- 1: Superuser, 2: Administrator, 8: Receptionist, Concessions: [4: Reception management) -->
                   <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || sharedProp.userLogged.permissions[0].role == 8 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [4]))">
                     <button mat-mini-fab class="small_button" type="button" color="primary" matTooltip="Check in" aria-label="Check in" routerLink="/performing/form/insert/{{ element._id }}/check-in">
                       <mat-icon>location_on</mat-icon>
@@ -78,7 +78,7 @@
 
               <ng-template #elseBlockPerforming>
                 <!-- insert first performing | Duplicated button on diferent cases -->
-                <!-- 1: Superusuario, 2: Administrador, 8: Recepcionista, Concesiones: [4: Gestión de recepciones) -->
+                <!-- 1: Superuser, 2: Administrator, 8: Receptionist, Concessions: [4: Reception management) -->
                 <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || sharedProp.userLogged.permissions[0].role == 8 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [4]))">
                   <button mat-mini-fab class="small_button" type="button" color="primary" matTooltip="Check in" aria-label="Check in" routerLink="/performing/form/insert/{{ element._id }}/check-in">
                     <mat-icon>location_on</mat-icon>

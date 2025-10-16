@@ -47,7 +47,7 @@ module.exports = async (req, res, currentSchema, operation) => {
     
     //Check if request has checkin_time:
     if(req.body.checkin_time){
-        //Create Check-in Time Regular Expresión to test format HH:MM | 24hs:
+        //Create a check-in time regular expression to test the HH:MM format | 24h:
         const checkin_time_regex = /^([01][0-9]|2[0-3]):([0-5][0-9])$/;
 
         //If it does not comply with the regular expression in case of update it will remain as a blocked attribute.

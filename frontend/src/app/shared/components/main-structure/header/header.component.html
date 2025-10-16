@@ -1,5 +1,5 @@
 <!-- Theme select -->
-<!-- Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Médico). -->
+<!-- Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Physician). -->
 <span *ngIf="sharedProp.userLogged.permissions[0].role !== 4" >
   <button mat-button><mat-icon [matMenuTriggerFor]="themeMenu" matTooltip="Theme">format_color_fill</mat-icon></button>
   <mat-menu #themeMenu="matMenu">
@@ -32,7 +32,7 @@
 </button>
 
 <mat-menu #userMenu="matMenu" xPosition="before">
-  <!-- 1: Superusuario, 2: Administrador, Concesiones: [10: Acceso a logs del usuario] -->
+  <!-- 1: Superuser, 2: Administrator, Concessions: [10: Access to user logs] -->
   <button mat-menu-item *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [10]))" routerLink="/logs/user">
     <mat-icon>format_list_bulleted</mat-icon><span>User logs</span>
   </button>

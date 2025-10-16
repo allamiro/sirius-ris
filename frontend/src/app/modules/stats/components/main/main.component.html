@@ -1,7 +1,7 @@
 <div class="form-element">
     <mat-tab-group>
         <!-- APPOINTMENT REQUESTS TAB: ----------------------------------------------------------------------------------------------------------------- -->
-        <!-- 1: Superusuario, 2: Administrador, Concesiones: [15: Estadísticas sobre solicitudes] -->
+        <!-- 1: Superuser, 2: Administrator, Concessions: [15: Request statistics] -->
         <!--
         <mat-tab *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [15]))">
             <ng-template mat-tab-label>
@@ -15,7 +15,7 @@
         <!-- APPOINTMENT REQUESTS TAB: ----------------------------------------------------------------------------------------------------------------- -->
 
         <!-- APPOINTMENT TAB: -------------------------------------------------------------------------------------------------------------------------- -->
-        <!-- 1: Superusuario, 2: Administrador, Concesiones: [16: Estadísticas sobre citas] -->
+        <!-- 1: Superuser, 2: Administrator, Concessions: [16: Appointment statistics] -->
         <mat-tab *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [16]))">
             <ng-template mat-tab-label>
               <mat-icon class="tab-icon">event_available</mat-icon> Appointments
@@ -27,7 +27,7 @@
         <!-- APPOINTMENT TAB: -------------------------------------------------------------------------------------------------------------------------- -->
 
         <!-- PERFORMING TAB: --------------------------------------------------------------------------------------------------------------------------- -->
-        <!-- 1: Superusuario, 2: Administrador, Concesiones: [17: Estadísticas sobre estudios] -->
+        <!-- 1: Superuser, 2: Administrator, Concessions: [17: Study statistics] -->
         <mat-tab *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [17]))">
             <ng-template mat-tab-label>
               <mat-icon class="tab-icon">assignment_ind</mat-icon> Studies
@@ -39,7 +39,7 @@
         <!-- PERFORMING TAB: --------------------------------------------------------------------------------------------------------------------------- -->
 
         <!-- REPORTS TAB: ------------------------------------------------------------------------------------------------------------------------------ -->
-        <!-- 1: Superusuario, 2: Administrador, Concesiones: [18: Estadísticas sobre informes] -->
+        <!-- 1: Superuser, 2: Administrator, Concessions: [18: Report statistics] -->
         <!--
         <mat-tab *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [18]))">
             <ng-template mat-tab-label>

@@ -225,7 +225,7 @@ ZDS|${ UI }`;
 
             //Establish connection with TCP server:
             client.on('connect', async () => {
-                //Send HL7 message to PACS server vía TCP (MLLP) encoded in latin1 (MWL send):
+                //Send the HL7 message to the PACS server via TCP (MLLP) encoded in latin1 (MWL send):
                 client.write(VT + HL7_message + FS + CR, 'latin1');
 
                 //Close connection (End communication):

@@ -4,7 +4,7 @@
 //--------------------------------------------------------------------------------------------------------------------//
 //Set user role permissions:
 const rolePermissions = {
-    // Superusuario:
+    // Superuser:
     1: {
         people                  : ['find', 'findOne', 'insert', 'update', 'delete'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'insert', 'update', 'delete', 'updateSettings'],            
@@ -33,7 +33,7 @@ const rolePermissions = {
         stats                   : ['appointment_requests', 'appointments', 'performing', 'reports', 'organizations']
     },
 
-    // Administrador:
+    // Administrator:
     2: {
         people                  : ['find', 'findOne', 'insert', 'update'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'insert', 'update', 'updateSettings'],
@@ -91,7 +91,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Médico:
+    // Physician:
     4: {
         people                  : ['find', 'findOne'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'updateSettings'],
@@ -120,7 +120,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Técnico:
+    // Technician:
     5: {
         people                  : ['find', 'findOne'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'updateSettings'],
@@ -149,7 +149,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Enfermero:
+    // Nurse:
     6: {
         people                  : ['find', 'findOne'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'updateSettings'],
@@ -178,7 +178,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Coordinador:
+    // Coordinator:
     7: {
         people                  : ['find', 'findOne', 'insert', 'update'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'insert', 'update', 'updateSettings'],
@@ -207,7 +207,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Recepcionista:
+    // Receptionist:
     8: {
         people                  : ['find', 'findOne'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'updateSettings'],
@@ -236,7 +236,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Paciente:
+    // Patient:
     9: {
         people                  : [],
         users                   : [],
@@ -264,7 +264,7 @@ const rolePermissions = {
         stats                   : []
     },
 
-    // Funcional [Empty role for concessions (Generic user)]:
+    // Functional [Empty role for concessions (Generic user)]:
     10: {
         people                  : [],
         users                   : [],            
@@ -296,12 +296,12 @@ const rolePermissions = {
 
 //Set user concessions:
 const concessionPermissions = {
-    // 1 : Gestión de turnos:
+    // 1 : Schedule management:
     1: {
         slots                   : ['find', 'findOne', 'insert', 'update', 'delete', 'batch/insert', 'batch/delete'],
     },
 
-    // 2 : Gestión de citas:
+    // 2 : Appointment management:
     2: {
         people                  : ['find', 'findOne', 'insert', 'update'],
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport', 'insert', 'update'],
@@ -313,21 +313,21 @@ const concessionPermissions = {
         mail                    : ['send']
     },
 
-    // 3 : Calendario de citas:
+    // 3 : Appointment calendar:
     3: {
         slots                   : ['find', 'findOne'],
         appointments            : ['find', 'findOne'],
         appointments_drafts     : ['find', 'findOne']
     },
 
-    // 4 : Gestión de recepciones:
+    // 4 : Reception management:
     4: {
         appointments            : ['find', 'findOne'],
         mwl                     : ['insert'],
         performing              : ['find', 'findOne', 'insert', 'update']
     },
 
-    // 5 : Gestión de estudios:
+    // 5 : Study management:
     5: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         files                   : ['find', 'findOne', 'insert', 'delete', 'batch/delete'],
@@ -338,7 +338,7 @@ const concessionPermissions = {
         signatures              : ['find', 'findOne']
     },
 
-    // 6 : Gestión de informes:
+    // 6 : Report management:
     6: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         files                   : ['find', 'findOne', 'insert', 'delete', 'batch/delete'],
@@ -349,7 +349,7 @@ const concessionPermissions = {
         signatures              : ['find', 'findOne']
     },
 
-    // 7 : Firmar informes:
+    // 7 : Sign reports:
     7: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         appointments            : ['find', 'findOne'],
@@ -359,7 +359,7 @@ const concessionPermissions = {
         signatures              : ['find', 'findOne', 'insert']
     },
 
-    // 8 : Autenticar informes:
+    // 8 : Authenticate reports:
     8: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         appointments            : ['find', 'findOne'],
@@ -369,86 +369,86 @@ const concessionPermissions = {
         signatures              : ['find', 'findOne']
     },
 
-    // 9 : Enmendar informes:
-    // This concession depends on being a Supervisor, Médico or higher user or having the '6' concession [Gestión de informes].
+    // 9 : Amend reports:
+    // This concession depends on being a Supervisor, Physician or higher user or having the '6' concession [Report management].
     9: {
         reports                 : ['insert']
     },
 
-    // 10 : Acceso a logs del usuario (Frontend concession):
+    // 10 : Access to user logs (Frontend concession):
     10: {
         logs                    : ['find', 'findOne']
     },
 
-    // 11 : Acceso a logs de elementos (Frontend concession):
+    // 11 : Access to element logs (Frontend concession):
     11: {
         logs                    : ['find', 'findOne']
     },
 
-    // 12 : Reenvío de correos:
+    // 12 : Mail forwarding:
     12: {
         mail                    : ['send']
     },
 
-    // 13 : Gestión de solicitudes:
+    // 13 : Request management:
     13: {
         appointment_requests    : ['find', 'findOne', 'insert', 'update']
     },
 
-    // 14 : Búsquedas avanzadas:
+    // 14 : Advanced searches:
     14: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         reports                 : ['find', 'findOne']
     },
     
-    // 15 : Estadísticas sobre solicitudes:
+    // 15 : Request statistics:
     15: {
         stats                   : ['appointment_requests']
     },
 
-    // 16 : Estadísticas sobre citas:
+    // 16 : Appointment statistics:
     16: {
         stats                   : ['appointments']
     },
 
-    // 17 : Estadísticas sobre estudios:
+    // 17 : Study statistics:
     17: {
         stats                   : ['performing']
     },
 
-    // 18 : Estadísticas sobre informes:
+    // 18 : Report statistics:
     18: {
         stats                   : ['reports']
     },
 
-    // 19 : Estadísticas sobre la organización:
+    // 19 : Organization statistics:
     19: {
         stats                   : ['organizations']
     },
 
-    // 20 : Acceso al módulo de exportación (Backend access only):
+    // 20 : Access to the export module (Backend access only):
     20: {
         exporter                : ['reports']
     },
 
-    // 21 : Acceso al servicio de imágenes del PACS.
+    // 21 : Access to the PACS imaging service.
     21: {
         wezen                   : ['studyToken']
     },
 
-    // 22 : Edición de identificación de pacientes:
+    // 22 : Patient identification editing:
     22: {
         people                  : ['find', 'findOne', 'update'],
         users                   : ['find', 'findOne', 'update'],
     },
 
-    // 23 : Sobreagenda (Overbooking):
+    // 23 : Overbooking:
     23: {
         appointments            : ['find', 'findOne', 'insert', 'update'],
         appointments_drafts     : ['find', 'findOne', 'insert', 'delete'],
     },
     
-    // 24 : Listados de facturación (Performing -> 5 : Gestión de estudios):
+    // 24 : Billing reports (Performing -> 5 : Study management):
     24: {
         users                   : ['find', 'findOne', 'findByService', 'findByRoleInReport'],
         files                   : ['find', 'findOne', 'insert', 'delete', 'batch/delete'],

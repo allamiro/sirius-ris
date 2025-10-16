@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de sucursales',
+      content_title : 'Branch form',
       content_icon  : 'account_tree',
       add_button    : false,
       filters_form  : false,

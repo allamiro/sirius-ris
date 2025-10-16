@@ -70,7 +70,7 @@ export class FormUpdateComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de actualización de cita',
+      content_title : 'Appointment update form',
       content_icon  : 'edit_calendar',
       add_button    : false,
       filters_form  : false,
@@ -163,7 +163,7 @@ export class FormUpdateComponent implements OnInit {
       });
 
     } else {
-      this.sharedFunctions.sendMessage('Falta seleccionar en la pestaña de Detalles de la coordinación en qué momento se llevará a cabo la cita.')
+      this.sharedFunctions.sendMessage('Select the coordination details tab to choose when the appointment will take place.')
     }
   }
 
@@ -243,7 +243,7 @@ export class FormUpdateComponent implements OnInit {
 
       } else {
         //Return to the list with request error message:
-        this.sharedFunctions.sendMessage('Error al intentar cargar el procedimiento asociado: ' + procedureRes.message);
+        this.sharedFunctions.sendMessage('Error while trying to load the associated procedure: ' + procedureRes.message);
         this.router.navigate(['/' + this.sharedProp.element + '/list']);
       }
     });

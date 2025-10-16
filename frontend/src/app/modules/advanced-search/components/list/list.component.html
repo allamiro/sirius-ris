@@ -7,7 +7,7 @@
       <ng-container matColumnDef="element_action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-          <!-- Superusuario, Administrador, Concesiones: [11: Acceso a logs de elementos] -->
+          <!-- Superuser, Administrator, Concessions: [11: Access to element logs] -->
           <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [11]))" >
             <button mat-icon-button color="accent" aria-label="Item logs" matTooltip="Item logs" routerLink="/logs/element/{{ sharedProp.element }}/{{ element._id }}">
               <mat-icon>format_list_bulleted</mat-icon>
@@ -39,7 +39,7 @@
             <span [ngSwitch]="element.performing.flow_state">
               <!-- update_report and sign_report -->
               <span *ngSwitchCase="'P07'">
-                <!-- Superusuario, Administrador, Supervisor, Médico, Concesiones: [6: Gestión de informes] -->
+                <!-- Superuser, Administrator, Supervisor, Physician, Concessions: [6: Report management] -->
                 <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || sharedProp.userLogged.permissions[0].role == 3 || sharedProp.userLogged.permissions[0].role == 4 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [6]))">
                   <button mat-mini-fab class="small_button" type="button" color="accent" matTooltip="Edit report" aria-label="Edit report" routerLink="/reports/form/update/{{ element.fk_performing }}">
                     <mat-icon>edit_note</mat-icon>
@@ -54,7 +54,7 @@
   
               <!-- sign_report and authenticate_report -->
               <span *ngSwitchCase="'P08'">
-                <!-- Superusuario, Administrador, Supervisor, Médico, Concesiones: [6: Gestión de informes] -->
+                <!-- Superuser, Administrator, Supervisor, Physician, Concessions: [6: Report management] -->
                 <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || sharedProp.userLogged.permissions[0].role == 3 || sharedProp.userLogged.permissions[0].role == 4 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [6]))">
                   <button mat-mini-fab class="small_button" type="button" color="warn" matTooltip="Edit report (If you make changes to this report the current signatures will be destroyed)" aria-label="Edit report" routerLink="/reports/form/update/{{ element.fk_performing }}">
                     <mat-icon>edit_note</mat-icon>
