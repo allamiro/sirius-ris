@@ -47,28 +47,28 @@ export class StatsPerformingComponent implements OnInit {
 
   //Set Chart colors and color schemes:
   public gender_colors = [
-    { name: "Macsulino", value: '#05a3ff87' },
-    { name: "Femenino", value: '#d53a9d87' },
-    { name: "Otros", value: 'var(--highlighted-green)' },
+    { name: "Male", value: '#05a3ff87' },
+    { name: "Female", value: '#d53a9d87' },
+    { name: "Other", value: 'var(--highlighted-green)' },
   ];
 
   public flow_states_colors = [
-    { name: "Recepción", value: '#607d8b87' },
-    { name: "Entrevista", value: '#607d8b87' },
-    { name: "Preparación/Inyección", value: '#607d8b87' },
-    { name: "Adquisición", value: '#607d8b87' },
-    { name: "Verificación de imágenes", value: '#607d8b87' },
-    { name: "Para informar", value: '#607d8b87' },
-    { name: "Informe borrador", value: '#d53a9cc9' },
-    { name: "Informe firmado", value: '#733ad5a9' },
-    { name: "Terminado (con informe)", value: 'var(--opaque-green)' },
-    { name: "Terminado (sin informe)", value: 'var(--opaque-green)' },
-    { name: "Cancelado", value: '#ff6e69d3' },
+    { name: "Reception", value: '#607d8b87' },
+    { name: "Interview", value: '#607d8b87' },
+    { name: "Preparation/Injection", value: '#607d8b87' },
+    { name: "Acquisition", value: '#607d8b87' },
+    { name: "Image verification", value: '#607d8b87' },
+    { name: "Ready to report", value: '#607d8b87' },
+    { name: "Draft report", value: '#d53a9cc9' },
+    { name: "Signed report", value: '#733ad5a9' },
+    { name: "Completed (with report)", value: 'var(--opaque-green)' },
+    { name: "Completed (without report)", value: 'var(--opaque-green)' },
+    { name: "Cancelled", value: '#ff6e69d3' },
   ];
 
   public urgency_colors = [
-    { name: "Urgente", value: '#ff6f69' },
-    { name: "Común", value: '#607d8b' }
+    { name: "Urgent", value: '#ff6f69' },
+    { name: "Standard", value: '#607d8b' }
   ];
 
   public proceduresColorScheme: Color = { 

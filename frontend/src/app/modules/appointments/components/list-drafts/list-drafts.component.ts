@@ -26,9 +26,9 @@ export class ListDraftsComponent implements OnInit {
   public gender_types: any = gender_types;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('citas_en_curso', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('in_progress_appointments', this.table, this.excludedColumns) }
 
   //Set visible columns of the list:
   public displayedColumns: string[] = [
@@ -58,7 +58,7 @@ export class ListDraftsComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de citas en curso',
+      content_title       : 'In-progress appointments list',
       content_icon        : 'free_cancellation',
       add_button          : false,
       duplicated_surnames : false,    // Check duplicated surnames
@@ -314,7 +314,7 @@ export class ListDraftsComponent implements OnInit {
 
         } else {
           //Send error message:
-          this.sharedFunctions.sendMessage('Error al intentar editar el elemento con _id: ' + _id  + ' Contactese con su administrador para ver más detalles.');
+          this.sharedFunctions.sendMessage('Error while trying to edit the item with _id: ' + _id + '. Contact your administrator for more details.');
         }
       }, true);
     }

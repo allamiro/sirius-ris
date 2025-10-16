@@ -145,7 +145,7 @@ export class FormComponent implements OnInit {
 
           } else {
             //Return to the list with request error message:
-            this.sharedFunctions.sendMessage('Error al intentar editar el elemento: ' + res.message);
+            this.sharedFunctions.sendMessage('Error while trying to edit the item: ' + res.message);
             this.router.navigate(['/' + this.sharedProp.element + '/list']);
           }
         });

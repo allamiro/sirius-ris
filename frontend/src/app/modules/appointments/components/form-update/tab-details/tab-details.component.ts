@@ -299,7 +299,7 @@ export class TabDetailsComponent implements OnInit {
         this.form.markAllAsTouched();
 
         //Send Message:
-        this.sharedFunctions.sendMessage('Debe establecerce nuevamente una fecha para el campo "Informe requerido antes de" (No puede ser menor a la fecha de coordinación).')
+        this.sharedFunctions.sendMessage('You must set a new date for the "Report required before" field (it cannot be earlier than the coordination date).')
       }
     }
 

@@ -403,7 +403,7 @@ export class FormComponent implements OnInit {
 
           } else {
             //Return to the list with request error message:
-            this.sharedFunctions.sendMessage('Error al intentar editar el elemento: ' + resPerforming.message);
+            this.sharedFunctions.sendMessage('Error while trying to edit the item: ' + resPerforming.message);
             this.router.navigate(['/' + this.origin + '/list']);
           }
         });
@@ -412,7 +412,7 @@ export class FormComponent implements OnInit {
 
       default:
         //Return to the list with request error message:
-        this.sharedFunctions.sendMessage('Error al intentar editar el elemento: La acción indicada sobre el formulario es incorrecta [insert | update].');
+        this.sharedFunctions.sendMessage('Error while trying to edit the item: The specified action on the form is incorrect [insert | update].');
 
         //Redirect to the list:
         this.router.navigate(['/' + this.origin + '/list']);
@@ -1113,7 +1113,7 @@ export class FormComponent implements OnInit {
 
       } else {
         //Return to the list with request error message:
-        this.sharedFunctions.sendMessage('Error al intentar editar el elemento: ' + resAppointments.message);
+        this.sharedFunctions.sendMessage('Error while trying to edit the item: ' + resAppointments.message);
         this.router.navigate(['/' + this.origin + '/list']);
       }
     });
