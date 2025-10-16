@@ -48,9 +48,9 @@ export class ListRequestsComponent implements OnInit {
   ];
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones', 'Descargar'];
+  private excludedColumns = ['Actions', 'Download'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('solicitudes', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('appointment_requests', this.table, this.excludedColumns) }
 
   //Re-define method in component to use in HTML view:
   public getKeys: any;
@@ -70,7 +70,7 @@ export class ListRequestsComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de solicitudes',
+      content_title       : 'Request list',
       content_icon        : 'move_to_inbox',
       add_button          : false,
       duplicated_surnames : false,    // Check duplicated surnames

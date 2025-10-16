@@ -182,7 +182,7 @@ export class AppointmentsService {
         form.controls['reporting_user'].setValue('');
 
         //Send message:
-        this.sharedFunctions.sendMessage('Advertencia: El servicio seleccionado NO tiene asignado ningún médico informador.');
+        this.sharedFunctions.sendMessage('Warning: The selected service does NOT have any reporting physician assigned.');
       }
     }, false, 'findByService');
   }

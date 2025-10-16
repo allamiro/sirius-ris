@@ -18,9 +18,9 @@ export class ListComponent implements OnInit {
   public country_codes    : any = ISO_3166;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones', 'País'];
+  private excludedColumns = ['Actions', 'Country'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('sucursales', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('branches', this.table, this.excludedColumns) }
 
   //Set visible columns of the list:
   public displayedColumns: string[] = ['element_action', 'organization', 'short_name', 'name', 'OID', 'country_code', 'structure_id', 'suffix', 'status'];
@@ -36,7 +36,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de sucursales',
+      content_title       : 'Branch list',
       content_icon        : 'account_tree',
       add_button          : '/branches/form/insert/0',    // Zero indicates empty :id (Activated Route) [content is ignored]
       duplicated_surnames : false,                        // Check duplicated surnames

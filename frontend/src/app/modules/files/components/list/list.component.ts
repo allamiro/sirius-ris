@@ -20,9 +20,9 @@ export class ListComponent implements OnInit {
   public displayedColumns: string[] = ['select_element', 'element_action', 'organization', 'branch', 'name', 'download'];
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones', 'Descargar'];
+  private excludedColumns = ['Actions', 'Download'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('archivos', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('files', this.table, this.excludedColumns) }
 
   //Re-define method in component to use in HTML view:
   public getKeys: any;
@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de archivos',
+      content_title       : 'File list',
       content_icon        : 'folder',
       add_button          : false,
       duplicated_surnames : false,    // Check duplicated surnames

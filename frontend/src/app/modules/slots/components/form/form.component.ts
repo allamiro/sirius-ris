@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de turnos',
+      content_title : 'Slot form',
       content_icon  : 'date_range',
       add_button    : false,
       filters_form  : false,
@@ -158,7 +158,7 @@ export class FormComponent implements OnInit {
       this.form.controls['fk_equipment'].setValue([]);
 
       //Send message:
-      this.sharedFunctions.sendMessage('Advertencia: El servicio seleccionado NO tiene asignado ningún equipo.');
+      this.sharedFunctions.sendMessage('Warning: The selected service does NOT have any equipment assigned.');
     }
 
   }

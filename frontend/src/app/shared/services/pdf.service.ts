@@ -134,7 +134,7 @@ export class PdfService {
                     // TITLE:
                     { text: 'Appointment confirmation:', style: 'header'},
 
-                    // DATOS DE REALIZACIÓN:
+                    // PERFORMING DETAILS:
                     {
                       style: 'main_table',
                       table: {
@@ -148,7 +148,7 @@ export class PdfService {
                       }
                     },
 
-                    // DATOS DEL PACIENTE:
+                    // PATIENT DETAILS:
                     {
                       style: 'main_table',
                       table: {
@@ -163,7 +163,7 @@ export class PdfService {
                       }
                     },
 
-                    // PREPARACIÓN:
+                    // PREPARATION:
                     {
                       style: 'main_table',
                       table: {

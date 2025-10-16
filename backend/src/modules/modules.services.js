@@ -4301,30 +4301,30 @@ async function validatePermissions(req){
 // SET STUDY IUID:
 //--------------------------------------------------------------------------------------------------------------------//
 // Set OID Structure base:
-// Reference in UY:
+// Reference in Uruguay:
 // https://centrodeconocimiento.agesic.gub.uy/documents/207224/425682/Gu%C3%ADa+para+la+gesti%C3%B3n+de+OID.pdf/293df376-77d5-71d3-9490-ede702bbb583
 //--------------------------------------------------------------------------------------------------------------------//
 // '2.16.858'          + // Base UNAOID UY
 // '.2'                + // Identifica Objeto (0: Organizaciones, 1: Personas, 2: Objetos)
-// '.XXXXXXXX'         + // ID Estructura (Organización o sucursal) [max length: 8]
-// '.72769'            + // ID PACS (PACS organization o branch) Tipo de objeto [FIJO]
+// '.XXXXXXXX'         + // Structure ID (Organization or branch) [max length: 8]
+// '.72769'            + // PACS ID (PACS organization or branch) Object type [FIXED]
 // '.YYYYMMDDHHmmss'   + // Timestamp
 // '*'                 + // Sufijo (Opcional)
 //--------------------------------------------------------------------------------------------------------------------//
-// Ejemplo de sufijo:
-// '.XXXXXX'           + // Consecutivo interno
-// '.8'                + // PACS de ASSE
+// Example of suffix:
+// '.XXXXXX'           + // Internal sequence
+// '.8'                + // ASSE PACS
 //--------------------------------------------------------------------------------------------------------------------//
 // Total max length: 64
 //--------------------------------------------------------------------------------------------------------------------//
 // ID PACS:
-// 67430 Historia Clínica Electrónica
-// 71867 Repositorio de documentos electrónicos
-// 72591 Modelo de Plantilla Digital
-// 72768 Sistemas de Información de Salud (HIS, SIS,HealthInformationSystems)
-// 72769 Sistemas de Archivo y Transmisión de Imágenes (PACS, SATI, Picture And CommunicationInformationSystems)
-// 72770 Sistemas de Información Imagenológica (SII, RIS, IIS, ImagenologicalInformationSystem, RadiologicalInformationSystems)
-// 72771 Sistemas de Información de Laboratorios (sinónimos asociados: SIL, LIS, LaboratoryInformationSystems)
+// 67430 Electronic Health Record
+// 71867 Electronic document repository
+// 72591 Digital template model
+// 72768 Health Information Systems (HIS, SIS, HealthInformationSystems)
+// 72769 Picture Archiving and Communication Systems (PACS, SATI, PictureAndCommunicationInformationSystems)
+// 72770 Imaging Information Systems (SII, RIS, IIS, ImagingInformationSystem, RadiologicalInformationSystems)
+// 72771 Laboratory Information Systems (associated synonyms: SIL, LIS, LaboratoryInformationSystems)
 //--------------------------------------------------------------------------------------------------------------------//
 async function setStudyIUID(req, res) {
     //Initialize operation status:
@@ -4439,28 +4439,28 @@ function setIDIssuer(organization_country_code, doc_country_code, doc_type){
             // Set medical history organization ID (HCEN):
             'medical_organization' : '10000675',
 
-            // CEDULA DE IDENTIDAD (ICAO - ID):
+            // NATIONAL ID CARD (ICAO - ID):
             '1' : '68909',
 
-            // Pasaporte:
+            // Passport:
             '2' : '68912',
 
-            // CREDENCIAL CIVICA (ICAO - CC):
+            // CIVIC CREDENTIAL (ICAO - CC):
             '3' : '68944',
 
-            // LIBRETA DE CONDUCIR NACIONAL:
+            // NATIONAL DRIVER'S LICENSE:
             '4' : '69011',
 
-            // Permiso de residencia | OTRO DOCUMENTO DE IDENTIFICACION PERSONAL:
+            // Residence permit | OTHER PERSONAL IDENTIFICATION DOCUMENT:
             '5' : '69024',
 
-            // Visa | OTRO DOCUMENTO DE IDENTIFICACION PERSONAL:
+            // Visa | OTHER PERSONAL IDENTIFICATION DOCUMENT:
             '6' : '69024',
 
-            // Documento transitorio | OTRO DOCUMENTO DE IDENTIFICACION PERSONAL:
+            // Temporary document | OTHER PERSONAL IDENTIFICATION DOCUMENT:
             '7' : '69024',
 
-            // Documento anónimo | SIN DOCUMENTO (ICAO - SD):
+            // Anonymous document | NO DOCUMENT (ICAO - SD):
             '100': '68945'
         }
     };

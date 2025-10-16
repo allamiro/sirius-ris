@@ -154,7 +154,7 @@ export class UsersService {
   onSetRole(event: any, form: FormGroup){
     //Switch by selected role:
     switch(event.value){
-      //Superusuario and Administrador:
+      //Superuser and Administrator:
       case '1':
       case '2':
         //Set domain type value as organization:

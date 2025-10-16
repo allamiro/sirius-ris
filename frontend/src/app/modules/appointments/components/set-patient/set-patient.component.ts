@@ -97,7 +97,7 @@ export class SetPatientComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Paso 01 - Chequeo de datos del paciente',
+      content_title : 'Step 01 - Patient data check',
       content_icon  : 'hotel',
       add_button    : false,
       filters_form  : false,
@@ -431,7 +431,7 @@ export class SetPatientComponent implements OnInit {
                 });
               } else {
                 //Send message, clear email input and focus on this:
-                this.sharedFunctions.sendMessage('El correo indicado NO puede utilizarse, el mismo se encuentra asociado a un usuario de tipo máquina.')
+                this.sharedFunctions.sendMessage('The provided email cannot be used; it is associated with a machine user.')
                 this.form.get('user.email')?.setValue('');
                 inputEmail?.focus();
               }
@@ -650,7 +650,7 @@ export class SetPatientComponent implements OnInit {
       this.userTabErrors = true;
 
       //Send message:
-      this.sharedFunctions.sendMessage('Las contraseñas ingresadas no coinciden entre si.');
+      this.sharedFunctions.sendMessage('The entered passwords do not match.');
     }
   }
 
@@ -671,7 +671,7 @@ export class SetPatientComponent implements OnInit {
           //If user exist in DB preserve local data:
           if(Object.keys(res).length > 0){
             //Send snakbar message:
-            this.sharedFunctions.sendMessage('Datos cargados desde la base de datos local por coincidencia de documento.', { duration : 2000 });
+            this.sharedFunctions.sendMessage('Data loaded from the local database due to a matching document.', { duration : 2000 });
 
           //If user doesn't exist, set appointment request patient data:
           } else {
@@ -727,8 +727,8 @@ export class SetPatientComponent implements OnInit {
     //On set document to enable save button:
     this.onSetDocument(true, () => {
       //Set anonymized name and surname:
-      this.form.get('person.name_01')?.setValue('ANÓNIMO');
-      this.form.get('person.surname_01')?.setValue('ANÓNIMO');
+      this.form.get('person.name_01')?.setValue('ANONYMOUS');
+      this.form.get('person.surname_01')?.setValue('ANONYMOUS');
 
       //Set gender:
       this.form.get('person.gender')?.setValue('3');

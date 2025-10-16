@@ -259,7 +259,7 @@
         <mat-icon *ngIf="permissionTabErrors" class="validate-error-tab" matTooltip="There are validation errors under this tab">priority_high</mat-icon>
       </ng-template>
 
-      <!-- 1: Superusuario, 2: Administrador -->
+      <!-- 1: Superuser, 2: Administrator -->
       <!-- Only superusers and administrators can set permissions -->
       <div class="permission-denied" [class.non-display]="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2">
         <mat-icon>gpp_maybe</mat-icon><br/><br/>
@@ -407,7 +407,7 @@
                               </ng-container>
                             </ng-template>
 
-                            <ng-template #elseBlockConcession>No grants.</ng-template>
+                            <ng-template #elseBlockConcession>No concessions.</ng-template>
                           </div>
                         </div>
                       </div>
@@ -433,7 +433,7 @@
                                 </ng-container>
                               </ng-template>
 
-                              <ng-template #elseBlockConcession>No grants.</ng-template>
+                              <ng-template #elseBlockConcession>No concessions.</ng-template>
                             </div>
                           </div>
                         </div>
@@ -461,7 +461,7 @@
                                   </ng-container>
                                 </ng-template>
 
-                                <ng-template #elseBlockConcession>No grants.</ng-template>
+                                <ng-template #elseBlockConcession>No concessions.</ng-template>
                               </div>
                             </div>
                           </div>

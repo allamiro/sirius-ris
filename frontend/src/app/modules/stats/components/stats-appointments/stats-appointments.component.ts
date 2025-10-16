@@ -45,24 +45,24 @@ export class StatsAppointmentsComponent implements OnInit {
 
   //Set Chart colors and color schemes:
   public gender_colors = [
-    { name: "Macsulino", value: '#05a3ff87' },
-    { name: "Femenino", value: '#d53a9d87' },
-    { name: "Otros", value: 'var(--highlighted-green)' },
+    { name: "Male", value: '#05a3ff87' },
+    { name: "Female", value: '#d53a9d87' },
+    { name: "Other", value: 'var(--highlighted-green)' },
   ];
 
   public flow_states_colors = [
-    { name: "Coordinada", value: 'var(--opaque-green)' },
-    { name: "Cancelada-suspendida", value: '#ff6e69d3' }
+    { name: "Scheduled", value: 'var(--opaque-green)' },
+    { name: "Canceled/suspended", value: '#ff6e69d3' }
   ];
 
   public urgency_colors = [
-    { name: "Urgente", value: '#ff6f69' },
-    { name: "Común", value: '#607d8b' }
+    { name: "Urgent", value: '#ff6f69' },
+    { name: "Regular", value: '#607d8b' }
   ];
 
   public outpatient_colors = [
-    { name: "Internado", value: '#ff6f69' },
-    { name: "Ambulatorio", value: '#607d8b' }
+    { name: "Inpatient", value: '#ff6f69' },
+    { name: "Outpatient", value: '#607d8b' }
   ];
 
   public proceduresColorScheme: Color = { 

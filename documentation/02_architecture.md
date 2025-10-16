@@ -145,13 +145,13 @@ Throughout the entire **Sirius RIS** application, reference is made on many occa
 
 | Key  | Value                            |
 | ---- | -------------------------------- |
-| 1    | ID Nacional (DNI, CI, CURP, RUT) |
-| 2    | Pasaporte                        |
-| 3    | Credencial cívica                |
-| 4    | Licencia de conducir             |
-| 5    | Permiso de residencia            |
+| 1    | National ID (DNI, CI, CURP, RUT) |
+| 2    | Passport                         |
+| 3    | Civic credential                 |
+| 4    | Driver license                   |
+| 5    | Residence permit                 |
 | 6    | Visa                             |
-| 7    | Documento transitorio            |
+| 7    | Temporary document               |
 
 
 
@@ -167,16 +167,16 @@ Throughout the entire **Sirius RIS** application, reference is made on many occa
 
 | Key  | Value         |
 | ---- | ------------- |
-| 1    | Superusuario  |
-| 2    | Administrador |
+| 1    | Superuser     |
+| 2    | Administrator |
 | 3    | Supervisor    |
-| 4    | Médico        |
-| 5    | Técnico       |
-| 6    | Enfermero     |
-| 7    | Coordinador   |
-| 8    | Recepcionista |
-| 9    | Paciente      |
-| 10   | Funcional     |
+| 4    | Physician     |
+| 5    | Technologist  |
+| 6    | Nurse         |
+| 7    | Coordinator   |
+| 8    | Receptionist  |
+| 9    | Patient       |
+| 10   | Functional    |
 
 
 
@@ -188,29 +188,29 @@ Throughout the entire **Sirius RIS** application, reference is made on many occa
 
 | Key  | Value                                   |
 | ---- | --------------------------------------- |
-| 1    | Gestión de turnos                       |
-| 2    | Gestión de citas                        |
-| 3    | Calendario de citas                     |
-| 4    | Gestión de recepciones                  |
-| 5    | Gestión de estudios                     |
-| 6    | Gestión de informes                     |
-| 7    | Firmar informes                         |
-| 8    | Autenticar informes                     |
-| 9    | Enmendar informes                       |
-| 10   | Acceso a logs del usuario               |
-| 11   | Acceso a logs de elementos              |
-| 12   | Reenvío de correos                      |
-| 13   | Gestión de solicitudes                  |
-| 14   | Búsquedas avanzadas                     |
-| 15   | Listados de facturación                 |
-| 16   | Estadísticas generales                  |
-| 17   | Estadísticas médicas                    |
-| 18   | Estadísticas del personal               |
-| 19   | Eliminación física de archivos          |
-| 20   | Acceso al módulo de exportación         |
-| 21   | Acceso al servicio de imágenes del PACS |
-| 22   | Edición de identificación de pacientes  |
-| 23   | Sobreagenda (overbooking)               |
+| 1    | Appointment management                  |
+| 2    | Scheduling management                   |
+| 3    | Appointment calendar                    |
+| 4    | Check-in management                     |
+| 5    | Study management                        |
+| 6    | Report management                       |
+| 7    | Sign reports                            |
+| 8    | Authenticate reports                    |
+| 9    | Amend reports                           |
+| 10   | Access user logs                        |
+| 11   | Access element logs                     |
+| 12   | Resend emails                           |
+| 13   | Request management                      |
+| 14   | Advanced searches                       |
+| 15   | Billing lists                           |
+| 16   | General statistics                      |
+| 17   | Medical statistics                      |
+| 18   | Staff statistics                        |
+| 19   | Physical file deletion                  |
+| 20   | Access export module                    |
+| 21   | Access PACS imaging service             |
+| 22   | Edit patient identification             |
+| 23   | Overbooking                             |
 
 
 

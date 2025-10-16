@@ -130,7 +130,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de realización de estudio',
+      content_title : 'Study performing form',
       content_icon  : 'assignment_ind',
       add_button    : false,
       filters_form  : false,
@@ -684,7 +684,7 @@ export class FormComponent implements OnInit {
         callback(res);
       } else {
         //Send message:
-        this.sharedFunctions.sendMessage('Advertencia: No se encuentra ningún equipo cargado en la modalidad sobre la sucursal donde se realizó la coordinación.');
+        this.sharedFunctions.sendMessage('Warning: No equipment is configured in the modality for the branch where the coordination took place.');
       }
     });
   }
@@ -712,7 +712,7 @@ export class FormComponent implements OnInit {
         callback(res);
       } else {
         //Send message:
-        this.sharedFunctions.sendMessage('Advertencia: No se encuentra ningún procedimiento cargado en la modalidad del servicio coordinado.');
+        this.sharedFunctions.sendMessage('Warning: No procedure is configured in the modality of the coordinated service.');
       }
     });
   }
@@ -798,16 +798,16 @@ export class FormComponent implements OnInit {
 
     //Set validators according current flow state:
     switch(this.current_flow_state){
-      case 'P01': // Recepción
-      case 'P02': // Entrevista
-      case 'P03': // Preparación/Inyección
+      case 'P01': // Reception
+      case 'P02': // Interview
+      case 'P03': // Preparation/Injection
         //Remove all validators:
         this.setValidators('acquisition', 'remove');
         this.setValidators('injection', 'remove');
         this.setValidators('pet_ct', 'remove');
         break;
 
-      case 'P04': // Adquisición
+      case 'P04': // Acquisition
         //Remove acquisition validators:
         this.setValidators('acquisition', 'remove');
 
@@ -824,12 +824,12 @@ export class FormComponent implements OnInit {
         }
         break;
 
-      case 'P05': // Verificación de imágenes
-      case 'P06': // Para informar
-      case 'P07': // Informe borrador
-      case 'P08': // Informe firmado
-      case 'P09': // Terminado (con informe)
-      case 'P10': // Terminado (sin informe)
+      case 'P05': // Image verification
+      case 'P06': // Ready for reporting
+      case 'P07': // Draft report
+      case 'P08': // Signed report
+      case 'P09': // Completed (with report)
+      case 'P10': // Completed (without report)
         //Enable acquisition validators:
         this.setValidators('acquisition', 'enable');
 
@@ -846,7 +846,7 @@ export class FormComponent implements OnInit {
         }
         break;
 
-      case 'P11': // Cancelado
+      case 'P11': // Cancelled
         //Remove all validators:
         this.setValidators('acquisition', 'remove');
         this.setValidators('injection', 'remove');
@@ -1088,7 +1088,7 @@ export class FormComponent implements OnInit {
           this.setEquipment(resAppointments.data[0].slot.fk_equipment);
         }
 
-        //Find service users (Técnicos):
+        //Find service users (Technicians):
         await this.setServiceUsers(resAppointments.data[0].imaging.service._id, 5);
 
         //Find service users (Enfermeros):
@@ -1125,7 +1125,7 @@ export class FormComponent implements OnInit {
       if(resServiceUsers.data.length > 0){
         //Set service users by user roles:
         switch(user_role){
-          //Técnicos:
+          //Technicians:
           case 5:
             //Set technician users:
             this.technicianServiceUsers = await resServiceUsers.data;
@@ -1151,7 +1151,7 @@ export class FormComponent implements OnInit {
       //Check if service users object is empty:
       if(this.technicianServiceUsers.length == 0 && this.injectionServiceUsers){
         //Send message:
-        this.sharedFunctions.sendMessage('Advertencia: El servicio seleccionado NO tiene asignado usuarios de servicio (técnicos y/o enfermeros).');
+        this.sharedFunctions.sendMessage('Warning: The selected service has NO service users (technologists and/or nurses) assigned.');
       }
     });
   }
@@ -1195,7 +1195,7 @@ export class FormComponent implements OnInit {
       this.form.get('injection.pet_ct.administred_activity_mCi')?.setValue(administredActivitymCI);
     } else {
       //Send warning message:
-      this.sharedFunctions.sendMessage('Advertencia: Para calcular la dosis administrada se requiere llenar correctamente los valores "Actividad jeringa llena" y "Actividad jeringa vacía"')
+      this.sharedFunctions.sendMessage('Warning: To calculate the administered dose you must complete the "Full syringe activity" and "Empty syringe activity" values correctly.')
     }
     
   }

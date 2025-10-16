@@ -78,7 +78,7 @@ export class SelectProcedureComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Paso 02 - Selección de servicio y procedimiento',
+      content_title : 'Step 02 - Service and procedure selection',
       content_icon  : 'health_and_safety',
       add_button    : false,
       filters_form  : false,
@@ -164,7 +164,7 @@ export class SelectProcedureComponent implements OnInit {
           this.form.controls['fk_procedure'].setValue([]);
 
           //Send message:
-          this.sharedFunctions.sendMessage('Advertencia: No se encuentra ninguna categoría de procedimiento cargada en el servicio seleccionado.');
+          this.sharedFunctions.sendMessage('Warning: The selected service has no procedure categories configured.');
         }
       });
     }
@@ -217,7 +217,7 @@ export class SelectProcedureComponent implements OnInit {
           this.form.controls['fk_procedure'].setValue([]);
 
           //Send message:
-          this.sharedFunctions.sendMessage('Advertencia: No se encuentra ningún procedimiento cargado en la modalidad del servicio seleccionado.');
+          this.sharedFunctions.sendMessage('Warning: No procedures are configured in the modality for the selected service.');
         }
       });
     }
@@ -255,7 +255,7 @@ export class SelectProcedureComponent implements OnInit {
         }
       } else {
         //Send message:
-        this.sharedFunctions.sendMessage('Advertencia: El procedimiento indicado NO posee un _id válido (ObjectId).');
+        this.sharedFunctions.sendMessage('Warning: The indicated procedure does NOT have a valid _id (ObjectId).');
       }
     }
   }

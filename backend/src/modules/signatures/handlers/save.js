@@ -50,7 +50,7 @@ module.exports = async (req, res, currentSchema, operation) => {
                         //If Passwords match:
                         if(same){
 
-                            //Check if the user role is 1-Superusuario, 3-Supervisor or 4-Médico OR if the user has a concession 7-Firmar informes:
+                            //Check if the user role is 1-Superuser, 3-Supervisor or 4-Physician OR if the user has concession 7-Sign reports:
                             if(userAuth.role == 1 || userAuth.role == 3 || userAuth.role == 4 || userAuth.concession.includes(7)){
                                 
                                 //Generate SHA2 from the report:

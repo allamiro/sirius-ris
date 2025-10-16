@@ -41,7 +41,7 @@ export class ListByUserComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de logs del usuario',
+      content_title       : 'User log list',
       content_icon        : 'format_list_bulleted',
       add_button          : false,
       duplicated_surnames : false,                          // Check duplicated surnames
