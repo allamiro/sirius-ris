@@ -13,14 +13,14 @@ function check_envvar() {
   local FILE_LOG=$1
   local ENV=$2
 
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] COMPROBACIÓN DE VARIABLE DE ENTORNO ($ENV):" >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] CHECKING ENVIRONMENT VARIABLE ($ENV):" >> $FILE_LOG
 
   # Check env var  existence:
   if [ "$(echo $ENV)" == "" ]; then
-    echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: Variable de entorno $ENV no definida." >> $FILE_LOG
+    echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: Environment variable $ENV is not defined." >> $FILE_LOG
     exit 1
   fi
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Variable de entorno $ENV definida." >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Environment variable $ENV is defined." >> $FILE_LOG
 }
 
 function check_directory() {
@@ -28,14 +28,14 @@ function check_directory() {
   local FILE_LOG=$1
   local DIR=$2
 
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] COMPROBACIÓN DE DIRECTORIO DE DESTINO ($DIR):" >> $1
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] CHECKING TARGET DIRECTORY ($DIR):" >> $1
 
   # Check directory existence:
   if [ ! -d "$DIR" ]; then
-  	echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: El directorio $DIR no existe." >> $1
+        echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: Directory $DIR does not exist." >> $1
     exit 1
   fi
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Comprobación de directorio exitosa." >> $1
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Directory check successful." >> $1
 }
 
 function retain_policy(){
@@ -45,21 +45,21 @@ function retain_policy(){
   local FILE_PREFIX=$3
   local RETAIN=$4
 
-  #Set currend working directory
+  # Set current working directory
   local WORKDIR=$(pwd)
 
   # Go to the directory:
   cd $DIR
 
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] APLICANDO POLITICA DE RETENCIÓN: $DIR" >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] APPLYING RETENTION POLICY: $DIR" >> $FILE_LOG
 
   local CURRENT_FILE_COUNT=$(ls | wc -l)
   if [ $CURRENT_FILE_COUNT -ge $RETAIN ]; then
      local FILE_TO_DELETE=$(find -type f -name "*$FILE_PREFIX*" -printf '%T+ %P\n' | sort | head -n1 | cut -f2 -d' ')
      rm -f $FILE_TO_DELETE
-     echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Borrado archivo $DIR$FILE_TO_DELETE" >> $FILE_LOG
+     echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Deleted file $DIR$FILE_TO_DELETE" >> $FILE_LOG
   fi
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Politica de retención aplicada exitosamente." >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Retention policy applied successfully." >> $FILE_LOG
   cd $WORKDIR
 }
 
@@ -68,16 +68,16 @@ function database_backup(){
   local FILE_LOG=$1
   local BACKUP_FILENAME=$2
 
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] CREANDO DUMP DE BASE DE DATOS: $DBNAME" >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] CREATING DATABASE DUMP: $DBNAME" >> $FILE_LOG
 
   #Backup database:
   mongodump --authenticationDatabase admin -u ${MONGO_INITDB_ROOT_USERNAME} -p ${MONGO_INITDB_ROOT_PASSWORD} --db ${MONGO_INITDB_DATABASE} --archive > $BACKUP_FILENAME
 
   if [ $? != 0 ]; then
-  	echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: Hubo algun problema en el dump de la base de datos." >> $FILE_LOG
+        echo "["`date +%Y/%m/%d_%H:%M:%S`"] ERROR: There was a problem during the database dump." >> $FILE_LOG
   	exit 1
   fi
-  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Dump exitoso." >> $FILE_LOG
+  echo "["`date +%Y/%m/%d_%H:%M:%S`"] OK: Dump successful." >> $FILE_LOG
 }
 
 function run_backup(){

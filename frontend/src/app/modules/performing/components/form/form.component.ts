@@ -799,7 +799,7 @@ export class FormComponent implements OnInit {
     //Set validators according current flow state:
     switch(this.current_flow_state){
       case 'P01': // Reception
-      case 'P02': // Entrevista
+      case 'P02': // Interview
       case 'P03': // Preparation/Injection
         //Remove all validators:
         this.setValidators('acquisition', 'remove');
@@ -825,11 +825,11 @@ export class FormComponent implements OnInit {
         break;
 
       case 'P05': // Image verification
-      case 'P06': // Para informar
-      case 'P07': // Informe borrador
-      case 'P08': // Informe firmado
-      case 'P09': // Terminado (con informe)
-      case 'P10': // Terminado (sin informe)
+      case 'P06': // Ready for reporting
+      case 'P07': // Draft report
+      case 'P08': // Signed report
+      case 'P09': // Completed (with report)
+      case 'P10': // Completed (without report)
         //Enable acquisition validators:
         this.setValidators('acquisition', 'enable');
 
@@ -846,7 +846,7 @@ export class FormComponent implements OnInit {
         }
         break;
 
-      case 'P11': // Cancelado
+      case 'P11': // Cancelled
         //Remove all validators:
         this.setValidators('acquisition', 'remove');
         this.setValidators('injection', 'remove');

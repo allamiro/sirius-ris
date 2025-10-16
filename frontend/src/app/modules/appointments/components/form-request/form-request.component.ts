@@ -57,7 +57,7 @@ export class FormRequestComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de solicitudes',
+      content_title : 'Appointment request form',
       content_icon  : 'move_to_inbox',
       add_button    : false,
       filters_form  : false,

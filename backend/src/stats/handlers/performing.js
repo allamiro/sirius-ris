@@ -541,11 +541,11 @@ module.exports = async (req, res) => {
                         "anesthesia_count": [
                             {
                                 "$match": {
-                                    "anesthesia": { "$ne": null } // Filtrar documentos donde 'anesthesia' no sea nulo
+                                    "anesthesia": { "$ne": null } // Filter documents where 'anesthesia' is not null
                                 }
                             },
                             {
-                                "$count": "count" // Contar documentos con 'anesthesia' no nulo
+                                "$count": "count" // Count documents with a non-null 'anesthesia'
                             }
                         ],
 
@@ -576,7 +576,7 @@ module.exports = async (req, res) => {
                 },
                 {
                     "$project": {
-                        "anesthesia_count": 0 //Delete the 'anesthesia_count' field.
+                        "anesthesia_count": 0 // Delete the 'anesthesia_count' field.
                     }
                 },
 

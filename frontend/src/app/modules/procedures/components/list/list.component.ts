@@ -19,9 +19,9 @@ export class ListComponent implements OnInit {
   public displayedColumns: string[] = ['element_action', 'organization', 'branch', 'name', 'modality', 'equipments', 'code', 'has_interview', 'informed_consent', 'reporting_delay', 'wait_time', 'status'];
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('procedimientos', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('procedures', this.table, this.excludedColumns) }
 
   //Inject services to the constructor:
   constructor(

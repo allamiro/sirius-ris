@@ -251,11 +251,11 @@ function strictCheck (proj, doc) {
         details: []
     };
     
-    //Chequear que existan las mismas claves que las proyectadas:
+    //Check that the same keys exist as those projected:
     if(JSON.stringify(projKeys) == JSON.stringify(docKeys)){
-        //Recorrer las claves del documento obtenido de la BD:
+        //Iterate through the keys of the document retrieved from the database:
         for (currentKey in docKeys){
-            //Chequear que los elementos del documento contengan valores:
+            //Check that the document elements contain values:
             if(doc[docKeys[currentKey]] === undefined || doc[docKeys[currentKey]] === null || doc[docKeys[currentKey]] === ''){
                 //Set error:
                 error.status = true;
@@ -267,7 +267,7 @@ function strictCheck (proj, doc) {
         //Set error:
         error.status = true;
         error.message = 'There are differences between the requested values and those retrieved from the database.';
-        error.details.push('Pojected keys: ' + projKeys);
+        error.details.push('Projected keys: ' + projKeys);
         error.details.push('Document keys: ' + docKeys);
     }
 
