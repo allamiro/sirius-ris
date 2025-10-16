@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de archivos',
+      content_title       : 'File list',
       content_icon        : 'folder',
       add_button          : false,
       duplicated_surnames : false,    // Check duplicated surnames

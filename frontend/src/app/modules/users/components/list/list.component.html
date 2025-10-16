@@ -22,7 +22,7 @@
             </button>
           </span>
 
-          <!-- Superusuario, Administrador, Concesiones: [11: Acceso a logs de elementos] -->
+          <!-- Superuser, Administrator, Concessions: [11: Access to element logs] -->
           <span *ngIf="sharedProp.userLogged.permissions[0].role == 1 || sharedProp.userLogged.permissions[0].role == 2 || (sharedProp.userLogged.permissions[0].concession && sharedFunctions.checkConcessions(sharedProp, [11]))" >
             <button mat-icon-button color="accent" aria-label="Item logs" matTooltip="Item logs" routerLink="/logs/element/{{ sharedProp.element }}/{{ element._id }}">
               <mat-icon>format_list_bulleted</mat-icon>

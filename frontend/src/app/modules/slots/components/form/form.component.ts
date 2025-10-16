@@ -158,7 +158,7 @@ export class FormComponent implements OnInit {
       this.form.controls['fk_equipment'].setValue([]);
 
       //Send message:
-      this.sharedFunctions.sendMessage('Advertencia: El servicio seleccionado NO tiene asignado ningún equipo.');
+      this.sharedFunctions.sendMessage('Warning: The selected service does NOT have any equipment assigned.');
     }
 
   }
