@@ -65,7 +65,7 @@ export class SlotsAppointmentsComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title   : 'Calendario de turnos y citas',
+      content_title   : 'Appointment and slot calendar',
       content_icon    : 'calendar_month',
       add_button      : false,
       filters_form    : false
@@ -119,33 +119,33 @@ export class SlotsAppointmentsComponent implements OnInit {
     //Set FullCalendar Custom Buttons methods:
     this.calendarOptions['customButtons'] = {
       datepicker: {
-        text: 'BUSCAR FECHA',
+        text: 'SEARCH DATE',
         click: () => {
           this.openDatePicker();
         }
       },
       normal_slots: {
-        text: 'TURNOS COMÚNES',
+        text: 'REGULAR SLOTS',
         click: () => {
           //Find slots:
           this.findSlots();
         }
       },
       urgency_slots: {
-        text: 'TURNOS URGENTES',
+        text: 'URGENT SLOTS',
         click: () => {
           //Find slots (urgency true):
           this.findSlots(true);
         }
       },
       view_day: {
-        text: 'DÍA',
+        text: 'DAY',
         click: () => {
           this.calendarComponent.getApi().changeView('resourceTimeGridDay');
         }
       },
       view_week: {
-        text: 'SEMANA',
+        text: 'WEEK',
         click: () => {
           this.calendarComponent.getApi().changeView('resourceTimeGridWeek');
         }

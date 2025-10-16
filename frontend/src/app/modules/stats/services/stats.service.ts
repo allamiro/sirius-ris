@@ -57,7 +57,7 @@ export class StatsService {
         statsCallback(statsResponse, statsDatasets);
       } else {
         //Return to the list with request error message:
-        this.sharedFunctions.sendMessage('Error al intentar obtener información: ' + res.message);
+        this.sharedFunctions.sendMessage('Error while trying to retrieve information: ' + res.message);
       }
     }, false, stats_element, false);
   }
@@ -96,12 +96,12 @@ export class StatsService {
               break;
 
             case 'urgency':
-              key_name = element_key == 'true' ? 'Urgente' : 'Común';
+              key_name = element_key == 'true' ? 'Urgent' : 'Regular';
               break;
 
-            case 'outpatient':
-              key_name = element_key == 'true' ? 'Ambulatorio' : 'Internado';
-              break;
+          case 'outpatient':
+            key_name = element_key == 'true' ? 'Outpatient' : 'Inpatient';
+            break;
 
             case 'gender':
               key_name = this.gender_types[element_key];
@@ -199,7 +199,7 @@ export class StatsService {
         callback(res);
       } else {
         //Send message:
-        this.sharedFunctions.sendMessage('Error al intentar obtener los usuarios involucrados en la estadística.');
+        this.sharedFunctions.sendMessage('Error while trying to retrieve the users involved in the statistics.');
       }
     }, false, false, false);
   }

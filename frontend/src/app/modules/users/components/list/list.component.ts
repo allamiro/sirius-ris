@@ -28,9 +28,9 @@ export class ListComponent implements OnInit {
   public user_roles     : any = user_roles;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('usuarios', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('users', this.table, this.excludedColumns) }
 
   //Set visible columns of the list:
   displayedColumns: string[] = [
@@ -58,7 +58,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de usuarios',
+      content_title       : 'User list',
       content_icon        : 'people',
       add_button          : '/users/form/insert/0',           // Zero indicates empty :id (Activated Route) [content is ignored]
       add_machine         : '/users/form_machine/insert/0',   // Zero indicates empty :id (Activated Route) [content is ignored]

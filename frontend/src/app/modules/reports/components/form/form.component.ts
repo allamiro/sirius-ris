@@ -136,7 +136,7 @@ export class FormComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Edición de informe',
+      content_title : 'Report editing',
       content_icon  : 'edit_note',
       add_button    : false,
       filters_form  : false,
@@ -244,7 +244,7 @@ export class FormComponent implements OnInit {
 
               //Prevent undefined error on CKEditor fields:
               if(this.reportData.findings == undefined || this.reportData.findings.length == 0 ){
-                finding_title = 'Hallázgos de ' + this.performingData.procedure.name;
+                finding_title = 'Findings for ' + this.performingData.procedure.name;
                 procedure_findings = '';
               } else {
                 finding_title = this.reportData.findings[0].title;
@@ -272,7 +272,7 @@ export class FormComponent implements OnInit {
 
           } else {
             //Return to the list with request error message:
-            this.sharedFunctions.sendMessage('Error al intentar insertar el elemento: ' + reportsRes.message);
+            this.sharedFunctions.sendMessage('Error while trying to insert the item: ' + reportsRes.message);
             this.router.navigate(['/performing/list']);
           }
         });
@@ -479,7 +479,7 @@ export class FormComponent implements OnInit {
 
           //Set findings title (only insert cases):
           if(this.form_action == 'insert'){
-            this.form.controls['findings_title'].setValue('Hallázgos de ' + this.performingData.procedure.name);
+            this.form.controls['findings_title'].setValue('Findings for ' + this.performingData.procedure.name);
           }
 
           //Find previous:
@@ -491,7 +491,7 @@ export class FormComponent implements OnInit {
           callback(performingRes);
         } else {
           //Return to the list with request error message:
-          this.sharedFunctions.sendMessage('Error al intentar insertar el elemento: ' + performingRes.message);
+          this.sharedFunctions.sendMessage('Error while trying to insert the item: ' + performingRes.message);
           this.router.navigate(['/performing/list']);
         }
       });
@@ -600,7 +600,7 @@ export class FormComponent implements OnInit {
     this.form.controls['clinical_info'].setValue(clinical_template);
 
     //Send message:
-    this.sharedFunctions.sendMessage('Dato clínico cargado', { duration: 2000 });
+    this.sharedFunctions.sendMessage('Clinical data loaded', { duration: 2000 });
   }
 
   insertProcedureTemplate(){
@@ -645,7 +645,7 @@ export class FormComponent implements OnInit {
           this.ohifPath = wezenStudyTokenRes.path;
         } else {
           //Send Console Warn Message:
-          console.warn('Error al intentar buscar las imágenes DICOM del elemento: ' + wezenStudyTokenRes.message);
+          console.warn("Error while trying to fetch the item's DICOM images: " + wezenStudyTokenRes.message);
         }
       });
     }

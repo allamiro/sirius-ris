@@ -42,7 +42,7 @@ export class ListByElementComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de logs del elemento',
+      content_title       : 'Item log list',
       content_icon        : 'format_list_bulleted',
       add_button          : false,
       duplicated_surnames : false,                          // Check duplicated surnames

@@ -2,37 +2,37 @@
   <div fxLayout="row" fxLayoutAlign="start start">
 
     <div class="input-wrapper divider"> <!-- start fxLayout wrapper -->
-      <h4>Organización:</h4>
+      <h4>Organization:</h4>
       <mat-form-field appearance="fill" class="large">
-        <mat-label>Organización</mat-label>
-        <mat-select formControlName="fk_organization" placeholder="Seleccione la organización">
+        <mat-label>Organization</mat-label>
+        <mat-select formControlName="fk_organization" placeholder="Select the organization">
           <div *ngFor="let currentOrganization of availableOrganizations">
             <mat-option value="{{ currentOrganization._id }}">{{ currentOrganization.short_name }} ({{ currentOrganization.name }})</mat-option>
           </div>
         </mat-select>
       </mat-form-field>
 
-      <h4>Nombre corto:</h4>
+      <h4>Short name:</h4>
       <mat-form-field appearance="fill" class="medium">
-        <mat-label>Nombre corto</mat-label>
-        <input matInput type="text" formControlName="short_name" placeholder="Ingrese el nombre corto">
+        <mat-label>Short name</mat-label>
+        <input matInput type="text" formControlName="short_name" placeholder="Enter the short name">
       </mat-form-field>
 
-      <h4>Nombre:</h4>
+      <h4>Name:</h4>
       <mat-form-field appearance="fill" class="large">
-        <mat-label>Nombre</mat-label>
-        <input matInput type="text" formControlName="name" placeholder="Ingrese el nombre">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Enter the name">
       </mat-form-field>
 
       <h4>OID:</h4>
       <mat-form-field appearance="fill" class="large">
         <mat-label>OID</mat-label>
-        <input matInput icNumbersWD type="text" formControlName="OID" placeholder="Ingrese el OID">
+        <input matInput icNumbersWD type="text" formControlName="OID" placeholder="Enter the OID">
       </mat-form-field>
 
-      <h4>País de la sucursal:</h4>
+      <h4>Branch country:</h4>
       <mat-form-field appearance="fill" class="medium">
-        <mat-label>País de la sucursal</mat-label>
+        <mat-label>Branch country</mat-label>
         <mat-select formControlName="country_code">
           <div *ngFor="let currentCode of getKeys(country_codes, true)">
             <mat-option value="{{ currentCode }}"><span class="flag-icon flag-icon-{{ country_codes[currentCode].alpha_2 | lowercase }}"></span>&nbsp;&nbsp;&nbsp;{{ country_codes[currentCode].name }}</mat-option>
@@ -40,23 +40,23 @@
         </mat-select>
       </mat-form-field>
 
-      <h4>ID Estructura:</h4>
+      <h4>Structure ID:</h4>
       <mat-form-field appearance="fill" class="large">
-        <mat-label>ID Estructura</mat-label>
-        <input matInput icNumbers type="text" formControlName="structure_id" placeholder="Ingrese el ID Estructura">
+        <mat-label>Structure ID</mat-label>
+        <input matInput icNumbers type="text" formControlName="structure_id" placeholder="Enter the structure ID">
       </mat-form-field>
 
-      <h4>Sufijo:</h4>
+      <h4>Suffix:</h4>
       <mat-form-field appearance="fill" class="large">
-        <mat-label>Sufijo</mat-label>
-        <input matInput icNumbersWD type="text" formControlName="suffix" placeholder="Ingrese el Sufijo">
+        <mat-label>Suffix</mat-label>
+        <input matInput icNumbersWD type="text" formControlName="suffix" placeholder="Enter the suffix">
       </mat-form-field>
 
       <br/><br/>
     </div> <!-- end fxLayout wrapper -->
 
     <div class="input-wrapper"> <!-- start fxLayout wrapper -->
-      <h4>Pie de página de citas <span class="label-info">min: 10, max: 3000</span>:</h4>
+      <h4>Appointment footer <span class="label-info">min: 10, max: 3000</span>:</h4>
       <ckeditor formControlName="appointment_footer" #appointmentFooter [editor]="appointmentFooterEditor" [config]="sharedProp.mainSettings.CKEditorConfig" data=""></ckeditor>
 
       <br/><hr class="dashed" /><br/>
@@ -65,7 +65,7 @@
 
       <ng-template #thenBlockLogo>
         <button mat-flat-button type="button" class="logo-button">
-          <mat-icon>image</mat-icon> LOGO DE LA SUCURSAL <mat-icon *ngIf="form_action == 'update' && selectedFile === null" matTooltip="Eliminar logo de la organización" class="delete-logo" (click)="onDeleteFileRef('base64_logo')">close</mat-icon>
+          <mat-icon>image</mat-icon> BRANCH LOGO <mat-icon *ngIf="form_action == 'update' && selectedFile === null" matTooltip="Delete organization logo" class="delete-logo" (click)="onDeleteFileRef('base64_logo')">close</mat-icon>
         </button>
         
       </ng-template>
@@ -73,15 +73,15 @@
       <ng-template #elseBlockLogo>
         <input type="file" (change)="onFileSelected($event)" #fileInput style="display: none" />
         <button mat-flat-button type="button" color="accent" (click)="fileInput.click()">
-        <mat-icon>add_photo_alternate</mat-icon> SELECCIONAR LOGO DE LA SUCURSAL</button>
+        <mat-icon>add_photo_alternate</mat-icon> SELECT BRANCH LOGO</button>
       </ng-template>
 
       <div class="clear"></div><br/><hr class="dashed" /><br/>
 
-      <h4>Estado:</h4>
-      <mat-radio-group aria-label="Estado" color="primary" formControlName="status">
-        <mat-radio-button value="true">Activo</mat-radio-button>
-        <mat-radio-button value="false">Inactivo</mat-radio-button>
+      <h4>Status:</h4>
+      <mat-radio-group aria-label="Status" color="primary" formControlName="status">
+        <mat-radio-button value="true">Active</mat-radio-button>
+        <mat-radio-button value="false">Inactive</mat-radio-button>
       </mat-radio-group>
 
     </div> <!-- end fxLayout wrapper -->
@@ -90,8 +90,8 @@
 
   <div class="action-wrapper"fxLayout="row" fxLayoutAlign="end center">
     <div> <!-- start fxLayout wrapper -->
-      <button mat-flat-button type="button" (click)="onCancel();">CANCELAR</button>
-      <button mat-flat-button type="submit" color="primary">GUARDAR</button> <!-- [disabled]="form_data.invalid" -->
+      <button mat-flat-button type="button" (click)="onCancel();">CANCEL</button>
+      <button mat-flat-button type="submit" color="primary">SAVE</button> <!-- [disabled]="form_data.invalid" -->
     </div> <!-- end fxLayout wrapper -->
   </div>
 </form>

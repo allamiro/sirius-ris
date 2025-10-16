@@ -29,9 +29,9 @@ export class ListComponent implements OnInit {
   public cancellation_reasons   : any = cancellation_reasons;
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('estudios', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('studies', this.table, this.excludedColumns) }
 
   //Set visible columns of the list:
   public displayedColumns: string[] = [
@@ -57,7 +57,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Búsqueda avanzada de informes',
+      content_title       : 'Advanced report search',
       content_icon        : 'search',
       add_button          : false,
       duplicated_surnames : false,                        // Check duplicated surnames
