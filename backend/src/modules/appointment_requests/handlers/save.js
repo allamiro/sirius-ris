@@ -135,7 +135,7 @@ module.exports = async (req, res, currentSchema, operation) => {
                 res.status(400).send({ success: false, message: currentLang.http.bad_request });
             }
 
-            //Remove no digits chars in document for doc_type case 1 [ID Nacional (DNI, CI, CURP, RUT)]:
+            //Remove non-digit characters in documents when doc_type corresponds to National ID (DNI, CI, CURP, RUT):
             if(req.body.patient && req.body.patient.doc_type == 1){
                 req.body.patient.document = req.body.patient.document.replace(/\D/g, '');
             }
