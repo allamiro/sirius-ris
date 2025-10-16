@@ -64,7 +64,7 @@ export class ListComponent implements OnInit {
   
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado para facturación',
+      content_title       : 'Billing list',
       content_icon        : 'attach_money',
       add_button          : false,
       duplicated_surnames : true,     // Check duplicated surnames

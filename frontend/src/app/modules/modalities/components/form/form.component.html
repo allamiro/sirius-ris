@@ -2,24 +2,24 @@
   <div fxLayout="row" fxLayoutAlign="start start">
 
     <div class="input-wrapper divider"> <!-- start fxLayout wrapper -->
-      <h4>Significado:</h4>
+      <h4>Meaning:</h4>
       <mat-form-field appearance="fill" class="medium">
-        <mat-label>Significado</mat-label>
-        <input matInput type="text" formControlName="code_meaning" placeholder="Ingrese el significado">
+        <mat-label>Meaning</mat-label>
+        <input matInput type="text" formControlName="code_meaning" placeholder="Enter the meaning">
       </mat-form-field>
 
-      <h4>Valor:</h4>
+      <h4>Value:</h4>
       <mat-form-field appearance="fill" class="small">
-        <mat-label>Valor</mat-label>
-        <input matInput icLetters type="text" formControlName="code_value" placeholder="Ingrese el código de valor">
+        <mat-label>Value</mat-label>
+        <input matInput icLetters type="text" formControlName="code_value" placeholder="Enter the value code">
       </mat-form-field>
 
       <hr class="dashed" /><br/>
 
-      <h4>Estado:</h4>
-      <mat-radio-group aria-label="Estado" color="primary" formControlName="status">
-        <mat-radio-button value="true">Activo</mat-radio-button>
-        <mat-radio-button value="false">Inactivo</mat-radio-button>
+      <h4>Status:</h4>
+      <mat-radio-group aria-label="Status" color="primary" formControlName="status">
+        <mat-radio-button value="true">Active</mat-radio-button>
+        <mat-radio-button value="false">Inactive</mat-radio-button>
       </mat-radio-group>
 
       <br/><br/>
@@ -33,8 +33,8 @@
 
   <div class="action-wrapper"fxLayout="row" fxLayoutAlign="end center">
     <div> <!-- start fxLayout wrapper -->
-      <button mat-flat-button type="button" (click)="onCancel();">CANCELAR</button>
-      <button mat-flat-button type="submit" color="primary">GUARDAR</button> <!-- [disabled]="form_data.invalid" -->
+      <button mat-flat-button type="button" (click)="onCancel();">CANCEL</button>
+      <button mat-flat-button type="submit" color="primary">SAVE</button> <!-- [disabled]="form_data.invalid" -->
     </div> <!-- end fxLayout wrapper -->
   </div>
 </form>

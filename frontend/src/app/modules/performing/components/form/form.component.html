@@ -534,7 +534,7 @@
                     <mat-label>Console technician</mat-label>
                     <mat-select formControlName="console_technician" placeholder="Select the console technician">
                       <span *ngIf="this.technicianServiceUsers">
-                        <div *ngFor="let currentConsoleTechnician of this.technicianServiceUsers"><!-- 5 Técnicos-->
+                        <div *ngFor="let currentConsoleTechnician of this.technicianServiceUsers"><!-- 5 Technicians -->
                           <mat-option value="{{ currentConsoleTechnician._id }}">
                             <!--names-->
                             {{ currentConsoleTechnician.person.name_01 }}

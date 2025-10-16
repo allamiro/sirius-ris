@@ -65,14 +65,14 @@ export class ListComponent implements OnInit {
     //Initializate reporting action button (disabled):
     let reporting : boolean | string = false;
 
-    //Enable reporting button if the user is Superuser, Supervisor, Médico:
+    //Enable reporting button if the user is Superuser, Supervisor, Physician:
     if(this.sharedProp.userLogged.permissions[0].role == 1 || this.sharedProp.userLogged.permissions[0].role == 3 || this.sharedProp.userLogged.permissions[0].role == 4){
       reporting = 'appointment.reporting.fk_reporting._id';
     }
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de estudios',
+      content_title       : 'Study list',
       content_icon        : 'assignment_ind',
       add_button          : false,
       duplicated_surnames : true,     // Check duplicated surnames
@@ -168,7 +168,7 @@ export class ListComponent implements OnInit {
     this.sharedProp.pager         = { page_number: 1, page_limit: this.sharedProp.mainSettings.appSettings.default_page_sizes[0] };
     this.sharedProp.group         = false;
 
-    //Default the studies assigned to the user to the list (Médico):
+    //Default the studies assigned to the user to the list (Physician):
     if(this.sharedProp.userLogged.permissions[0].role == 4){
       this.sharedProp.fk_user = this.sharedProp.userLogged.user_id;
     }

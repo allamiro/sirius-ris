@@ -78,7 +78,7 @@ export class FormMachineComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title : 'Formulario de usuarios máquina',
+      content_title : 'Machine user form',
       content_icon  : 'smart_toy',
       add_button    : false,
       filters_form  : false,
@@ -284,7 +284,7 @@ export class FormMachineComponent implements OnInit {
       this.userTabErrors = true;
 
       //Send message:
-      this.sharedFunctions.sendMessage('Las contraseñas ingresadas no coinciden entre si.');
+      this.sharedFunctions.sendMessage('The entered passwords do not match.');
     }
   }
 

@@ -97,7 +97,7 @@
         <span [ngSwitch]="sharedProp.action.filters.fk_user">
           <!-- fk_user (aggregation user._id) -->
           <span *ngSwitchCase="'user._id'">
-            <!-- 1: Superusuario, 2: Administrador (Non display only) -->
+            <!-- 1: Superuser, 2: Administrator (Non display only) -->
             <mat-form-field appearance="outline" [class.non-display]="sharedProp.userLogged.permissions[0].role != 1 && sharedProp.userLogged.permissions[0].role != 2">
               <mat-label>User ID</mat-label>
               <input matInput type="search" placeholder="User _id" [(ngModel)]="sharedProp.fk_user" (keyup.enter)="onSearch();">

@@ -60,7 +60,7 @@ export class UsersAuthService {
             localStorage.setItem('sirius_settings', JSON.stringify(siriusAuth.settings));
 
             // Initializate or force CSS theme:
-            // Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Médico).
+            // Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Physician).
             if(Object.keys(res.data.permissions).length == 1 && res.data.permissions[0].role == 4){
               //Force CSS theme to preserve radiological environments:
               this.themesService.initializeTheme('dark');
@@ -177,7 +177,7 @@ export class UsersAuthService {
           });
 
           // Initializate or force CSS theme:
-          // Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Médico).
+          // Medical users don't change themes: Force opaque interface to preserve radiological environments (4: Physician).
           if(siriusAuth.permissions[0].role == 4){
             this.themesService.initializeTheme('dark');
           } else { 

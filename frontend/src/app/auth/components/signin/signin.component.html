@@ -4,8 +4,8 @@
   <br/><br/><hr class="dashed" /><br/>
 
   <mat-form-field appearance="fill" class="sub-element">
-    <mat-label>Document ID</mat-label>
-    <input matInput type="text" name="document" ngModel required placeholder="Enter your document ID">
+    <mat-label>Identification number</mat-label>
+    <input matInput type="text" name="document" ngModel required placeholder="Enter your identification number">
   </mat-form-field>
 
   <br/>
@@ -23,7 +23,7 @@
 
   <div class="document-section" *ngIf="sharedProp.mainSettings.appSettings != undefined">
     <mat-form-field appearance="fill" class="medium">
-      <mat-label>Document country</mat-label>
+      <mat-label>Issuing country</mat-label>
       <mat-select name="doc_country_code" [(ngModel)]="sharedProp.mainSettings.appSettings.default_country" required >
         <div *ngFor="let currentCode of getKeys(country_codes, true)">
           <mat-option value="{{ currentCode }}"><span class="flag-icon flag-icon-{{ country_codes[currentCode].alpha_2 | lowercase }}"></span>&nbsp;&nbsp;&nbsp;{{ country_codes[currentCode].name }}</mat-option>
@@ -32,7 +32,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="medium">
-      <mat-label>Document type</mat-label>
+      <mat-label>Identification type</mat-label>
       <mat-select name="doc_type" [(ngModel)]="sharedProp.mainSettings.appSettings.default_doc_type" required >
         <div *ngFor="let currentDocType of document_types | keyvalue: unsorted">
           <mat-option value="{{ currentDocType.key }}">{{ currentDocType.value }}</mat-option>
@@ -58,7 +58,7 @@
       <div class="input-wrapper text-left divider-alt"> <!-- start fxLayout wrapper -->
         <small>
           Default country: {{ sharedProp.mainSettings.appSettings.default_country }}<br/>
-          Default country isoCode: {{ sharedProp.mainSettings.appSettings.default_country_isoCode }}<br/>
+          Default country ISO code: {{ sharedProp.mainSettings.appSettings.default_country_isoCode }}<br/>
           Default country name: {{ sharedProp.mainSettings.appSettings.default_country_name }}<br/>
           Default state isoCode: {{ sharedProp.mainSettings.appSettings.default_state_isoCode }}
         </small>
@@ -68,7 +68,7 @@
         <small>
           Default state name: {{ sharedProp.mainSettings.appSettings.default_state_name }}<br/>
           Default city name: {{ sharedProp.mainSettings.appSettings.default_city_name }}<br/>
-          Default document type: {{ sharedProp.mainSettings.appSettings.default_doc_type }}<br/>
+          Default identification type: {{ sharedProp.mainSettings.appSettings.default_doc_type }}<br/>
           Default UTC: {{ sharedProp.mainSettings.appSettings.default_utc }}
         </small>
       </div> <!-- end fxLayout wrapper -->

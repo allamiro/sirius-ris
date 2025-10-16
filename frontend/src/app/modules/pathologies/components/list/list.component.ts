@@ -19,9 +19,9 @@ export class ListComponent implements OnInit {
   public displayedColumns: string[] = ['element_action', 'organization', 'name', 'description', 'status'];
 
   //Table to XLSX (SheetJS CE):
-  private excludedColumns = ['Acciones'];
+  private excludedColumns = ['Actions'];
   @ViewChild('main_list') table!: ElementRef;
-  tableToExcel(): void { this.sharedFunctions.tableToXLSX('patologias', this.table, this.excludedColumns) }
+  tableToExcel(): void { this.sharedFunctions.tableToXLSX('pathologies', this.table, this.excludedColumns) }
 
   //Inject services to the constructor:
   constructor(
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
 
     //Set action properties:
     sharedProp.actionSetter({
-      content_title       : 'Listado de patologías',
+      content_title       : 'Pathology list',
       content_icon        : 'coronavirus',
       add_button          : '/pathologies/form/insert/0',   // Zero indicates empty :id (Activated Route) [content is ignored]
       duplicated_surnames : false,                          // Check duplicated surnames
