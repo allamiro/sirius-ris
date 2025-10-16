@@ -281,7 +281,7 @@ export class FormComponent implements OnInit {
 
       default:
         //Return to the list with request error message:
-        this.sharedFunctions.sendMessage('Error al intentar editar el elemento: La acción indicada sobre el formulario es incorrecta [insert | update].');
+        this.sharedFunctions.sendMessage('Error while trying to edit the item: The specified action on the form is incorrect [insert | update].');
   
         //Redirect to the list:
         this.sharedFunctions.gotoList('performing', this.router);
